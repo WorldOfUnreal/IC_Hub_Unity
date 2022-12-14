@@ -2725,7 +2725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &847464463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2740,6 +2740,7 @@ RectTransform:
   m_Children:
   - {fileID: 1257785083}
   - {fileID: 1537833168}
+  - {fileID: 907997023}
   m_Father: {fileID: 1814498349}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3022,20 +3023,20 @@ RectTransform:
   m_GameObject: {fileID: 907997022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.999936, y: 0.999936, z: 0.999936}
+  m_LocalScale: {x: 0.99993604, y: 0.99993604, z: 0.99993604}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1728256689}
   - {fileID: 1982946552}
   - {fileID: 515856142}
   - {fileID: 553996647}
-  m_Father: {fileID: 1814498349}
-  m_RootOrder: 5
+  m_Father: {fileID: 847464463}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.012451172, y: 0.18011475}
-  m_SizeDelta: {x: 0.94235, y: 0.37}
+  m_AnchoredPosition: {x: 0.009933472, y: 0.2091217}
+  m_SizeDelta: {x: 0.9423805, y: 0.43222535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &920578051
 GameObject:
@@ -3867,7 +3868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1165375124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4784,7 +4785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.082, y: 0.57876796}
   m_AnchorMax: {x: 0.526, y: 0.83100003}
-  m_AnchoredPosition: {x: 0.000000059605, y: -0.40000153}
+  m_AnchoredPosition: {x: 0, y: -0.40000153}
   m_SizeDelta: {x: 0, y: -0.01}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &1537833169
@@ -5515,7 +5516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1708477262
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5983,7 +5984,6 @@ RectTransform:
   - {fileID: 1731431121}
   - {fileID: 2136279323}
   - {fileID: 847464463}
-  - {fileID: 907997023}
   m_Father: {fileID: 2745577171397636754}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
