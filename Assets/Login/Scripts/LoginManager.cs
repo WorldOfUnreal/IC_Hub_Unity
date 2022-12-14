@@ -1,0 +1,110 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using static UnityEngine.UI.Text;
+using System;
+using System.Runtime.InteropServices;
+using TMPro;
+using UnityEngine.SceneManagement;
+
+//For the InputField to work in WebGL go to Project Settings
+// then Go in "Player" Show HTML5/WebGL settings
+// Set the Active Input Handling to "Both" instead of "Input System Package (New)"
+// if you don't have an EventSystem, create it by right click on Inspector->UI->EventSystem
+
+public class LoginManager : MonoBehaviour
+{
+
+    [SerializeField] TMP_InputField inputNameField;
+    [SerializeField] TMP_InputField inputHashField;
+    [SerializeField] GameObject walletsPanel;
+    [SerializeField] GameObject loadingPanel;
+    [SerializeField] GameObject registrationPanel;
+    [SerializeField] GameObject userInfoPanel;
+    [SerializeField] GameObject avatarPanel;
+    [SerializeField] TMP_Text userInfo_NameHash;
+    [SerializeField] TMP_Text userInfo_Account;
+    
+    [SerializeField] string mainScene = "Menu";
+    /// WebGL
+    [DllImport("__Internal")]
+    public static extern void JSWalletsLogin(string walletID);
+    [DllImport("__Internal")]
+    public static extern void JSSetNameLogin(string accountName);
+    
+    
+    public void OnReceiveLoginData(string user)//ListenerReact
+    {
+        if (string.IsNullOrEmpty(user))
+        {
+            Debug.Log("String with Username is Empty");
+            loadingPanel.SetActive(false);
+            registrationPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("El usuario tiene registrado un nombre, se procede a la otra escena");
+            SceneManager.LoadScene(mainScene);
+        }
+
+    }
+    public void OnNamePlayerSet(string user)//ListenerReact
+    {
+        if (!string.IsNullOrEmpty(user))
+        {
+            userInfo_NameHash.text = user;
+            userInfo_Account.text = user;
+            loadingPanel.SetActive(false);
+            userInfoPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Se llamó la función sin nombre de usuario, error");
+        }
+    }
+    
+    public void SetPlayerName()
+    {
+        if (!string.IsNullOrEmpty(inputNameField.text) && !string.IsNullOrEmpty(inputHashField.text))
+        {
+            string playerName = inputNameField.text+"#"+inputHashField.text;
+            PlayerPrefs.SetString("AccountName", playerName);
+            JSSetNameLogin(playerName);
+            registrationPanel.SetActive(false);
+            loadingPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("NameField or HashField are empty");
+        }
+    }
+    
+    //Calls to React WebGL
+    public void StoicLogin()
+    {
+        JSWalletsLogin("StoicWallet");
+        walletsPanel.SetActive(false);
+        loadingPanel.SetActive(true);
+    }
+    public void IdentityLogin()
+    {
+        JSWalletsLogin("IdentityWallet");
+        walletsPanel.SetActive(false);
+        loadingPanel.SetActive(true);
+    }
+    public void InfinityLogin()
+    {
+        JSWalletsLogin("InfinityWallet");
+        walletsPanel.SetActive(false);
+        loadingPanel.SetActive(true);
+    }
+    public void PlugLogin()
+    {
+        JSWalletsLogin("PlugWallet");
+        walletsPanel.SetActive(false);
+        loadingPanel.SetActive(true);
+    }
+    
+}
+
