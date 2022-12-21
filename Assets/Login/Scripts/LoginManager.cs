@@ -15,7 +15,10 @@ using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour
 {
-
+    public class UserData {
+        public string User;
+        public string Wallet;
+    }
     [SerializeField] TMP_InputField inputNameField;
     [SerializeField] TMP_InputField inputHashField;
     [SerializeField] GameObject walletsPanel;
@@ -49,12 +52,13 @@ public class LoginManager : MonoBehaviour
         }
 
     }
-    public void OnNamePlayerSet(string user)//ListenerReact
+    public void OnNamePlayerSet(string json)//ListenerReact
     {
-        if (!string.IsNullOrEmpty(user))
+        if (!string.IsNullOrEmpty(json))
         {
-            userInfo_NameHash.text = user;
-            userInfo_Account.text = user;
+            UserData userData = JsonUtility.FromJson<UserData>(json);
+            userInfo_NameHash.text = userData.User;
+            userInfo_Account.text = userData.Wallet;
             loadingPanel.SetActive(false);
             userInfoPanel.SetActive(true);
         }
