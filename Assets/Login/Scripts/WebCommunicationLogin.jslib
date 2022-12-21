@@ -11,5 +11,9 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.SetNameLogin(Pointer_stringify(accountName));
   },
   
+  JSSetAvatar: function () {
+    ReactUnityWebGL.SetNameLogin();
+  },
+  
 });
 

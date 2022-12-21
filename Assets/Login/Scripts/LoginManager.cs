@@ -35,6 +35,9 @@ public class LoginManager : MonoBehaviour
     public static extern void JSWalletsLogin(string walletID);
     [DllImport("__Internal")]
     public static extern void JSSetNameLogin(string accountName);
+    [DllImport("__Internal")]
+    public static extern void JSSetAvatar();
+    
     
     
     public void OnReceiveLoginData(string user)//ListenerReact
@@ -109,6 +112,15 @@ public class LoginManager : MonoBehaviour
         walletsPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
+    
+    public void SetAvatar()
+    {
+        JSSetAvatar();
+        avatarPanel.SetActive(false);
+        loadingPanel.SetActive(true);
+    }
+
+    
     
 }
 
