@@ -20,6 +20,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="rider.run.widget.enabled.cache" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -53,7 +54,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1671019364565</updated>
-      <workItem from="1671019375018" duration="11479000" />
+      <workItem from="1671019375018" duration="12851000" />
+      <workItem from="1671512526854" duration="1188000" />
+      <workItem from="1671605518526" duration="2656000" />
+      <workItem from="1672780977550" duration="606000" />
     </task>
     <servers />
   </component>

@@ -12,7 +12,7 @@ mergeInto(LibraryManager.library, {
   },
   
   JSSetAvatar: function () {
-    ReactUnityWebGL.SetNameLogin();
+    ReactUnityWebGL.SetAvatar();
   },
   
 });
