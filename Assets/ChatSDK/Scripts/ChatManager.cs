@@ -23,16 +23,17 @@ public class ChatManager : MonoBehaviour
 
     private string pasteTxt = "";
 
-    public GameObject chatPanel, chatCanvas, textObject, canvasLoginButton, loginPanel, newNamePanel, loadingPanel;
-    public InputField chatBox;
-    public InputField newUserInput;
+    public GameObject chatPanel, chatCanvas, textObject;
+    public TMP_InputField chatBox;
     //set the colors in the inspector
     public Color playerMessage, info;
 
     [Header("Side Panel : ")]
     public GameObject sidePanel;
+    public GameObject groupObject;
+    
     [SerializeField] private Button addButton;
-    public GameObject popupPanel, addQuestionPanel, addGroupPanel, addUserPanel, groupObject;
+    public GameObject popupPanel, addQuestionPanel, addGroupPanel, addUserPanel;
     [SerializeField] private Button addGroupOptionButton;
     [SerializeField] private Button newGroupButton;
     public InputField newGroupInput;
@@ -44,16 +45,11 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private Button returnToPopup2;
     private bool openAddPopup = false;
 
-    [Header("Close panel : ")]
-    public GameObject closedPanel, closeButtonEncapsule, fullPanel;
-    [SerializeField] private Button closePanel, openPanel;
-    private bool openFullPanel = true;
-
-    [Header("Input Settings : ")]
-    [SerializeField] private Button loginButton;
-    [SerializeField] private Button newUserButton;
-
-
+    [Header("Toogle panel: ")] 
+    public GameObject closedPanel;
+    public GameObject openedPanel;
+    [SerializeField] private Button btn_closePanel, btn_openPanel;
+    
     [SerializeField]
     List<Message> messageList = new List<Message>();
     //This doesn't need to be public, no need to have access outside the script
@@ -62,10 +58,6 @@ public class ChatManager : MonoBehaviour
     List<Group> groupsList = new List<Group>();
 
     /// WebGL
-    [DllImport("__Internal")]
-    private static extern void JSLogin();
-    [DllImport("__Internal")]
-    private static extern void JSCreateUser(string text);
     [DllImport("__Internal")]
     private static extern void JSSendMessage(string text);
     [DllImport("__Internal")]
@@ -78,15 +70,9 @@ public class ChatManager : MonoBehaviour
     void Start()
     {
         username = "";
-        loginPanel.SetActive(true);
-        canvasLoginButton.SetActive(true);
-        newNamePanel.SetActive(false);
-        loadingPanel.SetActive(false);
         chatCanvas.SetActive(false);
         popupPanel.SetActive(false);
-        fullPanel.SetActive(true);
-        loginButton.onClick.AddListener (() => { LoginRequest(); });
-        newUserButton.onClick.AddListener (() => { CreateUser(); });
+        
         addButton.onClick.AddListener(() => { ToggleAddPopup(); });
         addGroupOptionButton.onClick.AddListener(() => { GroupOptionButton(); });
         newGroupButton.onClick.AddListener(() => { CreateGroup(); });
@@ -97,10 +83,10 @@ public class ChatManager : MonoBehaviour
         returnToPopup1.onClick.AddListener(() => { returnToPopup(); });
         returnToPopup2.onClick.AddListener(() => { returnToPopup(); });
         /// Open <-> Close
-        closeButtonEncapsule.SetActive(true);
+        openedPanel.SetActive(true);
         closedPanel.SetActive(false);
-        closePanel.onClick.AddListener(() => { ToggleFullPanel(); });
-        openPanel.onClick.AddListener(() => { ToggleFullPanel(); });
+        btn_closePanel.onClick.AddListener(() => { ToggleFullPanel(); });
+        btn_openPanel.onClick.AddListener(() => { ToggleFullPanel(); });
     }
 
     void Update()
@@ -146,11 +132,11 @@ public class ChatManager : MonoBehaviour
                         addUserToGroupInput.text = pasteTxt;
                         pasteTxt = "";
                     } else {
-                        if(newUserInput.isFocused == true){
+                        /*if(newUserInput.isFocused == true){
                             /// Create user
                             newUserInput.text = pasteTxt;
                             pasteTxt = "";
-                        }
+                        }*/
                     }
                 }
             }
@@ -158,42 +144,20 @@ public class ChatManager : MonoBehaviour
     }
 
     private void ToggleFullPanel(){
-        if(openFullPanel == true){
-            openFullPanel = false;
-            fullPanel.SetActive(false);
+        if (openedPanel.activeSelf)
+        {
+            openedPanel.SetActive(false);
             closedPanel.SetActive(true);
-        } else {
-            openFullPanel = true;
-            fullPanel.SetActive(true);
+        }
+        else if (closedPanel.activeSelf)
+        {
+            openedPanel.SetActive(true);
             closedPanel.SetActive(false);
-        }
+        } else { Debug.Log("Ha ocurrido un error al intentar cambiar de Panel");}
     }
-
-    private void LoginRequest(){
-        JSLogin();
-        loadingPanel.SetActive(true);
-        canvasLoginButton.SetActive(false);
-    }
-
-    public void SetNewUser(){
-        loadingPanel.SetActive(false);
-        newNamePanel.SetActive(true);
-    }
-
-    public void CreateUser(){
-        if(newUserInput.text != ""){
-            JSCreateUser(newUserInput.text);
-            username = newUserInput.text;
-            loadingPanel.SetActive(true);
-            newNamePanel.SetActive(false);
-        } else {
-            newUserInput.ActivateInputField();
-        }
-    }
+    
 
     public void Initialize(){
-        loadingPanel.SetActive(false);
-        loginPanel.SetActive(false);
         chatCanvas.SetActive(true);
     }
 
