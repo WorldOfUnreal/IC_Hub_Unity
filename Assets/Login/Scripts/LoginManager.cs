@@ -122,7 +122,7 @@ public class LoginManager : MonoBehaviour
     public void OnAvatarReady()
     {
         loadingPanel.SetActive(false);
-        SceneManager.LoadScene("Escena_Hub");
+        SceneManager.LoadScene(mainScene);
 
     }
     

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escena_Hub.unity
     guid: d0d1ced242bff024597c5e3dbfad8de7
+  - enabled: 1
+    path: Assets/Chat Scene.unity
+    guid: 44ba8cc78f6c2ba498c242fe133972a4
   m_configObjects: {}
