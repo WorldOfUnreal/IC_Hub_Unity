@@ -183,6 +183,8 @@ public class ChatManager : MonoBehaviour
                 lastMessage = m.id;
             }
         }
+        //Update UI
+        LayoutRebuilder.ForceRebuildLayoutImmediate(chatPanel.GetComponent<RectTransform>());
     }
 
     public void SendMessageToChat(string text, Message.MessageType messageType) {
