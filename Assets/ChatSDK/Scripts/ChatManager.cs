@@ -169,7 +169,7 @@ public class ChatManager : MonoBehaviour
 
     public void ClearMessages(){
         for(int i = 0; i < messageList.Count; i++) {
-            Destroy(messageList[i].textObject.gameObject);
+            Destroy(messageList[i].gameObject);
         }
         messageList.Clear();
         lastMessage = -1;
@@ -189,19 +189,16 @@ public class ChatManager : MonoBehaviour
         //This will clear the last Message after the maximum allowed
         if(messageList.Count >= maxMessages) {
             //This is to destroy only the text, but not the Object
-            Destroy(messageList[0].textObject.gameObject);
+            Destroy(messageList[0].gameObject);
             messageList.Remove(messageList[0]);
         }
-
-        //This is to add the Message to the list and keep track of it
-        Message newMessage = new Message();
-        newMessage.text = text;
-
+        
         //Create a new game object to instantiate the text Prefab for new Messages
         GameObject newText = Instantiate(textObject, chatPanel.transform);
-        newMessage.textObject = newText.GetComponent<Text>();
-        newMessage.textObject.text = newMessage.text;
-        newMessage.textObject.color = MessageTypeColor(messageType);
+        Message newMessage = newText.GetComponent<Message>();
+        newMessage.text = text;
+        newMessage.contentMessage.text = newMessage.text;
+        newMessage.contentMessage.color = MessageTypeColor(messageType);
         messageList.Add(newMessage);
     }
 
@@ -220,8 +217,8 @@ public class ChatManager : MonoBehaviour
         g.id    = id;
         g.name  = name;
         GameObject newGroup = Instantiate(groupObject, sidePanel.transform);
-        Vector3 temp = new Vector3(0,i * (125.0f + itemSpacing),0);
-        newGroup.transform.position -= temp;
+        //Vector3 temp = new Vector3(0,i * (125.0f + itemSpacing),0);
+        //newGroup.transform.position -= temp;
         Button btn = newGroup.GetComponent<Button>();
 		btn.onClick.AddListener(() => { SetGroupSelected(id); });
         TextMeshProUGUI btnTxt = btn.GetComponentInChildren<TextMeshProUGUI>();
@@ -310,21 +307,6 @@ public class ChatManager : MonoBehaviour
         }
 
         return color;
-    }
-}
-
-[System.Serializable]
-public class Message
-{
-    //this is the Serializable string of the Message
-    public string text;
-    public Text textObject;
-    public MessageType messageType;
-
-    public enum MessageType
-    {
-        playerMessage,
-        info
     }
 }
 
