@@ -15,6 +15,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Hub_Menu/GoToURLButton.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -68,7 +71,7 @@
       <workItem from="1672780977550" duration="10280000" />
       <workItem from="1672941352346" duration="5071000" />
       <workItem from="1673182098755" duration="10299000" />
-      <workItem from="1673213193803" duration="654000" />
+      <workItem from="1673213193803" duration="3262000" />
     </task>
     <servers />
   </component>

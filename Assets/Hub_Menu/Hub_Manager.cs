@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -16,6 +17,12 @@ public class Hub_Manager : MonoBehaviour
         [SerializeField]
         public AppCategory appCategoryIndex;
         public enum AppCategory { Games, Markets, Defi, Social, New }
+        public string patchNotes;
+        public string dscvrPortal;
+        public string marketPlaces;
+        public string blockchain;
+        public string currentVersion;
+        public string launchLink;
         public List<NewsApp> listNews = new List<NewsApp>();
         
     }
@@ -43,6 +50,15 @@ public class Hub_Manager : MonoBehaviour
     public Sprite loadingSprite;
     public Image bannerApp;
     public string bannerAppString;
+    public TMP_Text blockchainTxt;
+    public TMP_Text versionInfoTxt;
+    
+    [Header("UI App Buttons: ")] 
+    public GoToURLButton newVersionButton;
+    public GoToURLButton patchNotesButton;
+    public GoToURLButton dscvrPortalButton;
+    public GoToURLButton marketplacesButton;
+    public GoToURLButton launchButton;
 
     
     public void GetAppsInfo(string json){
@@ -65,6 +81,15 @@ public class Hub_Manager : MonoBehaviour
         AppInfo selectedApp = listApps.data[id];
         bannerAppString = selectedApp.banner;
         StartCoroutine(GetTexture(selectedApp.banner));
+
+        newVersionButton.url = "";
+        patchNotesButton.url = selectedApp.patchNotes;
+        dscvrPortalButton.url = selectedApp.dscvrPortal;
+        marketplacesButton.url = selectedApp.marketPlaces;
+        launchButton.url = selectedApp.launchLink;
+
+        blockchainTxt.text = selectedApp.blockchain;
+        versionInfoTxt.text = selectedApp.currentVersion;
         
         foreach (Transform t in contentNews.transform) { GameObject.Destroy(t.gameObject); }
         
