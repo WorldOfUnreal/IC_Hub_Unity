@@ -9235,7 +9235,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: '{ "data": [{   "id": 0,   "name": "Cosmic",   "logo":
             "https://icoholder.com/media/cache/ico_logo_view_page/files/img/746a294b35c1b3beb9db457bb035eb8e.jpeg",  
-            "banner": "https://cdn-bplcd.nitrocdn.com/yYxFdwLqsIdKMsfCFJkddYGFYoJKEdpp/assets/images/optimized/rev-0fb0410/wp-content/uploads/2022/09/InfinitySwap-Collaborates-Strategically-With-Cosmicrafts.jpg",  
+            "banner": "https://gateway.pinata.cloud/ipfs/QmfPFc4MJt8iKoeuRdJYFZPoQMkmYVhHNzcJb1bYeT3bjA",  
             "appCategoryIndex": 0,   "listNews": [{"imageNews":"https://infoalimentos.org.ar/images/temas_20/del_campo_a_la_mesa/TEMA_Vaca_interna_horiz_840x410.jpg",
             "title": "SoyUnaNoticiaDeVaca","content": "SoyUnContenido","textButton":
             "Soy","linkButton": "https://infoalimentos.org.ar"}, {"imageNews": "ImageURL","title":
@@ -11292,7 +11292,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 857556342}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999975
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11707,7 +11707,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 103919676}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14134,10 +14134,10 @@ RectTransform:
   m_Father: {fileID: 225614509}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -350.6}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445138464
 MonoBehaviour:
@@ -15826,10 +15826,10 @@ RectTransform:
   m_Father: {fileID: 225614509}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -475.6}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1589092077
 MonoBehaviour:
@@ -17581,7 +17581,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 312624168}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21770,7 +21770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000096163916}
+  m_AnchoredPosition: {x: 0, y: 0.00095445145}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2134458150
@@ -25144,7 +25144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5255509, y: 0.11764623}
   m_AnchorMax: {x: 0.9636012, y: 0.26735374}
-  m_AnchoredPosition: {x: -0.6231992, y: 0.042800903}
+  m_AnchoredPosition: {x: -0.62319946, y: 0.042785645}
   m_SizeDelta: {x: 2.4666, y: 1.5503998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6572901759839488913
