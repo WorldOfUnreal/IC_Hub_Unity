@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,7 +17,6 @@ public class Hub_Manager : MonoBehaviour
         public string banner;
         [SerializeField]
         public AppCategory appCategoryIndex;
-        public enum AppCategory { Games, Markets, Defi, Social, New }
         public string patchNotes;
         public string dscvrPortal;
         public string marketPlaces;
@@ -26,6 +26,8 @@ public class Hub_Manager : MonoBehaviour
         public List<NewsApp> listNews = new List<NewsApp>();
         
     }
+    public enum AppCategory { Games, Markets, Defi, Social, New }
+    
     [System.Serializable]
     public class ListApps {
         public List<AppInfo> data;
@@ -60,19 +62,52 @@ public class Hub_Manager : MonoBehaviour
     public GoToURLButton marketplacesButton;
     public GoToURLButton launchButton;
 
+    public string categoryActual = "ALL";
+    public List<AppIconPrefab> listAppIconPrefab = new List<AppIconPrefab>();
+
+
+    public void ChangeCategory(string category)
+    {
+        if (category == "ALL")
+        {
+            foreach(AppIconPrefab icon in listAppIconPrefab){
+                icon.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach(AppIconPrefab icon in listAppIconPrefab){
+                if ( (int)icon.appCategory == int.Parse(category) )
+                {
+                    icon.gameObject.SetActive(true);
+                }
+                else
+                {
+                    icon.gameObject.SetActive(false);
+                }
+            }
+        }
+        categoryActual = category;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());//Update UI
+    }
+
     
     public void GetAppsInfo(string json){
+        foreach (Transform t in contentApps.transform) { GameObject.Destroy(t.gameObject); }
+        listAppIconPrefab.Clear();
+        
         listApps = JsonUtility.FromJson<ListApps>(json);
        
         foreach(AppInfo m in listApps.data){
-            
             GameObject newAppIcon = Instantiate(prefabAppIcon, contentApps.transform);
             AppIconPrefab appIcon = newAppIcon.GetComponent<AppIconPrefab>();
             appIcon.urlImage = m.logo;
             appIcon.buttonApp.onClick.AddListener(() => { OnClickAppIcon(m.id); });
+            appIcon.appCategory = m.appCategoryIndex;
+            listAppIconPrefab.Add(appIcon);
         }
-        //Update UI
-        LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());
+        ChangeCategory(categoryActual);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());  //Update UI
     }
 
     public void OnClickAppIcon(int id)

@@ -334,6 +334,7 @@ public class MessageText {
 [System.Serializable]
 public class MessagesTexts {
     public List<MessageText> data;
+    public int idGroup;
     public string nameGroup;
     public string avatarGroup;
 }

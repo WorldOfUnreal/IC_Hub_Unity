@@ -12,6 +12,7 @@ public class AppIconPrefab : MonoBehaviour
     public Image bgSelected;
     public GameObject barSelected;
     public Button buttonApp;
+    public Hub_Manager.AppCategory appCategory;
 
    
 
