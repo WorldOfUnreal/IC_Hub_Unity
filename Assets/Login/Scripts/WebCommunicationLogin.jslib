@@ -15,5 +15,9 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.SetAvatar();
   },
   
+  JSCopyToClipboard: function (textToCopy) {
+    ReactUnityWebGL.CopyToClipboard(Pointer_stringify(textToCopy));
+  },
+  
 });
 

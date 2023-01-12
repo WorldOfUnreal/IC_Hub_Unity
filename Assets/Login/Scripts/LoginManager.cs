@@ -37,6 +37,8 @@ public class LoginManager : MonoBehaviour
     public static extern void JSSetNameLogin(string accountName);
     [DllImport("__Internal")]
     public static extern void JSSetAvatar();
+    [DllImport("__Internal")]
+    public static extern void JSCopyToClipboard(string accountName);
     
     
     
@@ -124,6 +126,10 @@ public class LoginManager : MonoBehaviour
         loadingPanel.SetActive(false);
         SceneManager.LoadScene(mainScene);
 
+    }
+    public void CopyTextToClipBoard(TMP_Text tmpText)
+    {
+        JSCopyToClipboard(tmpText.text);
     }
     
     
