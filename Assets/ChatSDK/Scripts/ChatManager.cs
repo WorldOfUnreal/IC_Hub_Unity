@@ -27,6 +27,8 @@ public class ChatManager : MonoBehaviour
     public TMP_InputField chatBox;
     //set the colors in the inspector
     public Color playerMessage, info;
+    public TMP_Text groupName;
+    public TMP_Text groupAvatar;
 
     [Header("Side Panel : ")]
     public GameObject sidePanel;
@@ -175,11 +177,16 @@ public class ChatManager : MonoBehaviour
         lastMessage = -1;
     }
 
-    public void GetChatMessages(string json){
+    public void GetChatMessages(string json)
+    {
+        ClearMessages();
+        
         MessagesTexts messagesTexts = JsonUtility.FromJson<MessagesTexts>(json);
+        groupName.text = messagesTexts.nameGroup;
+        groupAvatar.text = messagesTexts.avatarGroup;
         foreach(MessageText m in messagesTexts.data){
             if(lastMessage < m.id){
-                SendMessageToChat(m.text,  Message.MessageType.playerMessage);
+                SendMessageToChat(m,  Message.MessageType.playerMessage);
                 lastMessage = m.id;
             }
         }
@@ -187,7 +194,7 @@ public class ChatManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(chatPanel.GetComponent<RectTransform>());
     }
 
-    public void SendMessageToChat(string text, Message.MessageType messageType) {
+    public void SendMessageToChat(MessageText m, Message.MessageType messageType) {
         //This will clear the last Message after the maximum allowed
         if(messageList.Count >= maxMessages) {
             //This is to destroy only the text, but not the Object
@@ -198,14 +205,18 @@ public class ChatManager : MonoBehaviour
         //Create a new game object to instantiate the text Prefab for new Messages
         GameObject newText = Instantiate(textObject, chatPanel.transform);
         Message newMessage = newText.GetComponent<Message>();
-        newMessage.text = text;
+        newMessage.text = m.text;
         newMessage.contentMessage.text = newMessage.text;
         newMessage.contentMessage.color = MessageTypeColor(messageType);
+        newMessage.nameUser.text = m.username;
+        
         messageList.Add(newMessage);
     }
 
     public void GetGroups(string json){
-        //groupsList.Clear();
+        groupsList.Clear();
+        foreach (Transform t in sidePanel.transform) { GameObject.Destroy(t.gameObject); }
+        
         GroupsList _groupsList = JsonUtility.FromJson<GroupsList>(json);
         int i = 0;
         foreach(GroupData g in _groupsList.data){
@@ -316,10 +327,15 @@ public class ChatManager : MonoBehaviour
 public class MessageText {
     public int id;
     public string text;
+    public string username;
+    public string timeStamp;
+    public string avatarUser;
 }
 [System.Serializable]
 public class MessagesTexts {
     public List<MessageText> data;
+    public string nameGroup;
+    public string avatarGroup;
 }
 
 [System.Serializable]

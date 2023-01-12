@@ -12,11 +12,18 @@ public class NewsPrefab : MonoBehaviour
     public TMP_Text title;
     public TMP_Text content;
     public TMP_Text textButton;
-    public string linkButton;
+    public string linkButton = "https://www.cosmicrafts.com/";
     public Button buttonNews;
     
     void Start() {
+       
         StartCoroutine(GetTexture());
+        buttonNews.onClick.AddListener(() => { OpenURL(); });
+    }
+    
+    public void OpenURL()
+    {
+        Application.OpenURL(linkButton);
     }
  
     IEnumerator GetTexture() {
