@@ -17,9 +17,16 @@ public class Hub_Manager : MonoBehaviour
         public string banner;
         [SerializeField]
         public AppCategory appCategoryIndex;
-        public string patchNotes;
+        
         public string dscvrPortal;
-        public string marketPlaces;
+        public string distrikt;
+        public string openChat;
+        public string catalyze;
+        public string twitter;
+        public string nftCollections;
+        public string newVersion;
+        public string patchNotes;
+        
         public string blockchain;
         public string currentVersion;
         public string launchLink;
@@ -56,11 +63,16 @@ public class Hub_Manager : MonoBehaviour
     public TMP_Text versionInfoTxt;
     
     [Header("UI App Buttons: ")] 
+    public GoToURLButton dscvrPortalButton;
+    public GoToURLButton distriktButton;
+    public GoToURLButton openChatButton;
+    public GoToURLButton catalyzeButton;
+    public GoToURLButton twitterButton;
+    public GoToURLButton nftCollectionsButton;
     public GoToURLButton newVersionButton;
     public GoToURLButton patchNotesButton;
-    public GoToURLButton dscvrPortalButton;
-    public GoToURLButton marketplacesButton;
     public GoToURLButton launchButton;
+    
 
     public string categoryActual = "ALL";
     public List<AppIconPrefab> listAppIconPrefab = new List<AppIconPrefab>();
@@ -116,13 +128,16 @@ public class Hub_Manager : MonoBehaviour
         AppInfo selectedApp = listApps.data[id];
         bannerAppString = selectedApp.banner;
         StartCoroutine(GetTexture(selectedApp.banner));
-
-        newVersionButton.url = "";
-        patchNotesButton.url = selectedApp.patchNotes;
-        dscvrPortalButton.url = selectedApp.dscvrPortal;
-        marketplacesButton.url = selectedApp.marketPlaces;
+        
+        dscvrPortalButton.UrlChange(selectedApp.dscvrPortal);
+        distriktButton.UrlChange(selectedApp.distrikt);
+        openChatButton.UrlChange(selectedApp.openChat);
+        catalyzeButton.UrlChange(selectedApp.catalyze);
+        twitterButton.UrlChange(selectedApp.twitter);
+        nftCollectionsButton.UrlChange(selectedApp.nftCollections);
+        newVersionButton.UrlChange(selectedApp.newVersion);
+        patchNotesButton.UrlChange(selectedApp.patchNotes);
         launchButton.url = selectedApp.launchLink;
-
         blockchainTxt.text = selectedApp.blockchain;
         versionInfoTxt.text = selectedApp.currentVersion;
         

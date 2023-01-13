@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 8287158}
   - component: {fileID: 8287157}
   - component: {fileID: 8287156}
+  - component: {fileID: 8287159}
   m_Layer: 5
   m_Name: DSCVR_Btn
   m_TagString: Untagged
@@ -315,6 +316,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8287154}
   m_CullTransparentMesh: 1
+--- !u!114 &8287159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8287154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &53443994
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +476,7 @@ GameObject:
   - component: {fileID: 55667214}
   - component: {fileID: 55667213}
   - component: {fileID: 55667212}
+  - component: {fileID: 55667215}
   m_Layer: 5
   m_Name: PN_Btn
   m_TagString: Untagged
@@ -573,6 +588,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55667210}
   m_CullTransparentMesh: 1
+--- !u!114 &55667215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55667210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &76789765
 GameObject:
   m_ObjectHideFlags: 0
@@ -3420,7 +3448,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000019628937, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -871.8841}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &225614510
 MonoBehaviour:
@@ -4257,10 +4285,10 @@ RectTransform:
   m_Father: {fileID: 837088316}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 223.85846, y: -30.927006}
+  m_SizeDelta: {x: 114.423065, y: 61.85401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311888556
 MonoBehaviour:
@@ -5073,7 +5101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1832107789}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
@@ -5297,17 +5325,21 @@ MonoBehaviour:
     data: []
   prefabAppIcon: {fileID: 8980938359325044158, guid: 69a9f8933db7b2946b31e6562cb1a867, type: 3}
   prefabNews: {fileID: 5800248490767583469, guid: cb0c008c4cb9fb74288e86ad6b6ce4a4, type: 3}
-  contentApps: {fileID: 0}
+  contentApps: {fileID: 1832107788}
   contentNews: {fileID: 930909215}
   loadingSprite: {fileID: 21300000, guid: 7ee48c5fba4919649a8a6094cbead669, type: 3}
   bannerApp: {fileID: 359397465}
   bannerAppString: 
   blockchainTxt: {fileID: 306624563}
   versionInfoTxt: {fileID: 637384519}
-  newVersionButton: {fileID: 0}
-  patchNotesButton: {fileID: 0}
-  dscvrPortalButton: {fileID: 0}
-  marketplacesButton: {fileID: 0}
+  dscvrPortalButton: {fileID: 8287159}
+  distriktButton: {fileID: 1412593651}
+  openChatButton: {fileID: 623403497}
+  catalyzeButton: {fileID: 1606984803}
+  twitterButton: {fileID: 1408205288}
+  nftCollectionsButton: {fileID: 1864936224}
+  newVersionButton: {fileID: 1453755006}
+  patchNotesButton: {fileID: 55667215}
   launchButton: {fileID: 1598778292}
   categoryActual: ALL
   listAppIconPrefab: []
@@ -5658,7 +5690,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7660,6 +7692,7 @@ GameObject:
   - component: {fileID: 623403496}
   - component: {fileID: 623403495}
   - component: {fileID: 623403494}
+  - component: {fileID: 623403497}
   m_Layer: 5
   m_Name: OpenChat_Btn
   m_TagString: Untagged
@@ -7771,6 +7804,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623403492}
   m_CullTransparentMesh: 1
+--- !u!114 &623403497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623403492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &634560779
 GameObject:
   m_ObjectHideFlags: 0
@@ -10107,6 +10153,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8980938359785997022, guid: 69a9f8933db7b2946b31e6562cb1a867, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a9f8933db7b2946b31e6562cb1a867, type: 3}
 --- !u!224 &837088566 stripped
@@ -10634,10 +10684,10 @@ RectTransform:
   m_Father: {fileID: 339368201}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000030518}
-  m_SizeDelta: {x: 1366, y: 768}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 196, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &890641763
 MonoBehaviour:
@@ -10962,7 +11012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 341.565, y: -19.406502}
+  m_AnchoredPosition: {x: 341.565, y: -19.406494}
   m_SizeDelta: {x: 683.13, y: 38.813004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &914832693
@@ -12030,9 +12080,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1023256706
 MonoBehaviour:
@@ -14249,7 +14299,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -14431,7 +14481,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00012207031}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -871.02405}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1219718413
 MonoBehaviour:
@@ -16289,6 +16339,7 @@ GameObject:
   - component: {fileID: 1408205287}
   - component: {fileID: 1408205286}
   - component: {fileID: 1408205285}
+  - component: {fileID: 1408205288}
   m_Layer: 5
   m_Name: Twitter_Btn
   m_TagString: Untagged
@@ -16400,6 +16451,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408205283}
   m_CullTransparentMesh: 1
+--- !u!114 &1408205288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408205283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &1410573050
 GameObject:
   m_ObjectHideFlags: 0
@@ -16488,6 +16552,7 @@ GameObject:
   - component: {fileID: 1412593650}
   - component: {fileID: 1412593649}
   - component: {fileID: 1412593648}
+  - component: {fileID: 1412593651}
   m_Layer: 5
   m_Name: Distrikt_Btn
   m_TagString: Untagged
@@ -16599,6 +16664,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412593646}
   m_CullTransparentMesh: 1
+--- !u!114 &1412593651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412593646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &1412614688
 GameObject:
   m_ObjectHideFlags: 0
@@ -16854,6 +16932,7 @@ GameObject:
   - component: {fileID: 1453755005}
   - component: {fileID: 1453755004}
   - component: {fileID: 1453755003}
+  - component: {fileID: 1453755006}
   m_Layer: 5
   m_Name: NV_Btn
   m_TagString: Untagged
@@ -16965,6 +17044,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453755001}
   m_CullTransparentMesh: 1
+--- !u!114 &1453755006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453755001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &1460667479
 GameObject:
   m_ObjectHideFlags: 0
@@ -17349,10 +17441,10 @@ RectTransform:
   m_Father: {fileID: 837088316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 130.26627, y: -30.927006}
+  m_SizeDelta: {x: 72.76134, y: 61.85401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488140261
 MonoBehaviour:
@@ -18480,6 +18572,7 @@ GameObject:
   - component: {fileID: 1606984802}
   - component: {fileID: 1606984801}
   - component: {fileID: 1606984800}
+  - component: {fileID: 1606984803}
   m_Layer: 5
   m_Name: Catalyze_Btn
   m_TagString: Untagged
@@ -18591,6 +18684,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606984798}
   m_CullTransparentMesh: 1
+--- !u!114 &1606984803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606984798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &1626490313
 GameObject:
   m_ObjectHideFlags: 0
@@ -20622,9 +20728,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0.00033195925, y: 0}
-  m_SizeDelta: {x: -5.69, y: 0}
+  m_SizeDelta: {x: 0, y: 58.78}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1832107790
 MonoBehaviour:
@@ -20638,8 +20744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 1
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!114 &1832107791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20913,6 +21019,7 @@ GameObject:
   - component: {fileID: 1864936223}
   - component: {fileID: 1864936222}
   - component: {fileID: 1864936221}
+  - component: {fileID: 1864936224}
   m_Layer: 5
   m_Name: NFTM_Btn
   m_TagString: Untagged
@@ -21024,6 +21131,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864936219}
   m_CullTransparentMesh: 1
+--- !u!114 &1864936224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864936219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a13e4e2231f5478413d521526fe1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://www.cosmicrafts.com/
 --- !u!1 &1878200035
 GameObject:
   m_ObjectHideFlags: 0
@@ -21969,10 +22089,10 @@ RectTransform:
   m_Father: {fileID: 837088316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 46.942795, y: -30.927006}
+  m_SizeDelta: {x: 93.88559, y: 61.85401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918612487
 MonoBehaviour:
@@ -25567,7 +25687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4941789472342059174
 MonoBehaviour:
   m_ObjectHideFlags: 0
