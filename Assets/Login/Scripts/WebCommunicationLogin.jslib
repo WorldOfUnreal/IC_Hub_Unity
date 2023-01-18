@@ -20,7 +20,7 @@ mergeInto(LibraryManager.library, {
   },
   
   JSOnHubScene: function () {
-      ReactUnityWebGL.OnHubScene());
+      ReactUnityWebGL.OnHubScene();
     },
   
   
