@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -73,10 +74,19 @@ public class Hub_Manager : MonoBehaviour
     public GoToURLButton patchNotesButton;
     public GoToURLButton launchButton;
     
+    [Header("UI Tokens Content: ")] 
+    public TMP_Text slotICPAmount;
 
     public string categoryActual = "ALL";
     public List<AppIconPrefab> listAppIconPrefab = new List<AppIconPrefab>();
 
+    [DllImport("__Internal")]
+    private static extern void JSOnHubScene();
+
+    private void Start()
+    {
+        JSOnHubScene();
+    }
 
     public void ChangeCategory(string category)
     {
@@ -121,7 +131,11 @@ public class Hub_Manager : MonoBehaviour
         ChangeCategory(categoryActual);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());  //Update UI
     }
-
+    public void GetTokensInfo(string json)
+    {
+        slotICPAmount.text = json;
+    }
+    
     public void OnClickAppIcon(int id)
     {
         bannerApp.sprite = loadingSprite;
