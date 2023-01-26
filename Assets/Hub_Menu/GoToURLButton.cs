@@ -18,4 +18,10 @@ public class GoToURLButton : MonoBehaviour
     {
         gameObject.GetComponent<Button>().onClick.AddListener(() => { OpenURL(); });
     }
+
+    public void UrlChange(string u)
+    {
+        gameObject.SetActive( !string.IsNullOrEmpty(u) );
+        url = u;
+    }
 }

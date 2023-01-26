@@ -19,5 +19,10 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.CopyToClipboard(Pointer_stringify(textToCopy));
   },
   
+  JSOnHubScene: function () {
+      ReactUnityWebGL.OnHubScene();
+    },
+  
+  
 });
 
