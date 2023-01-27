@@ -27,4 +27,17 @@ mergeInto(LibraryManager.library, {
   JSCreateGroup: function (groupname) {
     ReactUnityWebGL.CreateGroup(Pointer_stringify(groupname));
   },
+  
+  JSSearchGroup: function (searchtext) {
+      ReactUnityWebGL.SearchGroup(Pointer_stringify(searchtext));
+    },
+    
+  JSJoinGroup: function (string) {
+        ReactUnityWebGL.JoinGroup(Pointer_stringify(string));
+      },
+      
+  JSRequestJoinGroup: function (string) {
+        ReactUnityWebGL.RequestJoinGroup(Pointer_stringify(string));
+      },
+    
 });
