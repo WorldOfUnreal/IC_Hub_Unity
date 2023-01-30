@@ -36,6 +36,7 @@ public class ChatManager : MonoBehaviour
     
     [SerializeField] private Button addButton;
     public GameObject popupPanel, addQuestionPanel, addGroupPanel, addUserPanel;
+    public GameObject popupMoreSettings;
     [SerializeField] private Button addGroupOptionButton;
     [SerializeField] private Button newGroupButton;
     public InputField newGroupInput;
@@ -68,7 +69,9 @@ public class ChatManager : MonoBehaviour
     private static extern void JSCreateGroup(string text);
     [DllImport("__Internal")]
     private static extern void JSSelectChatGroup(int id);
-
+    [DllImport("__Internal")]
+    private static extern void JSLeaveGroup(int id);
+    
     void Start()
     {
         username = "";
@@ -224,7 +227,7 @@ public class ChatManager : MonoBehaviour
             i++;
         }
     }
-
+    
     public void AddGroupToList(int id, string name, int i){
         Group g = new Group();
         g.id    = id;
@@ -244,6 +247,10 @@ public class ChatManager : MonoBehaviour
     public void SetGroupSelected(int id){
         idGroupSelected = id;
         JSSelectChatGroup(id);
+    }
+    public void LeaveGroup(){
+        popupMoreSettings.SetActive(false);
+        JSLeaveGroup(idGroupSelected);
     }
 
     public void ToggleAddPopup(){
