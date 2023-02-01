@@ -8,12 +8,14 @@ using UnityEngine.UI;
 
 public class SearchGroupManager : MonoBehaviour
 {
+    [System.Serializable]
     public class SearchGroupInfo
     {
         public bool group_exists;
         public string StringSearch;
         public List<Group_data> group_data;
     }
+    [System.Serializable]
     public class Group_data
     {
         public bool joined;
