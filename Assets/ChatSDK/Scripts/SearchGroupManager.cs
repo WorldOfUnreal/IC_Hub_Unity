@@ -22,6 +22,7 @@ public class SearchGroupManager : MonoBehaviour
         public int id;
         public string name;
         public bool is_private;
+        public bool requested;
     }
     public class GroupSearchObject{
         public int id;
@@ -85,13 +86,22 @@ public class SearchGroupManager : MonoBehaviour
         if (isPrivate)
         {
             groupPrefab.buttonText.text = "Request Join";
-            groupPrefab.button.onClick.AddListener(() => { JoinRequestGroup(id); });
         }
         else
         {
             groupPrefab.buttonText.text = "Join";
-            groupPrefab.button.onClick.AddListener(() => { JoinGroup(id); });
         }
+        
+        groupPrefab.button.onClick.AddListener(() =>
+        {
+            CanvasPopup.Instance.OpenPopup(() =>
+            {
+                CanvasPopup.Instance.OpenLoadingPanel();
+                JoinRequestGroup(id);
+            });
+                
+        });
+        
         groupsList.Add(g);
     }
     
@@ -110,9 +120,6 @@ public class SearchGroupManager : MonoBehaviour
     }
     
     public void JoinRequestGroup(int id){
-        JSRequestJoinGroup("Pruebas");
-    }
-    public void JoinGroup(int id){
         JSJoinGroup("Pruebas");
     }
     
