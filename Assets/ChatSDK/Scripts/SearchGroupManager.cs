@@ -44,9 +44,7 @@ public class SearchGroupManager : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void JSSearchGroup(string text);
     [DllImport("__Internal")]
-    private static extern void JSJoinGroup(string text);
-    [DllImport("__Internal")]
-    private static extern void JSRequestJoinGroup(string text);
+    private static extern void JSRequestJoinGroup(int id);
     
     public void GetGroups(string json){
         
@@ -120,7 +118,7 @@ public class SearchGroupManager : MonoBehaviour
     }
     
     public void JoinRequestGroup(int id){
-        JSJoinGroup("Pruebas");
+        JSRequestJoinGroup(id);
     }
     
     

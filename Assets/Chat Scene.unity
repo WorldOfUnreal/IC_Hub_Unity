@@ -18705,7 +18705,7 @@ GameObject:
   - component: {fileID: 1271946788}
   - component: {fileID: 1271946787}
   m_Layer: 5
-  m_Name: 'CanvasPopup '
+  m_Name: CanvasPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19639,7 +19639,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11.75
+  m_fontSize: 11.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -34166,7 +34166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.09769939}
   m_AnchorMax: {x: 0.83619267, y: 0.522392}
-  m_AnchoredPosition: {x: -409.40552, y: -112.40915}
+  m_AnchoredPosition: {x: -409.40555, y: -112.40916}
   m_SizeDelta: {x: -654.6759, y: -152.06937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6572901759562414153
@@ -35195,7 +35195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5255509, y: 0.11764623}
   m_AnchorMax: {x: 0.9636012, y: 0.26735374}
-  m_AnchoredPosition: {x: -0.6231992, y: 0.042785645}
+  m_AnchoredPosition: {x: -0.62319946, y: 0.042785645}
   m_SizeDelta: {x: 2.4666, y: 1.5503998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6572901759839488913
