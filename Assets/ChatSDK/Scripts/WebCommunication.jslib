@@ -29,15 +29,15 @@ mergeInto(LibraryManager.library, {
   },
   
   JSSearchGroup: function (searchtext) {
-      ReactUnityWebGL.SearchGroup(Pointer_stringify(searchtext));
-    },
-    
-  JSJoinGroup: function (string) {
-        ReactUnityWebGL.JoinGroup(Pointer_stringify(string));
-      },
-      
-  JSRequestJoinGroup: function (string) {
-        ReactUnityWebGL.RequestJoinGroup(Pointer_stringify(string));
-      },
+    ReactUnityWebGL.SearchGroup(Pointer_stringify(searchtext));
+  },
+          
+  JSRequestJoinGroup: function (idGroup) {
+    ReactUnityWebGL.RequestJoinGroup(idGroup);
+  },
+  
+  JSLeaveGroup: function (idChat) {
+    ReactUnityWebGL.LeaveGroup(idChat);
+  },
     
 });

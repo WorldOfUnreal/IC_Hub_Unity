@@ -16,6 +16,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86acb61e0d2b4b36bc20af11093be9a5157e00/6c/c683841f/UnityEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hub_Menu/GoToURLButton.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -75,7 +76,10 @@
       <workItem from="1673484383961" duration="9692000" />
       <workItem from="1673576804283" duration="2472000" />
       <workItem from="1674002773382" duration="2303000" />
-      <workItem from="1674835705909" duration="9442000" />
+      <workItem from="1674835705909" duration="10633000" />
+      <workItem from="1674922182882" duration="596000" />
+      <workItem from="1675090572644" duration="7920000" />
+      <workItem from="1675258306479" duration="8098000" />
     </task>
     <servers />
   </component>
