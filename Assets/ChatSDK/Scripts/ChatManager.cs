@@ -356,7 +356,10 @@ public class Group{
 public class GroupData{
     public int id;
     public string name;
+    public RoleUser roleuser;
 }
+public enum RoleUser { Owner, Admin, User}
+
 [System.Serializable]
 public class GroupsList{
     public List<GroupData> data;
