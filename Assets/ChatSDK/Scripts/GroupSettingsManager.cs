@@ -119,9 +119,7 @@ public class GroupSettingsManager : MonoBehaviour
                 memberPrefab.userRoleDot.color = new Color(1f, 0.4713461f, 0f, 1f);
                 break;
         }
-        
-        memberPrefab.buttonToUser.onClick.AddListener(callGoToUser);
-        
+        memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID);});
     }
     public void AddMemberToContent_Admin(string principalID, string username, string iconSprite, RoleUser roleUser, int idGroup){
         
@@ -153,10 +151,8 @@ public class GroupSettingsManager : MonoBehaviour
                 memberPrefab.button2.gameObject.SetActive(false);
                 break;
         }
-        
         //Modificar esto luego
-        memberPrefab.buttonToUser.onClick.AddListener(callGoToUser);
-        
+        memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID);});
     }
     public void AddRequestToList(string principalID, string username, string timestamp, int idGroup){
         GameObject newRequest = Instantiate(prefabRequest, contentRequests.transform);
@@ -184,7 +180,6 @@ public class GroupSettingsManager : MonoBehaviour
             });
         });
     }
-
     private void KickUser(string principalID, int idGroup)
     {
         CanvasPopup.Instance.OpenPopup(() => {
@@ -209,15 +204,15 @@ public class GroupSettingsManager : MonoBehaviour
             JSRemoveAdmin(json);
         });
     }
-    private UnityAction callGoToUser = (() =>
+    private void CallGoToUser(string principalID)
     {
-        CanvasPopup.Instance.OpenPopup(() =>
-        {
+        CanvasPopup.Instance.OpenPopup(() => {
             CanvasPopup.Instance.OpenLoadingPanel();
-                
+            /*string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
+            JSRemoveAdmin(json);*/
         });
-    });
-    
+    }
+ 
     [System.Serializable]
     public class MembersGroup {
         public RoleUser roleuser;
