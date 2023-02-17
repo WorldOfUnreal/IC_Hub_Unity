@@ -30,7 +30,7 @@ public class GroupSettingsManager : MonoBehaviour
     
     [Header("User Panel : ")]
     public GameObject prefabMember_User;
-    public GameObject contentMembers_User;
+    public GameObject contentMembersPanelUser;
     public Image iconGroup_User;
     public TMP_Text tittleGroup_User;
     public TMP_Text descriptionGroup_User;
@@ -58,7 +58,7 @@ public class GroupSettingsManager : MonoBehaviour
             tittleGroup_User.text = infoPanelSetting.nameGroup;
             descriptionGroup_User.text = infoPanelSetting.descriptionGroup;
         //Fill members
-            foreach (Transform t in contentMembers_User.transform) { GameObject.Destroy(t.gameObject); }
+            foreach (Transform t in contentMembersPanelUser.transform) { GameObject.Destroy(t.gameObject); }
             foreach (MembersGroup g in infoPanelSetting.members)
             {
                 AddMemberToContent_User(g.principalID, g.username, g.avatarUser, g.roleuser);
@@ -72,7 +72,7 @@ public class GroupSettingsManager : MonoBehaviour
             tittleGroup.text = infoPanelSetting.nameGroup;
             descriptionGroup.text = infoPanelSetting.descriptionGroup;
             //buttonSliderStates.Play( (infoPanelSetting.is_private) ? "InRight" : "InLeft"  );
-            if (infoPanelSetting.is_private){ buttonSliderStates.Play("InRight"); }else{ buttonSliderStates.Play("InLeft"); }
+            if (infoPanelSetting.isPrivate){ buttonSliderStates.Play("InRight"); }else{ buttonSliderStates.Play("InLeft"); }
             transferOwnership_Gameobject.SetActive(infoPanelSetting.roleuser == RoleUser.Owner);
         //Fill members
             foreach (Transform t in contentMembers_owner.transform) { GameObject.Destroy(t.gameObject); }
@@ -82,23 +82,26 @@ public class GroupSettingsManager : MonoBehaviour
             {
                 AddMemberToContent_Admin(g.principalID, g.username, g.avatarUser, g.roleuser, infoPanelSetting.idGroup);
             }   
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_owner.GetComponent<RectTransform>());
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_admin.GetComponent<RectTransform>());
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_user.GetComponent<RectTransform>());
         //Fill request
             foreach (Transform t in contentRequests.transform) { GameObject.Destroy(t.gameObject); }
             foreach (RequestsGroup g in infoPanelSetting.requests)
             {
                 AddRequestToList(g.principalID, g.username, g.timeStamp, infoPanelSetting.idGroup);
             }
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentRequests.GetComponent<RectTransform>());
         }
-        numberUsers.text = (contentMembers_admin.transform.childCount + contentMembers_owner.transform.childCount +
-                            contentMembers_user.transform.childCount).ToString();
-        numberInvites.text = contentRequests.transform.childCount.ToString();
+        numberUsers.text = infoPanelSetting.members.Count.ToString();
+        numberInvites.text = infoPanelSetting.requests.Count.ToString();
         
         LayoutRebuilder.ForceRebuildLayoutImmediate(panelAdmin.GetComponent<RectTransform>()); //Update UI
         LayoutRebuilder.ForceRebuildLayoutImmediate(panelUser.GetComponent<RectTransform>());
     }
     public void AddMemberToContent_User(string principalID, string username, string iconSprite, RoleUser roleUser){
         
-        GameObject newMember = Instantiate(prefabMember_User, contentMembers_User.transform);
+        GameObject newMember = Instantiate(prefabMember_User, contentMembersPanelUser.transform);
         MemberPrefabToUser memberPrefab = newMember.GetComponent<MemberPrefabToUser>();
         
         //memberPrefab.icon.sprite = iconSprite;
@@ -120,10 +123,11 @@ public class GroupSettingsManager : MonoBehaviour
                 break;
         }
         memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID);});
+        
     }
     public void AddMemberToContent_Admin(string principalID, string username, string iconSprite, RoleUser roleUser, int idGroup){
         
-        GameObject newMember = Instantiate(prefabMember, contentMembers_User.transform);
+        GameObject newMember = Instantiate(prefabMember, contentMembers_user.transform);
         MemberPrefabToAdmin memberPrefab = newMember.GetComponent<MemberPrefabToAdmin>();
 
         //memberPrefab.icon.sprite = iconSprite;
@@ -137,6 +141,7 @@ public class GroupSettingsManager : MonoBehaviour
                 memberPrefab.button1.onClick.AddListener(() => { MakeAdmin(principalID, idGroup);} );
                 memberPrefab.buttonText2.text = "Kick";
                 memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup);} );
+                newMember.transform.SetParent(contentMembers_user.transform);
                 break;
             case RoleUser.Admin:
                 memberPrefab.userRoleDot.color = new Color(0f, 0.7607843f, 1f, 1f);
@@ -144,11 +149,13 @@ public class GroupSettingsManager : MonoBehaviour
                 memberPrefab.button1.onClick.AddListener(() => { RemoveAdmin(principalID, idGroup);} );
                 memberPrefab.buttonText2.text = "Kick";
                 memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup);} );
+                newMember.transform.SetParent(contentMembers_admin.transform);
                 break;
             case RoleUser.Owner:
                 memberPrefab.userRoleDot.color = new Color(1f, 0.4713461f, 0f, 1f);
                 memberPrefab.button1.gameObject.SetActive(false);
                 memberPrefab.button2.gameObject.SetActive(false);
+                newMember.transform.SetParent(contentMembers_owner.transform);
                 break;
         }
         //Modificar esto luego
@@ -234,7 +241,7 @@ public class GroupSettingsManager : MonoBehaviour
         public string nameGroup;
         public string avatarGroup;
         public string descriptionGroup;
-        public bool is_private;
+        public bool isPrivate;
         public List<MembersGroup> members;
         public List<RequestsGroup> requests;
     }

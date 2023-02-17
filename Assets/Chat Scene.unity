@@ -18478,7 +18478,7 @@ MonoBehaviour:
   buttonSliderStates: {fileID: 821432728}
   transferOwnership_Gameobject: {fileID: 132371507}
   prefabMember_User: {fileID: 1628340793862882654, guid: 8ada5a0b2b627a24aa5e6a5e5ed32150, type: 3}
-  contentMembers_User: {fileID: 123984888}
+  contentMembersPanelUser: {fileID: 123984888}
   iconGroup_User: {fileID: 835720105}
   tittleGroup_User: {fileID: 873526679}
   descriptionGroup_User: {fileID: 412216465}
@@ -28630,7 +28630,22 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1248833789}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 750004682}
+        m_TargetAssemblyTypeName: GroupSettingsManager, Assembly-CSharp
+        m_MethodName: GetInfoPanelSettings
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: '{"nameGroup":"Tokio","avatarGroup":"","descriptionGroup":"Testing
+            description","isPrivate":true,"roleuser":1,"members":[{"roleuser":0,"username":"Pk#1234","principalID":"aca47-jlvn2-rjczs-tigrb-e3ec5-mly6v-balql-nwill-vyyk6-5kuvn-fae","avatarUser":""}],"requests":[{"username":"Pending
+            pk","principalID":"24brs-3kr62-c4smi-ptm26-ysspf-zbgrx-lfuux-4sb2b-23wfo-ojhey-rae","avatarUser":"","timeStamp":"Invalid
+            Date"}]} '
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1248833789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36221,7 +36236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.5379276, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
