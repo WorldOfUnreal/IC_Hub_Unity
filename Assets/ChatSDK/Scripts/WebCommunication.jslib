@@ -39,5 +39,25 @@ mergeInto(LibraryManager.library, {
   JSLeaveGroup: function (idChat) {
     ReactUnityWebGL.LeaveGroup(idChat);
   },
-    
+  
+  JSAcceptRequest: function (json) {
+    ReactUnityWebGL.AcceptRequest(Pointer_stringify(json));
+  },
+  
+  JSDenyRequest: function (json) {
+    ReactUnityWebGL.DenyRequest(Pointer_stringify(json));
+  },
+  
+  JSKickUser: function (json) {
+    ReactUnityWebGL.KickUser(Pointer_stringify(json));
+  },
+  
+  JSMakeAdmin: function (json) {
+    ReactUnityWebGL.MakeAdmin(Pointer_stringify(json));
+  },
+  
+  JSRemoveAdmin: function (json) {
+    ReactUnityWebGL.RemoveAdmin(Pointer_stringify(json));
+  },
+  
 });
