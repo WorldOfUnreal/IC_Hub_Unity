@@ -60,4 +60,20 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.RemoveAdmin(Pointer_stringify(json));
   },
   
+  JSSetGroupPrivate: function (idGroup) {
+    ReactUnityWebGL.SetGroupPrivate(idGroup);
+  },
+  
+  JSSetGroupPublic: function (idGroup) {
+    ReactUnityWebGL.SetGroupPublic(idGroup);
+  },
+  
+  JSChangeTitle: function (json) {
+    ReactUnityWebGL.ChangeTitle(Pointer_stringify(json));
+  },
+    
+  JSChangeDescription: function (json) {
+    ReactUnityWebGL.ChangeDescription(Pointer_stringify(json));
+  },
+  
 });

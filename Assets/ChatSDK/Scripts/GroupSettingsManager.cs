@@ -22,10 +22,17 @@ public class GroupSettingsManager : MonoBehaviour
     public GameObject contentMembers_user;
     public Image iconGroup;
     public TMP_InputField tittleGroup;
+    public Button editTitleGroup;
+    public Button editConfirmTitleGroup;
+    public Button editCancelTitleGroup;
     public TMP_InputField descriptionGroup;
+    public Button editDescriptionGroup;
+    public Button editConfirmDescriptionGroup;
+    public Button editCancelDescriptionGroup;
     public TMP_Text numberUsers;
     public TMP_Text numberInvites;
     public Animator buttonSliderStates;
+    public Button buttonSlider;
     public GameObject transferOwnership_Gameobject;
     
     [Header("User Panel : ")]
@@ -34,6 +41,11 @@ public class GroupSettingsManager : MonoBehaviour
     public Image iconGroup_User;
     public TMP_Text tittleGroup_User;
     public TMP_Text descriptionGroup_User;
+
+    private string originalTitle;
+    private string originalDescription;
+    private InfoPanelSetting infoPanelSetting;
+
     
     [DllImport("__Internal")]
     private static extern void JSAcceptRequest(string json);
@@ -45,11 +57,23 @@ public class GroupSettingsManager : MonoBehaviour
     private static extern void JSMakeAdmin(string json);
     [DllImport("__Internal")]
     private static extern void JSRemoveAdmin(string json);
+    [DllImport("__Internal")]
+    private static extern void JSSetGroupPrivate(int id);
+    [DllImport("__Internal")]
+    private static extern void JSSetGroupPublic(int id);
+    [DllImport("__Internal")]
+    private static extern void JSChangeTitle(string json);
+    [DllImport("__Internal")]
+    private static extern void JSChangeDescription(string json);
     
     public void GetInfoPanelSettings(string json)
     {
-        InfoPanelSetting infoPanelSetting = JsonUtility.FromJson<InfoPanelSetting>(json);
-
+        infoPanelSetting = JsonUtility.FromJson<InfoPanelSetting>(json);
+        originalTitle = infoPanelSetting.nameGroup;
+        originalDescription = infoPanelSetting.descriptionGroup;
+        CancelEditDescription(); 
+        CancelEditTitle();
+        
         if (infoPanelSetting.roleuser == RoleUser.User)
         {
             panelUser.SetActive(true); panelAdmin.SetActive(false);
@@ -69,10 +93,20 @@ public class GroupSettingsManager : MonoBehaviour
             panelUser.SetActive(false); panelAdmin.SetActive(true);
         //Fill overview
             //iconGroup.sprite = infoPanelSetting.avatarGroup;
-            tittleGroup.text = infoPanelSetting.nameGroup;
-            descriptionGroup.text = infoPanelSetting.descriptionGroup;
-            //buttonSliderStates.Play( (infoPanelSetting.is_private) ? "InRight" : "InLeft"  );
-            if (infoPanelSetting.isPrivate){ buttonSliderStates.Play("InRight"); }else{ buttonSliderStates.Play("InLeft"); }
+            tittleGroup.text = infoPanelSetting.nameGroup; 
+            descriptionGroup.text = infoPanelSetting.descriptionGroup; 
+            if (infoPanelSetting.isPrivate)
+            {
+                buttonSliderStates.Play("InRight");
+                buttonSlider.onClick.RemoveAllListeners();
+                buttonSlider.onClick.AddListener(() => { SetGroupPublic(infoPanelSetting.nameGroup, infoPanelSetting.idGroup);});
+            }
+            else
+            {
+                buttonSliderStates.Play("InLeft");
+                buttonSlider.onClick.RemoveAllListeners();
+                buttonSlider.onClick.AddListener(() => { SetGroupPrivate(infoPanelSetting.nameGroup, infoPanelSetting.idGroup);});
+            }
             transferOwnership_Gameobject.SetActive(infoPanelSetting.roleuser == RoleUser.Owner);
         //Fill members
             foreach (Transform t in contentMembers_owner.transform) { GameObject.Destroy(t.gameObject); }
@@ -210,6 +244,95 @@ public class GroupSettingsManager : MonoBehaviour
             string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSRemoveAdmin(json);
         },null, "Remove admin", "Cancel", "Do you want remove admin this User?", username, principalID);
+    }
+    private void SetGroupPrivate(string nameGroup, int idGroup)
+    {
+        buttonSliderStates.Play("ToRight");
+        CanvasPopup.Instance.OpenPopup(() => {
+            CanvasPopup.Instance.OpenLoadingPanel();
+            JSSetGroupPrivate(idGroup);
+        }, () =>
+        {
+            buttonSliderStates.Play("ToLeft");
+            CanvasPopup.Instance.ClosePopupFromConfirm();
+        }, "Set Private", "Cancel", "Do you want set private this group?", nameGroup, null);
+    }
+    private void SetGroupPublic(string nameGroup, int idGroup)
+    {
+        buttonSliderStates.Play("ToLeft");
+        CanvasPopup.Instance.OpenPopup(() => {
+            CanvasPopup.Instance.OpenLoadingPanel();
+            JSSetGroupPublic(idGroup);
+        }, () =>
+        {
+            buttonSliderStates.Play("ToRight");
+            CanvasPopup.Instance.ClosePopupFromConfirm();
+        }, "Set Public", "Cancel", "Do you want set public this group?", nameGroup, null);
+    }
+    
+    public void EditTitle()
+    {
+        editTitleGroup.gameObject.SetActive(false);
+        editConfirmTitleGroup.gameObject.SetActive(true);
+        editCancelTitleGroup.gameObject.SetActive(true);
+        tittleGroup.interactable = true;
+        tittleGroup.Select();
+    }
+    public void ConfirmEditTitle()
+    {
+        tittleGroup.interactable = false;
+        CanvasPopup.Instance.OpenPopup(() => {
+            editTitleGroup.gameObject.SetActive(true);
+            editConfirmTitleGroup.gameObject.SetActive(false);
+            editCancelTitleGroup.gameObject.SetActive(false);
+            CanvasPopup.Instance.OpenLoadingPanel();
+            string json = "{\"text\":\"" + tittleGroup.text + "\", \"idGroup\": " + infoPanelSetting.idGroup + "}";
+            JSChangeTitle(json);
+        }, () =>
+        {
+            tittleGroup.interactable = true;
+            CanvasPopup.Instance.ClosePopupFromConfirm();
+        },"Change Title","Cancel","Do you want change title of this group?", infoPanelSetting.nameGroup, null);
+    }
+    public void CancelEditTitle()
+    {
+        tittleGroup.interactable = false;
+        tittleGroup.text = originalTitle;
+        editTitleGroup.gameObject.SetActive(true);
+        editConfirmTitleGroup.gameObject.SetActive(false);
+        editCancelTitleGroup.gameObject.SetActive(false);
+    }
+    public void EditDescription()
+    {
+        editDescriptionGroup.gameObject.SetActive(false);
+        editConfirmDescriptionGroup.gameObject.SetActive(true);
+        editCancelDescriptionGroup.gameObject.SetActive(true);
+        descriptionGroup.interactable = true;
+        descriptionGroup.Select();
+    }
+    public void ConfirmEditDescription()
+    {
+        descriptionGroup.interactable = false;
+        CanvasPopup.Instance.OpenPopup(() => {
+            editDescriptionGroup.gameObject.SetActive(true);
+            editConfirmDescriptionGroup.gameObject.SetActive(false);
+            editCancelDescriptionGroup.gameObject.SetActive(false);
+            CanvasPopup.Instance.OpenLoadingPanel();
+            string json = "{\"text\":\"" + descriptionGroup.text + "\", \"idGroup\": " + infoPanelSetting.idGroup + "}";
+            JSChangeDescription(json);
+        }, () =>
+        {
+            descriptionGroup.interactable = true;
+            CanvasPopup.Instance.ClosePopupFromConfirm();
+        },"Change Description","Cancel","Do you want change description of this group?", infoPanelSetting.nameGroup, null);
+    }
+    public void CancelEditDescription()
+    {
+        descriptionGroup.interactable = false;
+        descriptionGroup.text = originalDescription;
+        editDescriptionGroup.gameObject.SetActive(true);
+        editConfirmDescriptionGroup.gameObject.SetActive(false);
+        editCancelDescriptionGroup.gameObject.SetActive(false);
     }
     private void CallGoToUser(string principalID)
     {
