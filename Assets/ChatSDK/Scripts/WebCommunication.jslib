@@ -24,8 +24,8 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.AddUserToGroup(Pointer_stringify(json));
   },
 
-  JSCreateGroup: function (groupname) {
-    ReactUnityWebGL.CreateGroup(Pointer_stringify(groupname));
+  JSCreateGroup: function (json) {
+    ReactUnityWebGL.CreateGroup(Pointer_stringify(json));
   },
   
   JSSearchGroup: function (searchtext) {

@@ -35,17 +35,14 @@ public class ChatManager : MonoBehaviour
     public GameObject groupObject;
     
     [SerializeField] private Button addButton;
-    public GameObject popupPanel, addQuestionPanel, addGroupPanel, addUserPanel;
-    public GameObject popupMoreSettings;
-    [SerializeField] private Button addGroupOptionButton;
+    public GameObject popupPanel;
     [SerializeField] private Button newGroupButton;
-    public InputField newGroupInput;
-    [SerializeField] private Button addUserToGroupOptionButton;
-    [SerializeField] private Button addUserToGroupButton;
-    public InputField addUserToGroupInput;
+    public TMP_InputField newGroupNameInput;
+    public TMP_InputField newGroupDescriptionInput;
     [SerializeField] private Button closePopupButton;
-    [SerializeField] private Button returnToPopup1;
-    [SerializeField] private Button returnToPopup2;
+
+    public GameObject popupMoreSettings;
+    
     private bool openAddPopup = false;
 
     [Header("Toogle panel: ")] 
@@ -66,7 +63,7 @@ public class ChatManager : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void JSAddUserToGroup(string json);
     [DllImport("__Internal")]
-    private static extern void JSCreateGroup(string text);
+    private static extern void JSCreateGroup(string json);
     [DllImport("__Internal")]
     private static extern void JSSelectChatGroup(int id);
     [DllImport("__Internal")]
@@ -79,14 +76,9 @@ public class ChatManager : MonoBehaviour
         popupPanel.SetActive(false);
         
         addButton.onClick.AddListener(() => { ToggleAddPopup(); });
-        addGroupOptionButton.onClick.AddListener(() => { GroupOptionButton(); });
         newGroupButton.onClick.AddListener(() => { CreateGroup(); });
-        addUserToGroupOptionButton.onClick.AddListener(() => { AddUserToGroupOptionButton(); });
-        addUserToGroupButton.onClick.AddListener(() => { AddUserToGroupButton(); });
         /// Popup -> Return
         closePopupButton.onClick.AddListener(() => { ToggleAddPopup(); });
-        returnToPopup1.onClick.AddListener(() => { returnToPopup(); });
-        returnToPopup2.onClick.AddListener(() => { returnToPopup(); });
         /// Open <-> Close
         openedPanel.SetActive(true);
         closedPanel.SetActive(false);
@@ -127,14 +119,14 @@ public class ChatManager : MonoBehaviour
                 chatBox.text = pasteTxt;
                 pasteTxt = "";
             } else {
-                if(newGroupInput.isFocused == true){
+                if(newGroupNameInput.isFocused == true){
                     /// Create group
-                    newGroupInput.text = pasteTxt;
+                    newGroupNameInput.text = pasteTxt;
                     pasteTxt = "";
                 } else {
-                    if(addUserToGroupInput.isFocused == true){
+                    if(newGroupDescriptionInput.isFocused == true){
                         /// Add user to group
-                        addUserToGroupInput.text = pasteTxt;
+                        newGroupDescriptionInput.text = pasteTxt;
                         pasteTxt = "";
                     } else {
                         /*if(newUserInput.isFocused == true){
@@ -255,7 +247,6 @@ public class ChatManager : MonoBehaviour
 
     public void ToggleAddPopup(){
         if(openAddPopup == false){
-            returnToPopup();
             openAddPopup = true;
             popupPanel.SetActive(true);
         } else {
@@ -264,24 +255,9 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-    public void returnToPopup(){
-        addQuestionPanel.SetActive(true);
-        addGroupPanel.SetActive(false);
-        addUserPanel.SetActive(false);
-    }
+    
 
-    public void GroupOptionButton(){
-        addQuestionPanel.SetActive(false);
-        addGroupPanel.SetActive(true);
-        addUserPanel.SetActive(false);
-    }
-
-    public void AddUserToGroupOptionButton(){
-        addQuestionPanel.SetActive(false);
-        addGroupPanel.SetActive(false);
-        addUserPanel.SetActive(true);
-    }
-
+    /*
     public void AddUserToGroupButton(){
         /// Add new user to currently selected group
         if(addUserToGroupInput.text != ""){
@@ -291,10 +267,15 @@ public class ChatManager : MonoBehaviour
             JSAddUserToGroup(jsn);
         }
     }
+    */
 
     public void CreateGroup(){
-        if(newGroupInput.text != ""){
-            JSCreateGroup(newGroupInput.text);
+        if(newGroupNameInput.text != ""){
+            CanvasPopup.Instance.OpenPopup(() => {
+                CanvasPopup.Instance.OpenLoadingPanel();
+                string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\": " + newGroupDescriptionInput.text + "}" ;
+                JSCreateGroup(json);
+            }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null);
         }
     }
 

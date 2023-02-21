@@ -269,7 +269,6 @@ public class GroupSettingsManager : MonoBehaviour
             CanvasPopup.Instance.ClosePopupFromConfirm();
         }, "Set Public", "Cancel", "Do you want set public this group?", nameGroup, null);
     }
-    
     public void EditTitle()
     {
         editTitleGroup.gameObject.SetActive(false);
