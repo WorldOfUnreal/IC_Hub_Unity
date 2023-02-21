@@ -138,17 +138,17 @@ public class GroupSettingsManager : MonoBehaviour
             case RoleUser.User:
                 memberPrefab.userRoleDot.color = new Color(1f, 1f, 1f, 1f);
                 memberPrefab.buttonText1.text = "Make Admin";
-                memberPrefab.button1.onClick.AddListener(() => { MakeAdmin(principalID, idGroup);} );
+                memberPrefab.button1.onClick.AddListener(() => { MakeAdmin(principalID, idGroup, username);} );
                 memberPrefab.buttonText2.text = "Kick";
-                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup);} );
+                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup, username);} );
                 newMember.transform.SetParent(contentMembers_user.transform);
                 break;
             case RoleUser.Admin:
                 memberPrefab.userRoleDot.color = new Color(0f, 0.7607843f, 1f, 1f);
                 memberPrefab.buttonText1.text = "Remove Admin";
-                memberPrefab.button1.onClick.AddListener(() => { RemoveAdmin(principalID, idGroup);} );
+                memberPrefab.button1.onClick.AddListener(() => { RemoveAdmin(principalID, idGroup, username);} );
                 memberPrefab.buttonText2.text = "Kick";
-                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup);} );
+                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup, username);} );
                 newMember.transform.SetParent(contentMembers_admin.transform);
                 break;
             case RoleUser.Owner:
@@ -175,7 +175,7 @@ public class GroupSettingsManager : MonoBehaviour
                 CanvasPopup.Instance.OpenLoadingPanel();
                 string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}" ;
                 JSAcceptRequest(json);
-            });
+            }, null, "Accept", "Cancel", "Do you want accept this User?", username, principalID);
         });
         requestPrefab.buttonDeny.onClick.AddListener(() =>
         {
@@ -184,32 +184,32 @@ public class GroupSettingsManager : MonoBehaviour
                 CanvasPopup.Instance.OpenLoadingPanel();
                 string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
                 JSDenyRequest(json);
-            });
+            }, null, "Deny", "Cancel", "Do you want deny this User?", username, principalID);
         });
     }
-    private void KickUser(string principalID, int idGroup)
+    private void KickUser(string principalID, int idGroup, string username)
     {
         CanvasPopup.Instance.OpenPopup(() => {
             CanvasPopup.Instance.OpenLoadingPanel();
             string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSKickUser(json);
-        });
+        }, null, "Kick", "Cancel", "Do you want kick this User?", username, principalID);
     }
-    private void MakeAdmin(string principalID, int idGroup)
+    private void MakeAdmin(string principalID, int idGroup, string username)
     {
         CanvasPopup.Instance.OpenPopup(() => {
             CanvasPopup.Instance.OpenLoadingPanel();
             string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSMakeAdmin(json);
-        });
+        }, null, "Make admin", "Cancel", "Do you want make admin this User?", username, principalID);
     }
-    private void RemoveAdmin(string principalID, int idGroup)
+    private void RemoveAdmin(string principalID, int idGroup, string username)
     {
         CanvasPopup.Instance.OpenPopup(() => {
             CanvasPopup.Instance.OpenLoadingPanel();
             string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSRemoveAdmin(json);
-        });
+        },null, "Remove admin", "Cancel", "Do you want remove admin this User?", username, principalID);
     }
     private void CallGoToUser(string principalID)
     {
@@ -217,7 +217,7 @@ public class GroupSettingsManager : MonoBehaviour
             CanvasPopup.Instance.OpenLoadingPanel();
             /*string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSRemoveAdmin(json);*/
-        });
+        }, null, null, null, null, null, null);
     }
  
     [System.Serializable]

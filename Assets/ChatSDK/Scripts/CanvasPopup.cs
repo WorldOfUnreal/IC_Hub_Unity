@@ -16,10 +16,16 @@ public class CanvasPopup : MonoBehaviour
         else { Instance = this; } 
     }
     
-    public Button buttonYes;
     public Animator panelPopupAnimator;
     public Animator iconSearchAnimator;
-    public TMP_Text TitlePopup;
+    public Button buttonYes;
+    public TMP_Text buttonYesTMP;
+    public Button buttonNo;
+    public TMP_Text buttonNoTMP;
+    public TMP_Text titlePopup;
+    public TMP_Text descriptionPopup;
+    public TMP_Text middleTMP1;
+    public TMP_Text middleTMP2;
 
     public void ClosePopupFromConfirm()
     {
@@ -29,10 +35,21 @@ public class CanvasPopup : MonoBehaviour
     {
         panelPopupAnimator.Play("Success_To_Closed");
     }
-    public void OpenPopup(UnityAction call)
+    public void OpenPopup(UnityAction callYes,UnityAction callNo,string buttonYes_Txt,string buttonNo_Txt,string description,string middleText1,string middleText2)
     {
         buttonYes.onClick.RemoveAllListeners();
-        buttonYes.onClick.AddListener(call);
+        buttonYes.onClick.AddListener(callYes);
+        buttonYesTMP.text = buttonYes_Txt;
+        
+        buttonNo.onClick.RemoveAllListeners();
+        if (callNo == null) { buttonNo.onClick.AddListener(ClosePopupFromConfirm); }
+        else { buttonNo.onClick.AddListener(callNo); }
+        buttonNoTMP.text = buttonNo_Txt;
+
+        descriptionPopup.text = description;
+        middleTMP1.gameObject.SetActive(middleText1 != null); middleTMP1.text = middleText1;
+        middleTMP2.gameObject.SetActive(middleText2 != null); middleTMP2.text = middleText2;
+        
         panelPopupAnimator.Play("Open_Confirm_Panel");
        
     }
@@ -53,10 +70,10 @@ public class CanvasPopup : MonoBehaviour
         }
     }
 
-    public void ChangeTitleNameToConfirm() { TitlePopup.text = "CONFIRM"; }
-    public void ChangeTitleNameToProcessing() { TitlePopup.text = "PROCESSING"; }
-    public void ChangeTitleNameToSuccess() { TitlePopup.text = "SUCCESS"; }
-    public void ChangeTitleNameToFailed() { TitlePopup.text = "FAILED"; }
+    public void ChangeTitleNameToConfirm() { titlePopup.text = "CONFIRM"; }
+    public void ChangeTitleNameToProcessing() { titlePopup.text = "PROCESSING"; }
+    public void ChangeTitleNameToSuccess() { titlePopup.text = "SUCCESS"; }
+    public void ChangeTitleNameToFailed() { titlePopup.text = "FAILED"; }
 
     public void StopSearchIconAnim() { iconSearchAnimator.Play("Searching_Stop"); }
     public void StartSearchIconAnim() { iconSearchAnimator.Play("Searching");}

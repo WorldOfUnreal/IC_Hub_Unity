@@ -84,21 +84,27 @@ public class SearchGroupManager : MonoBehaviour
         if (isPrivate)
         {
             groupPrefab.buttonText.text = "Request Join";
+            groupPrefab.button.onClick.AddListener(() =>
+            {
+                CanvasPopup.Instance.OpenPopup(() =>
+                {
+                    CanvasPopup.Instance.OpenLoadingPanel();
+                    JoinRequestGroup(id);
+                },null, "Request Join", "Cancel", "Do you want send request to this group?", name, null);
+            });
         }
         else
         {
             groupPrefab.buttonText.text = "Join";
-        }
-        
-        groupPrefab.button.onClick.AddListener(() =>
-        {
-            CanvasPopup.Instance.OpenPopup(() =>
+            groupPrefab.button.onClick.AddListener(() =>
             {
-                CanvasPopup.Instance.OpenLoadingPanel();
-                JoinRequestGroup(id);
+                CanvasPopup.Instance.OpenPopup(() =>
+                {
+                    CanvasPopup.Instance.OpenLoadingPanel();
+                    JoinRequestGroup(id);
+                },null, "Join group", "Cancel", "Do you want to join this group?", name, null);
             });
-                
-        });
+        }
         
         groupsList.Add(g);
     }
