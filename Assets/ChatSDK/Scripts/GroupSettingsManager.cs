@@ -156,7 +156,7 @@ public class GroupSettingsManager : MonoBehaviour
                 memberPrefab.userRoleDot.color = new Color(1f, 0.4713461f, 0f, 1f);
                 break;
         }
-        memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID);});
+        memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID, username);});
         
     }
     public void AddMemberToContent_Admin(string principalID, string username, string iconSprite, RoleUser roleUser, int idGroup){
@@ -193,7 +193,7 @@ public class GroupSettingsManager : MonoBehaviour
                 break;
         }
         //Modificar esto luego
-        memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID);});
+        memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID, username);});
     }
     public void AddRequestToList(string principalID, string username, string timestamp, int idGroup){
         GameObject newRequest = Instantiate(prefabRequest, contentRequests.transform);
@@ -333,13 +333,9 @@ public class GroupSettingsManager : MonoBehaviour
         editConfirmDescriptionGroup.gameObject.SetActive(false);
         editCancelDescriptionGroup.gameObject.SetActive(false);
     }
-    private void CallGoToUser(string principalID)
+    private void CallGoToUser(string principalID, string username)
     {
-        CanvasPopup.Instance.OpenPopup(() => {
-            CanvasPopup.Instance.OpenLoadingPanel();
-            /*string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
-            JSRemoveAdmin(json);*/
-        }, null, null, null, null, null, null);
+        CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(principalID, username);
     }
  
     [System.Serializable]

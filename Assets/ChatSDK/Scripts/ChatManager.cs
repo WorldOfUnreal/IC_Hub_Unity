@@ -273,7 +273,7 @@ public class ChatManager : MonoBehaviour
         if(newGroupNameInput.text != ""){
             CanvasPopup.Instance.OpenPopup(() => {
                 CanvasPopup.Instance.OpenLoadingPanel();
-                string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\": " + newGroupDescriptionInput.text + "}" ;
+                string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\":\"" + newGroupDescriptionInput.text + "\"}" ;
                 JSCreateGroup(json);
             }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null);
         }

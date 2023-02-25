@@ -76,4 +76,8 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.ChangeDescription(Pointer_stringify(json));
   },
   
+  JSCallToUser: function (principalID) {
+    ReactUnityWebGL.CallToUser(Pointer_stringify(principalID));
+  },
+    
 });
