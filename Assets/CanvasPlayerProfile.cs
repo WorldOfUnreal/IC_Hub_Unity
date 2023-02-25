@@ -67,7 +67,10 @@ public class CanvasPlayerProfile : MonoBehaviour
             public string avatar;
             public string description;
             public string memberSince;
+            public RolePlayerProfile rolePlayerProfile;
         }
+        
+        public enum RolePlayerProfile { Owner, Nofriend, Requested, Friend }
 
        
     

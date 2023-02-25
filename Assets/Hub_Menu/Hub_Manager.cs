@@ -48,6 +48,38 @@ public class Hub_Manager : MonoBehaviour
         public string textButton;
         public string linkButton;
     }
+    [System.Serializable]
+    public class Token{
+        public string avatar;
+        public string name;
+        public string value;
+        public int id;
+    }
+    [System.Serializable]
+    public class ListTokens {
+        public List<Token> data;
+    }
+    [System.Serializable]
+    public class Friend{
+        public string avatar;
+        public string name;
+        public string status;
+        public int id;
+    }
+    [System.Serializable]
+    public class ListFriends {
+        public List<Friend> data;
+    }
+    [System.Serializable]
+    public class Group{
+        public string avatar;
+        public string name;
+        public int id;
+    }
+    [System.Serializable]
+    public class ListGroups {
+        public List<Group> data;
+    }
 
     public ListApps listApps = new ListApps();
     [Header("Scroll Contents & Prefabs: ")] 
@@ -74,9 +106,15 @@ public class Hub_Manager : MonoBehaviour
     public GoToURLButton patchNotesButton;
     public GoToURLButton launchButton;
     
-    [Header("UI Tokens Content: ")] 
-    public TMP_Text slotICPAmount;
-
+    [Header("UI Tokens, Friends, Groups: ")] 
+    public GameObject contentTokens;
+    public GameObject prefabToken;
+    public GameObject contentFriends;
+    public GameObject prefabFriend;
+    public GameObject contentGroups;
+    public GameObject prefabGroup;
+    
+    [Header("UI Categorys: ")] 
     public string categoryActual = "ALL";
     public List<AppIconPrefab> listAppIconPrefab = new List<AppIconPrefab>();
 
@@ -133,7 +171,44 @@ public class Hub_Manager : MonoBehaviour
     }
     public void GetTokensInfo(string json)
     {
-        slotICPAmount.text = json;
+        foreach (Transform t in contentTokens.transform) { GameObject.Destroy(t.gameObject); }
+        
+        ListTokens listTokens = JsonUtility.FromJson<ListTokens>(json);
+        
+        foreach (Token g in listTokens.data)
+        {
+            GameObject newToken = Instantiate(prefabToken, contentTokens.transform);
+            Hub_TokenPrefab tokenPrefab = newToken.GetComponent<Hub_TokenPrefab>();
+            tokenPrefab.nameToken.text = g.name;
+            tokenPrefab.valueToken.text = g.value;
+        }   
+    }
+    public void GetFriendsInfo(string json)
+    {
+        foreach (Transform t in contentFriends.transform) { GameObject.Destroy(t.gameObject); }
+        
+        ListFriends listFriends = JsonUtility.FromJson<ListFriends>(json);
+        
+        foreach (Friend g in listFriends.data)
+        {
+            GameObject newFriend = Instantiate(prefabFriend, contentFriends.transform);
+            Hub_FriendPrefab friendPrefab = newFriend.GetComponent<Hub_FriendPrefab>();
+            friendPrefab.nameFriend.text = g.name;
+            friendPrefab.statusTMP.text = g.status;
+        }   
+    }
+    public void GetGroupsInfo(string json)
+    {
+        foreach (Transform t in contentGroups.transform) { GameObject.Destroy(t.gameObject); }
+        
+        ListGroups listGroups = JsonUtility.FromJson<ListGroups>(json);
+        
+        foreach (Group g in listGroups.data)
+        {
+            GameObject newGroup = Instantiate(prefabGroup, contentGroups.transform);
+            Hub_GroupPrefab groupPrefab = newGroup.GetComponent<Hub_GroupPrefab>();
+            groupPrefab.nameGroup.text = g.name;
+        }   
     }
     
     public void OnClickAppIcon(int id)
