@@ -79,5 +79,13 @@ mergeInto(LibraryManager.library, {
   JSCallToUser: function (principalID) {
     ReactUnityWebGL.CallToUser(Pointer_stringify(principalID));
   },
+  
+  JSAcceptFriendRequest: function (principalID) {
+    ReactUnityWebGL.AcceptFriendRequest(Pointer_stringify(principalID));
+  },
+  
+  JSDenyFriendRequest: function (principalID) {
+    ReactUnityWebGL.DenyFriendRequest(Pointer_stringify(principalID));
+  },
     
 });
