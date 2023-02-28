@@ -87,5 +87,13 @@ mergeInto(LibraryManager.library, {
   JSDenyFriendRequest: function (principalID) {
     ReactUnityWebGL.DenyFriendRequest(Pointer_stringify(principalID));
   },
+  
+  JSSendFriendRequest: function (principalID) {
+    ReactUnityWebGL.SentFriendRequest(Pointer_stringify(principalID));
+  },
+  
+  JSSendMessageToUser: function (principalID) {
+    ReactUnityWebGL.SentFriendRequest(Pointer_stringify(principalID));
+  },
     
 });
