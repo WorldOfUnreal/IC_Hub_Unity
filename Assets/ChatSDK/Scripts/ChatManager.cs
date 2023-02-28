@@ -291,7 +291,7 @@ public class ChatManager : MonoBehaviour
             CanvasPopup.Instance.OpenPopup(() => {
                 CanvasPopup.Instance.OpenLoadingPanel();
                 string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\":\"" 
-                              + newGroupDescriptionInput.text + "\", \"isPrivate\":"+ isPrivate + "}" ;
+                              + newGroupDescriptionInput.text + "\", \"isPrivate\":\""+ isPrivate +"\"}" ;
                 JSCreateGroup(json);
             }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null);
         }
