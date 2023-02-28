@@ -22977,7 +22977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &811197179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40047,10 +40047,10 @@ MonoBehaviour:
   descriptionPopup: {fileID: 1345959066}
   principalID: {fileID: 966887836}
   memberSinceTMP: {fileID: 671558257}
-  button1: {fileID: 0}
-  buttonText1: {fileID: 0}
-  button2: {fileID: 0}
-  buttonText2: {fileID: 0}
+  button1: {fileID: 1695348336414096008}
+  buttonText1: {fileID: 1695348335690701116}
+  button2: {fileID: 395901704}
+  buttonText2: {fileID: 1436128920}
 --- !u!224 &1480372153 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1628340793862882655, guid: 8ada5a0b2b627a24aa5e6a5e5ed32150, type: 3}
