@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -19,6 +20,8 @@ public class NotificationsPanelManager : MonoBehaviour
     public GameObject prefabNotification;
     public GameObject contentNotification;
     public TMP_Text unreadNumber;
+
+    public string stringJson;
     
     [DllImport("__Internal")]
     private static extern void JSAcceptFriendRequest(string principalID);
@@ -42,7 +45,12 @@ public class NotificationsPanelManager : MonoBehaviour
         public List<Notification> notifications;
         public List<RequestsFriend> requests;
     }
-    
+
+    private void Start()
+    {
+        GetInfoNotificationPanel(stringJson);
+    }
+
     public void GetInfoNotificationPanel(string json)
     {
         InfoNotificationPanel infoNotificationPanel = JsonUtility.FromJson<InfoNotificationPanel>(json);
@@ -60,9 +68,9 @@ public class NotificationsPanelManager : MonoBehaviour
             AddRequestToList(g.principalID, g.username);
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriendRequests.GetComponent<RectTransform>());
-        requestFriendNumber.text = contentFriendRequests.transform.childCount.ToString();
+        requestFriendNumber.text = infoNotificationPanel.requests.Count.ToString();
 
-        allNotificationsNumber.text = (contentFriendRequests.transform.childCount + contentNotification.transform.childCount).ToString();
+        allNotificationsNumber.text = infoNotificationPanel.requests.Count.ToString();
     }
     
     public void AddRequestToList(string principalID, string username){
