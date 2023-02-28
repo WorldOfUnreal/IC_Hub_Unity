@@ -39,6 +39,9 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private Button newGroupButton;
     public TMP_InputField newGroupNameInput;
     public TMP_InputField newGroupDescriptionInput;
+    public Button buttonSlider;
+    public Animator buttonSliderAnimator;
+    public bool isPrivate = false;
     [SerializeField] private Button closePopupButton;
 
     public GameObject popupMoreSettings;
@@ -76,6 +79,7 @@ public class ChatManager : MonoBehaviour
         popupPanel.SetActive(false);
         
         addButton.onClick.AddListener(() => { ToggleAddPopup(); });
+        buttonSlider.onClick.AddListener(() => { TooglePrivate(); });
         newGroupButton.onClick.AddListener(() => { CreateGroup(); });
         /// Popup -> Return
         closePopupButton.onClick.AddListener(() => { ToggleAddPopup(); });
@@ -269,11 +273,25 @@ public class ChatManager : MonoBehaviour
     }
     */
 
+    public void TooglePrivate()
+    {
+        if (isPrivate)
+        {
+            buttonSliderAnimator.Play("ToLeft");
+        }
+        else
+        {
+            buttonSliderAnimator.Play("ToRight");
+        }
+        isPrivate = !isPrivate;
+    }
+
     public void CreateGroup(){
         if(newGroupNameInput.text != ""){
             CanvasPopup.Instance.OpenPopup(() => {
                 CanvasPopup.Instance.OpenLoadingPanel();
-                string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\":\"" + newGroupDescriptionInput.text + "\"}" ;
+                string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\":\"" 
+                              + newGroupDescriptionInput.text + "\", \"isPrivate\":"+ isPrivate + "}" ;
                 JSCreateGroup(json);
             }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null);
         }

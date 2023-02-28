@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NotificationsPanelManager : MonoBehaviour
 {
+    
+    public TMP_Text allNotificationsNumber;
+    
     [Header("Request Panel : ")]
     public GameObject prefabFriendRequest;
     public GameObject contentFriendRequests;
-    
+    public TMP_Text requestFriendNumber;
+
     [Header("Notifications Panel : ")]
     public GameObject prefabNotification;
     public GameObject contentNotification;
+    public TMP_Text unreadNumber;
     
     [DllImport("__Internal")]
     private static extern void JSAcceptFriendRequest(string principalID);
@@ -54,7 +60,9 @@ public class NotificationsPanelManager : MonoBehaviour
             AddRequestToList(g.principalID, g.username);
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriendRequests.GetComponent<RectTransform>());
-            
+        requestFriendNumber.text = contentFriendRequests.transform.childCount.ToString();
+
+        allNotificationsNumber.text = (contentFriendRequests.transform.childCount + contentNotification.transform.childCount).ToString();
     }
     
     public void AddRequestToList(string principalID, string username){

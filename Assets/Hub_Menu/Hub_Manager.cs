@@ -109,10 +109,13 @@ public class Hub_Manager : MonoBehaviour
     [Header("UI Tokens, Friends, Groups: ")] 
     public GameObject contentTokens;
     public GameObject prefabToken;
+    public TMP_Text separatorTokenNumber;
     public GameObject contentFriends;
     public GameObject prefabFriend;
+    public TMP_Text separatorFriendNumber;
     public GameObject contentGroups;
     public GameObject prefabGroup;
+    public TMP_Text separatorGroupNumber;
     
     [Header("UI Categorys: ")] 
     public string categoryActual = "ALL";
@@ -181,7 +184,8 @@ public class Hub_Manager : MonoBehaviour
             Hub_TokenPrefab tokenPrefab = newToken.GetComponent<Hub_TokenPrefab>();
             tokenPrefab.nameToken.text = g.name;
             tokenPrefab.valueToken.text = g.value;
-        }   
+        }
+        separatorTokenNumber.text = "- " + contentTokens.transform.childCount;
     }
     public void GetFriendsInfo(string json)
     {
@@ -196,6 +200,7 @@ public class Hub_Manager : MonoBehaviour
             friendPrefab.nameFriend.text = g.name;
             friendPrefab.statusTMP.text = g.status;
         }   
+        separatorFriendNumber.text = "- " + contentFriends.transform.childCount;
     }
     public void GetGroupsInfo(string json)
     {
@@ -209,6 +214,7 @@ public class Hub_Manager : MonoBehaviour
             Hub_GroupPrefab groupPrefab = newGroup.GetComponent<Hub_GroupPrefab>();
             groupPrefab.nameGroup.text = g.name;
         }   
+        separatorGroupNumber.text = "- " + contentGroups.transform.childCount;
     }
     
     public void OnClickAppIcon(int id)
