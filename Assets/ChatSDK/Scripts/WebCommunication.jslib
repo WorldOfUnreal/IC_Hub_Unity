@@ -93,7 +93,7 @@ mergeInto(LibraryManager.library, {
   },
   
   JSSendMessageToUser: function (principalID) {
-    ReactUnityWebGL.SentFriendRequest(Pointer_stringify(principalID));
+    ReactUnityWebGL.SendMessageToUser(Pointer_stringify(principalID));
   },
     
 });
