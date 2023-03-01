@@ -116,7 +116,8 @@ public class Hub_Manager : MonoBehaviour
     public GameObject contentGroups;
     public GameObject prefabGroup;
     public TMP_Text separatorGroupNumber;
-    
+
+
     [Header("UI Categorys: ")] 
     public string categoryActual = "ALL";
     public List<AppIconPrefab> listAppIconPrefab = new List<AppIconPrefab>();
@@ -126,7 +127,8 @@ public class Hub_Manager : MonoBehaviour
 
     private void Start()
     {
-        JSOnHubScene();
+       JSOnHubScene();
+        
     }
 
     public void ChangeCategory(string category)
@@ -177,7 +179,7 @@ public class Hub_Manager : MonoBehaviour
         foreach (Transform t in contentTokens.transform) { GameObject.Destroy(t.gameObject); }
         
         ListTokens listTokens = JsonUtility.FromJson<ListTokens>(json);
-        
+
         foreach (Token g in listTokens.data)
         {
             GameObject newToken = Instantiate(prefabToken, contentTokens.transform);
