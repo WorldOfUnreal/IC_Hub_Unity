@@ -80,6 +80,14 @@ public class Hub_Manager : MonoBehaviour
     public class ListGroups {
         public List<Group> data;
     }
+    
+    [System.Serializable]
+    public class UserProfileInfo {
+        public string username;
+        public string userState;
+        public string principalID;
+        public string avatar;
+    }
 
     public ListApps listApps = new ListApps();
     [Header("Scroll Contents & Prefabs: ")] 
@@ -105,6 +113,12 @@ public class Hub_Manager : MonoBehaviour
     public GoToURLButton newVersionButton;
     public GoToURLButton patchNotesButton;
     public GoToURLButton launchButton;
+    
+    [Header("UI User Info: ")] 
+    public Image avatarUser;
+    public TMP_Text userName;
+    public TMP_Text userState;
+    public Button buttonGoToUser;
     
     [Header("UI Tokens, Friends, Groups: ")] 
     public GameObject contentTokens;
@@ -218,7 +232,19 @@ public class Hub_Manager : MonoBehaviour
         }   
         separatorGroupNumber.text = "- " + listGroups.data.Count;
     }
-    
+    public void GetUserInfo(string json)
+    {
+       UserProfileInfo userProfileInfo = JsonUtility.FromJson<UserProfileInfo>(json);
+       //avatarUser;
+       userName.text = userProfileInfo.username;
+       userState.text = userProfileInfo.userState;
+       buttonGoToUser.onClick.RemoveAllListeners();
+       buttonGoToUser.onClick.AddListener((() =>
+       {
+           CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
+       }));
+    }
+
     public void OnClickAppIcon(int id)
     {
         bannerApp.sprite = loadingSprite;
