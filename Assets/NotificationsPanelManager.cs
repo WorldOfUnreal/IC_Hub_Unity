@@ -48,7 +48,7 @@ public class NotificationsPanelManager : MonoBehaviour
 
     private void Start()
     {
-        GetInfoNotificationPanel(stringJson);
+        //GetInfoNotificationPanel(stringJson);
     }
 
     public void GetInfoNotificationPanel(string json)
