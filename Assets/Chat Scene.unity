@@ -14995,8 +14995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -218.39}
-  m_SizeDelta: {x: 264.19, y: 67.01}
+  m_AnchoredPosition: {x: 0, y: -78.600006}
+  m_SizeDelta: {x: 264.19, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &523022812
 MonoBehaviour:
@@ -21453,8 +21453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -110.369995}
-  m_SizeDelta: {x: 264.19, y: 81.82}
+  m_AnchoredPosition: {x: 0, y: -52.4}
+  m_SizeDelta: {x: 264.19, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &756429961
 MonoBehaviour:
@@ -22266,7 +22266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 132.095, y: -205.29001}
+  m_AnchoredPosition: {x: 132.095, y: -65.5}
   m_SizeDelta: {x: 224.4, y: 26.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &773815523
@@ -40791,7 +40791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 132.095, y: -97.27}
+  m_AnchoredPosition: {x: 132.095, y: -39.300003}
   m_SizeDelta: {x: 224.4, y: 26.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499545983
@@ -41579,7 +41579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 2'
+  m_text: '- 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89f35a9dae395c34ebf1efd41fe3ef7c, type: 2}
   m_sharedMaterial: {fileID: 3471868544156387304, guid: 89f35a9dae395c34ebf1efd41fe3ef7c, type: 2}
@@ -44529,7 +44529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 2/10'
+  m_text: '- 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89f35a9dae395c34ebf1efd41fe3ef7c, type: 2}
   m_sharedMaterial: {fileID: 3471868544156387304, guid: 89f35a9dae395c34ebf1efd41fe3ef7c, type: 2}
@@ -45968,7 +45968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 2'
+  m_text: '- 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89f35a9dae395c34ebf1efd41fe3ef7c, type: 2}
   m_sharedMaterial: {fileID: 3471868544156387304, guid: 89f35a9dae395c34ebf1efd41fe3ef7c, type: 2}
@@ -46529,7 +46529,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -26.2}
-  m_SizeDelta: {x: 264.19, y: 57.97}
+  m_SizeDelta: {x: 264.19, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1765521962
 MonoBehaviour:
@@ -57179,6 +57179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FriendPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 960603855383604593, guid: 0c968695e701e0146a2e98f1538f93a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c968695e701e0146a2e98f1538f93a9, type: 3}
 --- !u!224 &1035676879902812902
@@ -57818,6 +57822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TokenPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5082458134366775274, guid: 671684dc6d0e29a41b3cac8f184c9b6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 671684dc6d0e29a41b3cac8f184c9b6b, type: 3}
 --- !u!1001 &5800248490712291079
@@ -58015,6 +58023,10 @@ PrefabInstance:
     - target: {fileID: 6230204859980239382, guid: fae00c6ce3ae55c42a3413c7fdc15fd9, type: 3}
       propertyPath: m_Name
       value: GroupPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6230204859980239382, guid: fae00c6ce3ae55c42a3413c7fdc15fd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae00c6ce3ae55c42a3413c7fdc15fd9, type: 3}

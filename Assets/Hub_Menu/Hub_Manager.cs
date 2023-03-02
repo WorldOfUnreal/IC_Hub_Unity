@@ -202,6 +202,7 @@ public class Hub_Manager : MonoBehaviour
             tokenPrefab.valueToken.text = g.value;
         }
         separatorTokenNumber.text = "- " + listTokens.data.Count;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI
     }
     public void GetFriendsInfo(string json)
     {
@@ -217,6 +218,7 @@ public class Hub_Manager : MonoBehaviour
             friendPrefab.statusTMP.text = g.status;
         }   
         separatorFriendNumber.text = "- " + listFriends.data.Count;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.GetComponent<RectTransform>());  //Update UI
     }
     public void GetGroupsInfo(string json)
     {
@@ -231,6 +233,7 @@ public class Hub_Manager : MonoBehaviour
             groupPrefab.nameGroup.text = g.name;
         }   
         separatorGroupNumber.text = "- " + listGroups.data.Count;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI
     }
     public void GetUserInfo(string json)
     {
