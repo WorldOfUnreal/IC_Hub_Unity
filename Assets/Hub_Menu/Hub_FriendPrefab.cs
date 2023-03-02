@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,4 +12,6 @@ public class Hub_FriendPrefab : MonoBehaviour
     public TMP_Text nameFriend;
     public TMP_Text statusTMP;
     public Image iconAppInUse;
+    public Button button;
+    
 }

@@ -3,8 +3,8 @@ mergeInto(LibraryManager.library, {
   // the event listeners name and make sure the
   // parameters match as well.
 
-  JSWalletsLogin: function (walletID) {
-    ReactUnityWebGL.WalletsLogin(Pointer_stringify(walletID));
+  JSWalletsLogin: function (json) {
+    ReactUnityWebGL.WalletsLogin(Pointer_stringify(json));
   },
 
   JSSetNameLogin: function (accountName) {

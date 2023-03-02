@@ -64,7 +64,7 @@ public class Hub_Manager : MonoBehaviour
         public string avatar;
         public string name;
         public string status;
-        public int id;
+        public string principalID;
     }
     [System.Serializable]
     public class ListFriends {
@@ -119,7 +119,8 @@ public class Hub_Manager : MonoBehaviour
     public TMP_Text userName;
     public TMP_Text userState;
     public Button buttonGoToUser;
-    
+    public Button buttonGoToUserCornerLeftDown1;
+    public Button buttonGoToUserCornerLeftDown2;
     [Header("UI Tokens, Friends, Groups: ")] 
     public GameObject contentTokens;
     public GameObject prefabToken;
@@ -216,6 +217,7 @@ public class Hub_Manager : MonoBehaviour
             Hub_FriendPrefab friendPrefab = newFriend.GetComponent<Hub_FriendPrefab>();
             friendPrefab.nameFriend.text = g.name;
             friendPrefab.statusTMP.text = g.status;
+            friendPrefab.button.onClick.AddListener(()=>{ CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(g.principalID, g.name); });
         }   
         separatorFriendNumber.text = "- " + listFriends.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.GetComponent<RectTransform>());  //Update UI
@@ -242,7 +244,17 @@ public class Hub_Manager : MonoBehaviour
        userName.text = userProfileInfo.username;
        userState.text = userProfileInfo.userState;
        buttonGoToUser.onClick.RemoveAllListeners();
+       buttonGoToUserCornerLeftDown1.onClick.RemoveAllListeners();
+       buttonGoToUserCornerLeftDown2.onClick.RemoveAllListeners();
        buttonGoToUser.onClick.AddListener((() =>
+       {
+           CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
+       }));
+       buttonGoToUserCornerLeftDown1.onClick.AddListener((() =>
+       {
+           CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
+       }));
+       buttonGoToUserCornerLeftDown2.onClick.AddListener((() =>
        {
            CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
        }));

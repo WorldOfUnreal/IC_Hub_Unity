@@ -10,6 +10,7 @@ public class NotificationsPanelManager : MonoBehaviour
 {
     
     public TMP_Text allNotificationsNumber;
+    public TMP_Text allNotificationsNumberChatClosed;
     
     [Header("Request Panel : ")]
     public GameObject prefabFriendRequest;
@@ -71,6 +72,7 @@ public class NotificationsPanelManager : MonoBehaviour
         requestFriendNumber.text = infoNotificationPanel.requests.Count.ToString();
 
         allNotificationsNumber.text = infoNotificationPanel.requests.Count.ToString();
+        allNotificationsNumberChatClosed.text = infoNotificationPanel.requests.Count.ToString();
     }
     
     public void AddRequestToList(string principalID, string username){

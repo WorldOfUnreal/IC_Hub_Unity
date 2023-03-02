@@ -13,6 +13,7 @@ public class Message: MonoBehaviour
     public TMP_Text timestamp;
     public TMP_Text contentMessage;
     public MessageType messageType;
+    public Button button;
 
     public enum MessageType
     {

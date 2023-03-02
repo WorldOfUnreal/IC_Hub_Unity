@@ -28,11 +28,12 @@ public class LoginManager : MonoBehaviour
     [SerializeField] GameObject avatarPanel;
     [SerializeField] TMP_Text userInfo_NameHash;
     [SerializeField] TMP_Text userInfo_Account;
+    [SerializeField] Toggle toggleKeepLogin;
     
     [SerializeField] string mainScene = "Menu";
     /// WebGL
     [DllImport("__Internal")]
-    public static extern void JSWalletsLogin(string walletID);
+    public static extern void JSWalletsLogin(string json);
     [DllImport("__Internal")]
     public static extern void JSSetNameLogin(string accountName);
     [DllImport("__Internal")]
@@ -92,25 +93,25 @@ public class LoginManager : MonoBehaviour
     //Calls to React WebGL
     public void StoicLogin()
     {
-        JSWalletsLogin("StoicWallet");
+        JSWalletsLogin("{\"wallet\":\"StoicWallet\", \"KeepLogin\":\""+ toggleKeepLogin.isOn +"\"}");
         walletsPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
     public void IdentityLogin()
     {
-        JSWalletsLogin("IdentityWallet");
+        JSWalletsLogin("{\"wallet\":\"IdentityWallet\", \"KeepLogin\":\""+ toggleKeepLogin.isOn +"\"}");
         walletsPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
     public void InfinityLogin()
     {
-        JSWalletsLogin("InfinityWallet");
+        JSWalletsLogin("{\"wallet\":\"InfinityWallet\", \"KeepLogin\":\""+ toggleKeepLogin.isOn +"\"}");
         walletsPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
     public void PlugLogin()
     {
-        JSWalletsLogin("PlugWallet");
+        JSWalletsLogin("{\"wallet\":\"PlugWallet\", \"KeepLogin\":\""+ toggleKeepLogin.isOn +"\"}");
         walletsPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }

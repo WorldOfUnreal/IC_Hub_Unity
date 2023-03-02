@@ -23,7 +23,7 @@ public class ChatManager : MonoBehaviour
 
     private string pasteTxt = "";
 
-    public GameObject chatPanel, chatCanvas, textObject;
+    public GameObject chatPanel, textObject;
     public TMP_InputField chatBox;
     //set the colors in the inspector
     public Color playerMessage, info;
@@ -75,7 +75,6 @@ public class ChatManager : MonoBehaviour
     void Start()
     {
         username = "";
-        chatCanvas.SetActive(false);
         popupPanel.SetActive(false);
         
         addButton.onClick.AddListener(() => { ToggleAddPopup(); });
@@ -84,8 +83,8 @@ public class ChatManager : MonoBehaviour
         /// Popup -> Return
         closePopupButton.onClick.AddListener(() => { ToggleAddPopup(); });
         /// Open <-> Close
-        openedPanel.SetActive(true);
-        closedPanel.SetActive(false);
+        openedPanel.SetActive(false);
+        closedPanel.SetActive(true);
         btn_closePanel.onClick.AddListener(() => { ToggleFullPanel(); });
         btn_openPanel.onClick.AddListener(() => { ToggleFullPanel(); });
     }
@@ -159,7 +158,8 @@ public class ChatManager : MonoBehaviour
     
 
     public void Initialize(){
-        chatCanvas.SetActive(true);
+        openedPanel.SetActive(false);
+        closedPanel.SetActive(true);
     }
 
     public void SendMessageToBlockchain(string text){
@@ -208,6 +208,10 @@ public class ChatManager : MonoBehaviour
         newMessage.contentMessage.text = newMessage.text;
         newMessage.contentMessage.color = MessageTypeColor(messageType);
         newMessage.nameUser.text = m.username;
+        newMessage.button.onClick.AddListener((() =>
+        {
+            CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(m.principalID, m.username);
+        }));
         
         messageList.Add(newMessage);
     }
@@ -336,6 +340,7 @@ public class MessageText {
     public string username;
     public string timeStamp;
     public string avatarUser;
+    public string principalID;
 }
 [System.Serializable]
 public class MessagesTexts {
