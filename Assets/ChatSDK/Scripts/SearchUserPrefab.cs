@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SearchUserPrefab : MonoBehaviour
 {
-    public Image icon;
+    public ImageDowloadManager icon;
     public TMP_Text userName;
     public Button button;
 

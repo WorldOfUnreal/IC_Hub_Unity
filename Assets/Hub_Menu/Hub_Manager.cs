@@ -115,7 +115,7 @@ public class Hub_Manager : MonoBehaviour
     public GoToURLButton launchButton;
     
     [Header("UI User Info: ")] 
-    public Image avatarUser;
+    public ImageDowloadManager avatarUser;
     public TMP_Text userName;
     public TMP_Text userState;
     public Button buttonGoToUser;
@@ -204,6 +204,7 @@ public class Hub_Manager : MonoBehaviour
             Hub_TokenPrefab tokenPrefab = newToken.GetComponent<Hub_TokenPrefab>();
             tokenPrefab.nameToken.text = g.name;
             tokenPrefab.valueToken.text = g.value;
+            tokenPrefab.iconToken.ChangeUrlImage(g.avatar);
         }
         separatorTokenNumber.text = "- " + listTokens.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI
@@ -220,6 +221,7 @@ public class Hub_Manager : MonoBehaviour
             Hub_FriendPrefab friendPrefab = newFriend.GetComponent<Hub_FriendPrefab>();
             friendPrefab.nameFriend.text = g.name;
             friendPrefab.statusTMP.text = g.status;
+            friendPrefab.iconFriend.ChangeUrlImage(g.avatar);
             friendPrefab.button.onClick.AddListener(()=>{ CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(g.principalID, g.name); });
         }   
         separatorFriendNumber.text = "- " + listFriends.data.Count;
@@ -236,6 +238,7 @@ public class Hub_Manager : MonoBehaviour
             GameObject newGroup = Instantiate(prefabGroup, contentGroups.transform);
             Hub_GroupPrefab groupPrefab = newGroup.GetComponent<Hub_GroupPrefab>();
             groupPrefab.nameGroup.text = g.name;
+            groupPrefab.iconGroup.ChangeUrlImage(g.avatar);
         }   
         separatorGroupNumber.text = "- " + listGroups.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI
@@ -243,7 +246,7 @@ public class Hub_Manager : MonoBehaviour
     public void GetUserInfo(string json)
     {
        UserProfileInfo userProfileInfo = JsonUtility.FromJson<UserProfileInfo>(json);
-       //avatarUser;
+       avatarUser.ChangeUrlImage(userProfileInfo.avatar);
        userName.text = userProfileInfo.username;
        userState.text = userProfileInfo.userState;
        buttonGoToUser.onClick.RemoveAllListeners();

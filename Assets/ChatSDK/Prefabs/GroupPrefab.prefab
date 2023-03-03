@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6967606938576190382}
   - component: {fileID: 6967606938576190353}
+  - component: {fileID: 1038131014567493289}
   m_Layer: 5
   m_Name: GroupPrefab
   m_TagString: Untagged
@@ -201,6 +202,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1038131014567493289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967606938576190383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca4dc86752581f44a91b0101d62826a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconGroup: {fileID: 1764176212060676948}
+  groupName: {fileID: 6967606939611763167}
+  buttonGroup: {fileID: 6967606938576190353}
 --- !u!1 &6967606938753961373
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +228,7 @@ GameObject:
   - component: {fileID: 6967606938753961372}
   - component: {fileID: 6967606938753961374}
   - component: {fileID: 6967606938753961375}
+  - component: {fileID: 1764176212060676948}
   m_Layer: 5
   m_Name: Avatar
   m_TagString: Untagged
@@ -268,7 +285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7c6ebef7d4af6354b8abd727447bbb01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b477a901ecc79e4c9e99523c5d524f6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -278,6 +295,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1764176212060676948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967606938753961373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a29b54da2ed643aea1e3e8ed41461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlImage: 
+  listImages:
+  - {fileID: 6967606938753961375}
 --- !u!1 &6967606939611763165
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,7 +66,7 @@ public class NotificationsPanelManager : MonoBehaviour
         foreach (Transform t in contentFriendRequests.transform) { GameObject.Destroy(t.gameObject); }
         foreach (RequestsFriend g in infoNotificationPanel.requests)
         {
-            AddRequestToList(g.principalID, g.username);
+            AddRequestToList(g.principalID, g.username, g.avatarUser);
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriendRequests.GetComponent<RectTransform>());
         requestFriendNumber.text = infoNotificationPanel.requests.Count.ToString();
@@ -75,12 +75,13 @@ public class NotificationsPanelManager : MonoBehaviour
         allNotificationsNumberChatClosed.text = infoNotificationPanel.requests.Count.ToString();
     }
     
-    public void AddRequestToList(string principalID, string username){
+    public void AddRequestToList(string principalID, string username, string avatarUser){
         GameObject newRequest = Instantiate(prefabFriendRequest, contentFriendRequests.transform);
         RequestFriendPrefab requestFriendPrefab = newRequest.GetComponent<RequestFriendPrefab>();
 
         requestFriendPrefab.userNameText.text = username;
         requestFriendPrefab.principalID.text = principalID.Substring(0, 4)+"..."+principalID.Substring(principalID.Length - 4);
+        requestFriendPrefab.icon.ChangeUrlImage(avatarUser);
         
         requestFriendPrefab.buttonAccept.onClick.AddListener(() =>
         {

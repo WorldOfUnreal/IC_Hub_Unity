@@ -23,6 +23,7 @@ public class SearchGroupManager : MonoBehaviour
         public string name;
         public bool is_private;
         public bool requested;
+        public string avatar;
     }
     public class GroupSearchObject{
         public int id;
@@ -66,13 +67,13 @@ public class SearchGroupManager : MonoBehaviour
                 panelNotFound.SetActive(false);
                 panelSliderGroup.SetActive(true);
                 foreach(Group_data g in _searchGroupInfo.group_data){
-                    AddGroupToList(g.id, g.name, g.is_private);
+                    AddGroupToList(g.id, g.name, g.is_private, g.avatar);
                 }
             }
         }
     }
     
-    public void AddGroupToList(int id, string name, bool isPrivate){
+    public void AddGroupToList(int id, string name, bool isPrivate, string avatar){
         GroupSearchObject g = new GroupSearchObject();
         g.id    = id;
         g.name  = name;
@@ -80,6 +81,7 @@ public class SearchGroupManager : MonoBehaviour
         SearchGroupPrefab groupPrefab = newGroup.GetComponent<SearchGroupPrefab>();
 
         groupPrefab.tittle.text = name;
+        groupPrefab.icon.ChangeUrlImage(avatar);
         
         if (isPrivate)
         {

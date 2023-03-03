@@ -63,6 +63,7 @@ public class SearchUserManager : MonoBehaviour
         SearchUserPrefab userPrefab = newUser.GetComponent<SearchUserPrefab>();
 
         userPrefab.userName.text = userName;
+        userPrefab.icon.ChangeUrlImage(avatar);
         userPrefab.button.onClick.AddListener(() =>
         {
             CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(principalID, userName);

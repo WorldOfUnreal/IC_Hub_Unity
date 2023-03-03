@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Hub_FriendPrefab : MonoBehaviour
 {
-    public Image iconFriend;
+    public ImageDowloadManager iconFriend;
     public Image iconStatus;
     public TMP_Text nameFriend;
     public TMP_Text statusTMP;

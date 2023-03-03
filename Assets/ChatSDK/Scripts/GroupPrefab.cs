@@ -4,8 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Hub_GroupPrefab : MonoBehaviour
+public class GroupPrefab : MonoBehaviour
 {
     public ImageDowloadManager iconGroup;
-    public TMP_Text nameGroup;
+    public TMP_Text groupName;
+    public Button buttonGroup;
 }

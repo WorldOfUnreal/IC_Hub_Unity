@@ -21,7 +21,8 @@ public class CanvasPlayerProfile : MonoBehaviour
         public GameObject panelParent;
         public GameObject panelLoading;
         public GameObject panelMiddle;
-        [Header("Info´s Panel : ")]
+        [Header("Info´s Panel : ")] 
+        public ImageDowloadManager userIcon;
         public TMP_Text usernameTMP;
         public TMP_InputField descriptionPopup;
         public Button editDescriptionUser;
@@ -60,6 +61,7 @@ public class CanvasPlayerProfile : MonoBehaviour
         public void OpenPopupPlayerProfile(string principalID, string username)
         {
             usernameTMP.text = username;
+            userIcon.listImages[0].sprite = Resources.Load<Sprite>( "Images/Loading" );
             panelParent.SetActive(true);
             panelLoading.SetActive(true);
             panelMiddle.SetActive(false);
@@ -76,6 +78,7 @@ public class CanvasPlayerProfile : MonoBehaviour
             infoPopupPlayer = JsonUtility.FromJson<InfoPopupPlayer>(json);
 
             usernameTMP.text = infoPopupPlayer.username;
+            userIcon.ChangeUrlImage(infoPopupPlayer.avatar);
             descriptionPopup.text = infoPopupPlayer.description;
             originalDescription = infoPopupPlayer.description;
             principalID.text =  infoPopupPlayer.principalID.Substring(0, 4)+"..."+infoPopupPlayer.principalID.Substring(infoPopupPlayer.principalID.Length - 4);
@@ -138,7 +141,6 @@ public class CanvasPlayerProfile : MonoBehaviour
         {
             JSLogoutFromProfile();
         }
-        
         public void EditDescription()
         {
             editDescriptionUser.gameObject.SetActive(false);

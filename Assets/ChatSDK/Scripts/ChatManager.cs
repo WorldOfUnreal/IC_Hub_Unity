@@ -29,7 +29,8 @@ public class ChatManager : MonoBehaviour
     public Color playerMessage, info;
     public TMP_Text groupName;
     public TMP_Text groupAvatar;
-
+    public ImageDowloadManager groupAvatarImage;
+    
     [Header("Side Panel : ")]
     public GameObject sidePanel;
     public GameObject groupObject;
@@ -182,7 +183,8 @@ public class ChatManager : MonoBehaviour
         
         MessagesTexts messagesTexts = JsonUtility.FromJson<MessagesTexts>(json);
         groupName.text = messagesTexts.nameGroup;
-        groupAvatar.text = messagesTexts.avatarGroup;
+        groupAvatar.text = messagesTexts.nameGroup.Substring(0,2);
+        groupAvatarImage.ChangeUrlImage(messagesTexts.avatarGroup);
         foreach(MessageText m in messagesTexts.data){
             if(lastMessage < m.id){
                 SendMessageToChat(m,  Message.MessageType.playerMessage);
@@ -208,6 +210,7 @@ public class ChatManager : MonoBehaviour
         newMessage.contentMessage.text = newMessage.text;
         newMessage.contentMessage.color = MessageTypeColor(messageType);
         newMessage.nameUser.text = m.username;
+        newMessage.avatarUser.ChangeUrlImage(m.avatarUser);
         newMessage.button.onClick.AddListener((() =>
         {
             CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(m.principalID, m.username);
@@ -221,26 +224,22 @@ public class ChatManager : MonoBehaviour
         foreach (Transform t in sidePanel.transform) { GameObject.Destroy(t.gameObject); }
         
         GroupsList _groupsList = JsonUtility.FromJson<GroupsList>(json);
-        int i = 0;
+        
         foreach(GroupData g in _groupsList.data){
-            AddGroupToList(g.id, g.name, i);
-            i++;
+            AddGroupToList(g.id, g.name, g.avatar);
+            
         }
     }
     
-    public void AddGroupToList(int id, string name, int i){
+    public void AddGroupToList(int id, string name, string avatar){
         Group g = new Group();
         g.id    = id;
         g.name  = name;
         GameObject newGroup = Instantiate(groupObject, sidePanel.transform);
-        //Vector3 temp = new Vector3(0,i * (125.0f + itemSpacing),0);
-        //newGroup.transform.position -= temp;
-        Button btn = newGroup.GetComponent<Button>();
-		btn.onClick.AddListener(() => { SetGroupSelected(id); });
-        TextMeshProUGUI btnTxt = btn.GetComponentInChildren<TextMeshProUGUI>();
-        if(btnTxt != null){
-            btnTxt.text = name;
-        }
+        GroupPrefab groupPrefab = newGroup.GetComponent<GroupPrefab>();
+        groupPrefab.buttonGroup.onClick.AddListener(() => { SetGroupSelected(id); });
+        groupPrefab.groupName.text = name;
+        groupPrefab.iconGroup.ChangeUrlImage(avatar);
         groupsList.Add(g);
     }
 
@@ -360,6 +359,7 @@ public class Group{
 public class GroupData{
     public int id;
     public string name;
+    public string avatar;
     public RoleUser roleuser;
 }
 public enum RoleUser { Owner, Admin, User}

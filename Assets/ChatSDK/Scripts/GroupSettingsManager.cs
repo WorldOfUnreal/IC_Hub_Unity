@@ -20,7 +20,7 @@ public class GroupSettingsManager : MonoBehaviour
     public GameObject contentMembers_owner;
     public GameObject contentMembers_admin;
     public GameObject contentMembers_user;
-    public Image iconGroup;
+    public ImageDowloadManager iconGroup;
     public TMP_InputField tittleGroup;
     public Button editTitleGroup;
     public Button editConfirmTitleGroup;
@@ -38,7 +38,7 @@ public class GroupSettingsManager : MonoBehaviour
     [Header("User Panel : ")]
     public GameObject prefabMember_User;
     public GameObject contentMembersPanelUser;
-    public Image iconGroup_User;
+    public ImageDowloadManager iconGroup_User;
     public TMP_Text tittleGroup_User;
     public TMP_Text descriptionGroup_User;
 
@@ -78,7 +78,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             panelUser.SetActive(true); panelAdmin.SetActive(false);
         //Fill overview
-            //iconGroup_User.sprite = infoPanelSetting.avatarGroup;
+            iconGroup_User.ChangeUrlImage(infoPanelSetting.avatarGroup);
             tittleGroup_User.text = infoPanelSetting.nameGroup;
             descriptionGroup_User.text = infoPanelSetting.descriptionGroup;
         //Fill members
@@ -92,7 +92,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             panelUser.SetActive(false); panelAdmin.SetActive(true);
         //Fill overview
-            //iconGroup.sprite = infoPanelSetting.avatarGroup;
+            iconGroup.ChangeUrlImage(infoPanelSetting.avatarGroup);
             tittleGroup.text = infoPanelSetting.nameGroup; 
             descriptionGroup.text = infoPanelSetting.descriptionGroup; 
             if (infoPanelSetting.isPrivate)
@@ -123,7 +123,7 @@ public class GroupSettingsManager : MonoBehaviour
             foreach (Transform t in contentRequests.transform) { GameObject.Destroy(t.gameObject); }
             foreach (RequestsGroup g in infoPanelSetting.requests)
             {
-                AddRequestToList(g.principalID, g.username, g.timeStamp, infoPanelSetting.idGroup);
+                AddRequestToList(g.principalID, g.username, g.timeStamp, g.avatarUser, infoPanelSetting.idGroup);
             }
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentRequests.GetComponent<RectTransform>());
         }
@@ -133,14 +133,14 @@ public class GroupSettingsManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(panelAdmin.GetComponent<RectTransform>()); //Update UI
         LayoutRebuilder.ForceRebuildLayoutImmediate(panelUser.GetComponent<RectTransform>());
     }
-    public void AddMemberToContent_User(string principalID, string username, string iconSprite, RoleUser roleUser){
+    public void AddMemberToContent_User(string principalID, string username, string avatarUser, RoleUser roleUser){
         
         GameObject newMember = Instantiate(prefabMember_User, contentMembersPanelUser.transform);
         MemberPrefabToUser memberPrefab = newMember.GetComponent<MemberPrefabToUser>();
         
-        //memberPrefab.icon.sprite = iconSprite;
         memberPrefab.userNameText.text = username;
-
+        memberPrefab.icon.ChangeUrlImage(avatarUser); 
+        
         switch (roleUser)
         {
             case RoleUser.User:
@@ -159,12 +159,12 @@ public class GroupSettingsManager : MonoBehaviour
         memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID, username);});
         
     }
-    public void AddMemberToContent_Admin(string principalID, string username, string iconSprite, RoleUser roleUser, int idGroup){
+    public void AddMemberToContent_Admin(string principalID, string username, string avatarUser, RoleUser roleUser, int idGroup){
         
         GameObject newMember = Instantiate(prefabMember, contentMembers_user.transform);
         MemberPrefabToAdmin memberPrefab = newMember.GetComponent<MemberPrefabToAdmin>();
 
-        //memberPrefab.icon.sprite = iconSprite;
+        memberPrefab.icon.ChangeUrlImage(avatarUser); 
         memberPrefab.userNameText.text = username;
         
         switch (roleUser)
@@ -192,15 +192,15 @@ public class GroupSettingsManager : MonoBehaviour
                 newMember.transform.SetParent(contentMembers_owner.transform);
                 break;
         }
-        //Modificar esto luego
         memberPrefab.buttonToUser.onClick.AddListener(() => { CallGoToUser(principalID, username);});
     }
-    public void AddRequestToList(string principalID, string username, string timestamp, int idGroup){
+    public void AddRequestToList(string principalID, string username, string timestamp, string avatarUser, int idGroup){
         GameObject newRequest = Instantiate(prefabRequest, contentRequests.transform);
         RequestPrefab requestPrefab = newRequest.GetComponent<RequestPrefab>();
 
         requestPrefab.userNameText.text = username;
         requestPrefab.timestampText.text = timestamp;
+        requestPrefab.icon.ChangeUrlImage(avatarUser);
         
         requestPrefab.buttonAccept.onClick.AddListener(() =>
         {

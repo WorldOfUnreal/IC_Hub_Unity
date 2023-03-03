@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Message: MonoBehaviour
 {
     public string text;
-    public Image avatarUser;
+    public ImageDowloadManager avatarUser;
     public TMP_Text nameUser;
     public TMP_Text timestamp;
     public TMP_Text contentMessage;
