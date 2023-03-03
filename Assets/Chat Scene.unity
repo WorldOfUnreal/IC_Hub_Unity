@@ -1376,10 +1376,9 @@ GameObject:
   - component: {fileID: 41534579}
   - component: {fileID: 41534578}
   - component: {fileID: 41534577}
-  - component: {fileID: 41534575}
   - component: {fileID: 41534576}
   m_Layer: 5
-  m_Name: SearchFriend Panel
+  m_Name: SearchUser Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1409,23 +1408,6 @@ RectTransform:
   m_AnchoredPosition: {x: 363.16, y: 442.04}
   m_SizeDelta: {x: 524.3198, y: 684.0786}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &41534575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41534573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c263aba48bba9174faf403bd083b4fe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  searchGroupInput: {fileID: 2007957245}
-  panelSliderGroup: {fileID: 1275458996}
-  panelNotFound: {fileID: 173548381}
-  searching_Anim: {fileID: 1858710900}
-  prefabGroupItem: {fileID: 6949543322431608974, guid: b2f63381870bb8c439be042e6e8c2843, type: 3}
 --- !u!114 &41534576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,6 +1420,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2072a4b1f552b14aa90759abb1f0f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  searchUserInput: {fileID: 2007957245}
+  panelSliderUser: {fileID: 1275458996}
+  panelNotFound: {fileID: 173548381}
+  searching_Anim: {fileID: 1858710900}
+  prefabUserItem: {fileID: 6949543322431608974, guid: b2f63381870bb8c439be042e6e8c2843, type: 3}
 --- !u!114 &41534577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39945,7 +39932,7 @@ MonoBehaviour:
   panelSliderGroup: {fileID: 1917663576}
   panelNotFound: {fileID: 1194066092}
   searching_Anim: {fileID: 769955893}
-  prefabGroupItem: {fileID: 6949543322431608974, guid: b2f63381870bb8c439be042e6e8c2843, type: 3}
+  prefabGroupItem: {fileID: 6949543322431608974, guid: dee17ddb65290434294451fcde53476f, type: 3}
 --- !u!1 &1403536723
 GameObject:
   m_ObjectHideFlags: 0
@@ -42791,7 +42778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 41534575}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SearchGroupManager, Assembly-CSharp
         m_MethodName: GetGroups
         m_Mode: 5
@@ -56899,9 +56886,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 41534575}
-        m_TargetAssemblyTypeName: SearchGroupManager, Assembly-CSharp
-        m_MethodName: SearchGroups
+      - m_Target: {fileID: 41534576}
+        m_TargetAssemblyTypeName: SearchUserManager, Assembly-CSharp
+        m_MethodName: SearchUsers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
