@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 1045689080236066834}
   - component: {fileID: 4151386274307065114}
   - component: {fileID: 2072972232107774702}
+  - component: {fileID: 5025830116148537520}
   m_Layer: 5
   m_Name: NotificactionPopupPrefab
   m_TagString: Untagged
@@ -279,6 +280,26 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &5025830116148537520
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045689080236066845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b44c6298664a2846b9b41aa3c441917, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1045689080296409491
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,8 +509,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292401368
-  m_fontColor: {r: 0.84705883, g: 0.84705883, b: 0.84705883, a: 1}
+    rgba: 3805862104
+  m_fontColor: {r: 0.84705883, g: 0.84705883, b: 0.84705883, a: 0.8862745}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -643,7 +664,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 16777215
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 2
