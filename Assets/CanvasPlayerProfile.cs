@@ -73,8 +73,6 @@ public class CanvasPlayerProfile : MonoBehaviour
             button1.interactable = true;
             button2.onClick.RemoveAllListeners();
             button2.gameObject.SetActive(true);
-
-            usernameTMP.text = usernameTMP.text + (int)infoPopupPlayer.rolePlayerProfile;
             
             switch (infoPopupPlayer.rolePlayerProfile)
             {

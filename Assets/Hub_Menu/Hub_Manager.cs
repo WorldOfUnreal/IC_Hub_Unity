@@ -132,6 +132,8 @@ public class Hub_Manager : MonoBehaviour
     public GameObject prefabGroup;
     public TMP_Text separatorGroupNumber;
 
+    private bool firstTimeGetAppsInfo = true;
+
 
     [Header("UI Categorys: ")] 
     public string categoryActual = "ALL";
@@ -187,6 +189,7 @@ public class Hub_Manager : MonoBehaviour
             listAppIconPrefab.Add(appIcon);
         }
         ChangeCategory(categoryActual);
+        if(firstTimeGetAppsInfo){ OnClickAppIcon(0); firstTimeGetAppsInfo = false; }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());  //Update UI
     }
     public void GetTokensInfo(string json)

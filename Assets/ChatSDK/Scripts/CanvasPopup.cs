@@ -61,14 +61,7 @@ public class CanvasPopup : MonoBehaviour
     {
         panelPopupAnimator.Play("Loading_To_Success");
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            OpenSuccessPanel();
-        }
-    }
+    
 
     public void ChangeTitleNameToConfirm() { titlePopup.text = "CONFIRM"; }
     public void ChangeTitleNameToProcessing() { titlePopup.text = "PROCESSING"; }
