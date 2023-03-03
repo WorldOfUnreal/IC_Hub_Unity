@@ -24,15 +24,22 @@ public class CanvasPlayerProfile : MonoBehaviour
         [Header("Info´s Panel : ")]
         public TMP_Text usernameTMP;
         public TMP_InputField descriptionPopup;
+        public Button editDescriptionUser;
+        public Button editConfirmDescriptionUser;
+        public Button editCancelDescriptionUser;
         public TMP_Text principalID;
         public TMP_Text memberSinceTMP;
-        [Header("Buttons Panel : ")]
+        [Header("Buttons Panel : ")] 
+        public GameObject parentButtons;
         public Button button1;
         public TMP_Text buttonText1;
         public Button button2;
         public TMP_Text buttonText2;
+        [Header("Buttons Logout : ")] 
+        public GameObject logoutButton;
         
         private InfoPopupPlayer infoPopupPlayer;
+        private string originalDescription;
         
         [DllImport("__Internal")]
         private static extern void JSCallToUser(string principalID);
@@ -40,11 +47,16 @@ public class CanvasPlayerProfile : MonoBehaviour
         private static extern void JSSendFriendRequest(string principalID);
         [DllImport("__Internal")]
         private static extern void JSSendMessageToUser(string principalID);
+        [DllImport("__Internal")]
+        private static extern void JSLogoutFromProfile();
+        [DllImport("__Internal")]
+        private static extern void JSChangeDescriptionUser(string text);
+        
+       
         public void ClosePopupPlayerProfile()
         {
             panelParent.SetActive(false);
         }
-        
         public void OpenPopupPlayerProfile(string principalID, string username)
         {
             usernameTMP.text = username;
@@ -65,9 +77,15 @@ public class CanvasPlayerProfile : MonoBehaviour
 
             usernameTMP.text = infoPopupPlayer.username;
             descriptionPopup.text = infoPopupPlayer.description;
+            originalDescription = infoPopupPlayer.description;
             principalID.text =  infoPopupPlayer.principalID.Substring(0, 4)+"..."+infoPopupPlayer.principalID.Substring(infoPopupPlayer.principalID.Length - 4);
             memberSinceTMP.text = infoPopupPlayer.memberSince;
             
+            editDescriptionUser.gameObject.SetActive(false);
+            editConfirmDescriptionUser.gameObject.SetActive(false);
+            editCancelDescriptionUser.gameObject.SetActive(false);
+            logoutButton.SetActive(false);
+            parentButtons.SetActive(true);
             button1.onClick.RemoveAllListeners();
             button1.gameObject.SetActive(true);
             button1.interactable = true;
@@ -77,9 +95,9 @@ public class CanvasPlayerProfile : MonoBehaviour
             switch (infoPopupPlayer.rolePlayerProfile)
             {
                 case RolePlayerProfile.Owner:
-                    button2.gameObject.SetActive(false);
-                    buttonText1.text = "Edit Profile";
-                    button1.onClick.AddListener(() => { EditProfile(); });
+                    logoutButton.SetActive(true);
+                    parentButtons.SetActive(false);
+                    CancelEditDescription();
                     break;
                 case RolePlayerProfile.Nofriend:
                     buttonText1.text = "Friend Request";
@@ -103,19 +121,7 @@ public class CanvasPlayerProfile : MonoBehaviour
             
         }
 
-        public class InfoPopupPlayer { 
-            public string username;
-            public string principalID;
-            public string avatar;
-            public string description;
-            public string memberSince;
-            public RolePlayerProfile rolePlayerProfile;
-        }
-
-        public void EditProfile()
-        {
-            Debug.Log("SSSS");
-        }
+    
         public void SendFriendRequest(InfoPopupPlayer _infoPopupPlayer)
         {
             CanvasPopup.Instance.OpenPopup(() => {
@@ -128,8 +134,54 @@ public class CanvasPlayerProfile : MonoBehaviour
         {
             JSSendMessageToUser(principalID);
         }
+        public void LogoutFromProfile()
+        {
+            JSLogoutFromProfile();
+        }
+        
+        public void EditDescription()
+        {
+            editDescriptionUser.gameObject.SetActive(false);
+            editConfirmDescriptionUser.gameObject.SetActive(true);
+            editCancelDescriptionUser.gameObject.SetActive(true);
+            descriptionPopup.interactable = true;
+            descriptionPopup.Select();
+        }
+        public void ConfirmEditDescription()
+        {
+            descriptionPopup.interactable = false;
+            CanvasPopup.Instance.OpenPopup(() => {
+                editDescriptionUser.gameObject.SetActive(true);
+                editConfirmDescriptionUser.gameObject.SetActive(false);
+                editCancelDescriptionUser.gameObject.SetActive(false);
+                CanvasPopup.Instance.OpenLoadingPanel();
+                JSChangeDescriptionUser(descriptionPopup.text);
+            }, () =>
+            {
+                descriptionPopup.interactable = true;
+                CanvasPopup.Instance.ClosePopupFromConfirm();
+            },"Change Description","Cancel","Do you want change you description?", usernameTMP.text, null);
+        }
+        public void CancelEditDescription()
+        {
+            descriptionPopup.interactable = false;
+            descriptionPopup.text = originalDescription;
+            editDescriptionUser.gameObject.SetActive(true);
+            editConfirmDescriptionUser.gameObject.SetActive(false);
+            editCancelDescriptionUser.gameObject.SetActive(false);
+        }
         
         public enum RolePlayerProfile { Owner, Nofriend, Requested, Friend };
         public void StopSearchIconAnim() { iconSearchAnimator.Play("Searching_Stop"); }
         public void StartSearchIconAnim() { iconSearchAnimator.Play("Searching");}
+        
+        public class InfoPopupPlayer { 
+            public string username;
+            public string principalID;
+            public string avatar;
+            public string description;
+            public string memberSince;
+            public RolePlayerProfile rolePlayerProfile;
+        }
+        
 }

@@ -80,6 +80,10 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.ChangeDescription(Pointer_stringify(json));
   },
   
+  JSChangeDescriptionUser: function (text) {
+    ReactUnityWebGL.ChangeDescriptionUser(Pointer_stringify(text));
+  },
+  
   JSCallToUser: function (principalID) {
     ReactUnityWebGL.CallToUser(Pointer_stringify(principalID));
   },
@@ -98,6 +102,10 @@ mergeInto(LibraryManager.library, {
   
   JSSendMessageToUser: function (principalID) {
     ReactUnityWebGL.SendMessageToUser(Pointer_stringify(principalID));
+  },
+  
+  JSLogoutFromProfile: function () {
+    ReactUnityWebGL.LogoutFromProfile();
   },
     
 });

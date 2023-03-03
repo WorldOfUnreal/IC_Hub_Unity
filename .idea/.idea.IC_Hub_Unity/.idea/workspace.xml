@@ -39,6 +39,11 @@
     <property name="rider.run.widget.enabled.cache" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="JSOnhubscene" />
+    </option>
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
@@ -94,7 +99,7 @@
       <workItem from="1676942780690" duration="18269000" />
       <workItem from="1677278933314" duration="26138000" />
       <workItem from="1677533611307" duration="27182000" />
-      <workItem from="1677788381694" duration="14541000" />
+      <workItem from="1677788381694" duration="19518000" />
     </task>
     <servers />
   </component>
