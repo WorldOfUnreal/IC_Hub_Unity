@@ -80,6 +80,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Login/Scripts/LoginManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Login/Scripts/LoginManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Login/Scripts/WebCommunicationLogin.jslib" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Login/Scripts/WebCommunicationLogin.jslib" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Login/Scripts/WebCommunicationLogin.jslib.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Login/Scripts/WebCommunicationLogin.jslib.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/NotificationPrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NotificationPrefab.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/NotificationsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/NotificationsManager.cs" afterDir="false" />
@@ -514,7 +515,7 @@
       <workItem from="1677278933314" duration="26138000" />
       <workItem from="1677533611307" duration="27182000" />
       <workItem from="1677788381694" duration="34141000" />
-      <workItem from="1678167172163" duration="9318000" />
+      <workItem from="1678167172163" duration="11281000" />
     </task>
     <servers />
   </component>

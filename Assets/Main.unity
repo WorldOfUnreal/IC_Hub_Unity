@@ -7410,7 +7410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &907997023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8099,6 +8099,7 @@ GameObject:
   - component: {fileID: 972555355}
   - component: {fileID: 972555357}
   - component: {fileID: 972555356}
+  - component: {fileID: 972555358}
   m_Layer: 5
   m_Name: Avatar
   m_TagString: Untagged
@@ -8164,6 +8165,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972555354}
   m_CullTransparentMesh: 1
+--- !u!114 &972555358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972555354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a29b54da2ed643aea1e3e8ed41461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlImage: 
+  listImages:
+  - {fileID: 972555356}
 --- !u!1 &983502799
 GameObject:
   m_ObjectHideFlags: 0
@@ -19811,6 +19827,9 @@ MonoBehaviour:
   userInfoPanel: {fileID: 2136279322}
   avatarPanel: {fileID: 847464462}
   inputUrlAvatarField: {fileID: 515856143}
+  urlSection: {fileID: 907997022}
+  textAvatarSection: {fileID: 461910661}
+  acceptAvatarButton: {fileID: 156639706}
   userInfo_NameHash: {fileID: 900005552}
   userInfo_Account: {fileID: 920578053}
   toggleKeepLogin: {fileID: 351119135}

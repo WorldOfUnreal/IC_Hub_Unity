@@ -27,6 +27,10 @@ public class LoginManager : MonoBehaviour
     [SerializeField] GameObject userInfoPanel;
     [SerializeField] GameObject avatarPanel;
     [SerializeField] TMP_InputField inputUrlAvatarField;
+    [SerializeField] GameObject urlSection;
+    [SerializeField] GameObject textAvatarSection;
+    private ImageDowloadManager avatarImage;
+    [SerializeField] Button acceptAvatarButton;
     [SerializeField] TMP_Text userInfo_NameHash;
     [SerializeField] TMP_Text userInfo_Account;
     [SerializeField] Toggle toggleKeepLogin;
@@ -135,8 +139,17 @@ public class LoginManager : MonoBehaviour
     {
         loadingPanel.SetActive(false);
         SceneManager.LoadScene(mainScene);
-
     }
+    public void OnAvatarUploadReady(string url)
+    {
+        loadingPanel.SetActive(false);
+        urlSection.SetActive(false);
+        textAvatarSection.SetActive(true);
+        avatarImage.ChangeUrlImage(url);
+        acceptAvatarButton.onClick.RemoveAllListeners();
+        acceptAvatarButton.onClick.AddListener(()=>{SceneManager.LoadScene(mainScene);});
+    }
+    
     public void CopyTextToClipBoard(TMP_Text tmpText)
     {
         JSCopyToClipboard(tmpText.text);
