@@ -1430,7 +1430,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7375573208990828787}
         m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
-        m_MethodName: SetAvatar
+        m_MethodName: SetAvatarURL
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10375,7 +10375,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7375573208990828787}
         m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
-        m_MethodName: SetAvatar
+        m_MethodName: SetAvatarImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

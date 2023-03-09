@@ -11,8 +11,12 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.SetNameLogin(Pointer_stringify(accountName));
   },
   
-  JSSetAvatar: function (url) {
-    ReactUnityWebGL.SetAvatar(Pointer_stringify(url));
+  JSSetAvatarURL: function (url) {
+    ReactUnityWebGL.SetAvatarURL(Pointer_stringify(url));
+  },
+  
+  JSSetAvatarImage: function () {
+    ReactUnityWebGL.SetAvatarImage();
   },
   
   JSCopyToClipboard: function (textToCopy) {

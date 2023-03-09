@@ -38,7 +38,9 @@ public class LoginManager : MonoBehaviour
     [DllImport("__Internal")]
     public static extern void JSSetNameLogin(string accountName);
     [DllImport("__Internal")]
-    public static extern void JSSetAvatar(string url);
+    public static extern void JSSetAvatarURL(string url);
+    [DllImport("__Internal")]
+    public static extern void JSSetAvatarImage();
     [DllImport("__Internal")]
     public static extern void JSCopyToClipboard(string accountName);
     
@@ -117,9 +119,15 @@ public class LoginManager : MonoBehaviour
         loadingPanel.SetActive(true);
     }
     
-    public void SetAvatar()
+    public void SetAvatarURL()
     {
-        JSSetAvatar(inputUrlAvatarField.text);
+        JSSetAvatarURL(inputUrlAvatarField.text);
+        avatarPanel.SetActive(false);
+        loadingPanel.SetActive(true);
+    }
+    public void SetAvatarImage()
+    {
+        JSSetAvatarImage();
         avatarPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
