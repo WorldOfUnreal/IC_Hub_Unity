@@ -107,5 +107,9 @@ mergeInto(LibraryManager.library, {
   JSLogoutFromProfile: function () {
     ReactUnityWebGL.LogoutFromProfile();
   },
+  
+  JSChangeStatus: function (state) {
+      ReactUnityWebGL.ChangeStatus(state);
+    },
     
 });

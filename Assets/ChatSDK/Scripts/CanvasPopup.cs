@@ -51,7 +51,6 @@ public class CanvasPopup : MonoBehaviour
         middleTMP2.gameObject.SetActive(middleText2 != null); middleTMP2.text = middleText2;
         
         panelPopupAnimator.Play("Open_Confirm_Panel");
-       
     }
     public void OpenLoadingPanel()
     {
@@ -60,6 +59,16 @@ public class CanvasPopup : MonoBehaviour
     public void OpenSuccessPanel()
     {
         panelPopupAnimator.Play("Loading_To_Success");
+    }
+    public void OpenPopupInLoading()
+    {
+        string middleText1 = "Loading";
+        string middleText2 = null;
+        
+        panelPopupAnimator.Play("Open_Loading_Panel");
+        descriptionPopup.text = "Loading";
+        middleTMP1.gameObject.SetActive(middleText1 != null); middleTMP1.text = middleText1;
+        middleTMP2.gameObject.SetActive(middleText2 != null); middleTMP2.text = middleText2;
     }
     
 
