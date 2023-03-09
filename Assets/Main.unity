@@ -3927,7 +3927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &461910662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7410,7 +7410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &907997023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19810,6 +19810,7 @@ MonoBehaviour:
   registrationPanel: {fileID: 1731431120}
   userInfoPanel: {fileID: 2136279322}
   avatarPanel: {fileID: 847464462}
+  inputUrlAvatarField: {fileID: 515856143}
   userInfo_NameHash: {fileID: 900005552}
   userInfo_Account: {fileID: 920578053}
   toggleKeepLogin: {fileID: 351119135}

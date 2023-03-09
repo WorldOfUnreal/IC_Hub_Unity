@@ -9,13 +9,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IC_Hub_Unity/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IC_Hub_Unity/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IC_Hub_Unity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IC_Hub_Unity/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CanvasPlayerProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CanvasPlayerProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Chat Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Chat Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Demo_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Demo_Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Demo_Scene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Demo_Scene.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/ChatManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/ChatManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/ChatManager.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/ChatManager.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/GroupPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/GroupPrefab.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/Hub_Panel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/Hub_Panel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/Hub_Panel.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/Hub_Panel.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/MemberPrefabToUser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ChatSDK/Prefabs/MemberPrefabToUser.prefab" afterDir="false" />
@@ -89,6 +89,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MultiImageButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MultiImageButton.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MultiImageTargetGraphics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MultiImageTargetGraphics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MultiImageTargetGraphics.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MultiImageTargetGraphics.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StatusPanelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StatusPanelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" afterDir="false" />
@@ -206,7 +207,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Loading_To_Success.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Loading_To_Success.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Confirm_Panel.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Confirm_Panel.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Confirm_Panel.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Confirm_Panel.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Loading_Panel.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Loading_Panel.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Loading_Panel.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/Open_Loading_Panel.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/PopupAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/PopupAnimator.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/PopupAnimator.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Animations/PopupPanel/PopupAnimator.controller.meta" afterDir="false" />
@@ -415,7 +415,6 @@
       <change beforePath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -517,7 +516,7 @@
       <workItem from="1677278933314" duration="26138000" />
       <workItem from="1677533611307" duration="27182000" />
       <workItem from="1677788381694" duration="34141000" />
-      <workItem from="1678167172163" duration="6990000" />
+      <workItem from="1678167172163" duration="8348000" />
     </task>
     <servers />
   </component>

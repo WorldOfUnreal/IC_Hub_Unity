@@ -26,6 +26,7 @@ public class LoginManager : MonoBehaviour
     [SerializeField] GameObject registrationPanel;
     [SerializeField] GameObject userInfoPanel;
     [SerializeField] GameObject avatarPanel;
+    [SerializeField] TMP_InputField inputUrlAvatarField;
     [SerializeField] TMP_Text userInfo_NameHash;
     [SerializeField] TMP_Text userInfo_Account;
     [SerializeField] Toggle toggleKeepLogin;
@@ -37,7 +38,7 @@ public class LoginManager : MonoBehaviour
     [DllImport("__Internal")]
     public static extern void JSSetNameLogin(string accountName);
     [DllImport("__Internal")]
-    public static extern void JSSetAvatar();
+    public static extern void JSSetAvatar(string url);
     [DllImport("__Internal")]
     public static extern void JSCopyToClipboard(string accountName);
     
@@ -118,7 +119,7 @@ public class LoginManager : MonoBehaviour
     
     public void SetAvatar()
     {
-        JSSetAvatar();
+        JSSetAvatar(inputUrlAvatarField.text);
         avatarPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
