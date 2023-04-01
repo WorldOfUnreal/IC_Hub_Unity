@@ -112,4 +112,8 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.ChangeStatus(state);
     },
     
+  JSSendDataApp: function (json) {
+      ReactUnityWebGL.SendDataApp(Pointer_stringify(json));
+    },
+    
 });
