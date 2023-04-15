@@ -49,11 +49,6 @@ public class ChatManager : MonoBehaviour
     
     private bool openAddPopup = false;
 
-    [Header("Toogle panel: ")] 
-    public GameObject closedPanel;
-    public GameObject openedPanel;
-    [SerializeField] private Button btn_closePanel, btn_openPanel;
-    
     [SerializeField]
     List<Message> messageList = new List<Message>();
     //This doesn't need to be public, no need to have access outside the script
@@ -83,11 +78,7 @@ public class ChatManager : MonoBehaviour
         newGroupButton.onClick.AddListener(() => { CreateGroup(); });
         /// Popup -> Return
         closePopupButton.onClick.AddListener(() => { ToggleAddPopup(); });
-        /// Open <-> Close
-        openedPanel.SetActive(false);
-        closedPanel.SetActive(true);
-        btn_closePanel.onClick.AddListener(() => { ToggleFullPanel(); });
-        btn_openPanel.onClick.AddListener(() => { ToggleFullPanel(); });
+        
     }
 
     void Update()
@@ -143,26 +134,7 @@ public class ChatManager : MonoBehaviour
             }
         }
     }
-
-    private void ToggleFullPanel(){
-        if (openedPanel.activeSelf)
-        {
-            openedPanel.SetActive(false);
-            closedPanel.SetActive(true);
-        }
-        else if (closedPanel.activeSelf)
-        {
-            openedPanel.SetActive(true);
-            closedPanel.SetActive(false);
-        } else { Debug.Log("Ha ocurrido un error al intentar cambiar de Panel");}
-    }
     
-
-    public void Initialize(){
-        openedPanel.SetActive(false);
-        closedPanel.SetActive(true);
-    }
-
     public void SendMessageToBlockchain(string text){
         if(text != ""){
             JSSendMessage(text);
