@@ -89,6 +89,10 @@ public class Hub_Manager : MonoBehaviour
         public string avatar;
     }
 
+    [Header("GameObjects Section Center: ")]
+    public GameObject[] sectionsCenter;
+    
+    [Header("List Apps: ")] 
     public ListApps listApps = new ListApps();
     [Header("Scroll Contents & Prefabs: ")] 
     public GameObject prefabAppIcon;
@@ -119,8 +123,8 @@ public class Hub_Manager : MonoBehaviour
     public TMP_Text userName;
     public TMP_Text userState;
     public Button buttonGoToUser;
-    public Button buttonGoToUserCornerLeftDown1;
-    public Button buttonGoToUserCornerLeftDown2;
+    /*public Button buttonGoToUserCornerLeftDown1;
+    public Button buttonGoToUserCornerLeftDown2;*/
     [Header("UI Tokens, Friends, Groups: ")] 
     public GameObject contentTokens;
     public GameObject prefabToken;
@@ -250,20 +254,11 @@ public class Hub_Manager : MonoBehaviour
        userName.text = userProfileInfo.username;
        userState.text = userProfileInfo.userState;
        buttonGoToUser.onClick.RemoveAllListeners();
-       buttonGoToUserCornerLeftDown1.onClick.RemoveAllListeners();
-       buttonGoToUserCornerLeftDown2.onClick.RemoveAllListeners();
        buttonGoToUser.onClick.AddListener((() =>
        {
            CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
        }));
-       buttonGoToUserCornerLeftDown1.onClick.AddListener((() =>
-       {
-           CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
-       }));
-       buttonGoToUserCornerLeftDown2.onClick.AddListener((() =>
-       {
-           CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
-       }));
+      
     }
 
     public void OnClickAppIcon(int id)
@@ -310,6 +305,13 @@ public class Hub_Manager : MonoBehaviour
             Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
             bannerApp.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2());
         }
+    }
+    
+    public void OpenSection(int id)
+    {
+        foreach (GameObject section in sectionsCenter) { section.SetActive(false); }
+        sectionsCenter[id].SetActive(true);
+        
     }
 
 
