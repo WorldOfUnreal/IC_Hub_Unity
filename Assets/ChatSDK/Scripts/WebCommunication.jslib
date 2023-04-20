@@ -116,4 +116,12 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.SendDataApp(Pointer_stringify(json));
     },
     
+  JSSendDataVersions: function (json) {
+      ReactUnityWebGL.SendDataVersions(Pointer_stringify(json));
+    },
+    
+  JSDeleteVersion: function (versionID) {
+      ReactUnityWebGL.DeleteVersion(versionID);
+    },
+    
 });

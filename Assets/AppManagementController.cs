@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AppManagementController : MonoBehaviour
 {
     
     [DllImport("__Internal")]
     private static extern void JSSendDataApp(string json);
+    [DllImport("__Internal")]
+    private static extern void JSSendDataVersions(string json);
     
     public class AppData
     {
@@ -26,6 +29,10 @@ public class AppManagementController : MonoBehaviour
         public string Banner;
         public string Logo;
     }
+    public class VersionsData
+    {
+        public List<VersionAppPrefab.VersionAppData> versionAppDatas;
+    }
     
     [Header("RegistrationPanel: ")] 
     public TMP_InputField nameInput;
@@ -40,9 +47,10 @@ public class AppManagementController : MonoBehaviour
     public TMP_InputField AppVersionInput;
     public string BannerSlot;
     public string LogoSlot;
-    
+
     [Header("VersionPanel: ")] 
-    public string LogoSlot2;
+    public GameObject contentVersions;
+    public GameObject versionAppPrefab;
     [Header("NewsPanel: ")] 
     public string LogoSlot3;
     
@@ -58,30 +66,85 @@ public class AppManagementController : MonoBehaviour
         appData.Catalyze = CatalyzeInput.text;
         appData.Twitter = TwitterInput.text;
         appData.AppVersion = AppVersionInput.text;
-        appData.Banner = "aaaa";
-        appData.Logo = "bbbb";
+        appData.Banner = BannerSlot;
+        appData.Logo = LogoSlot;
         
         string json = JsonUtility.ToJson(appData);
-        JSSendDataApp(json);
+        CanvasPopup.Instance.OpenPopup(() =>
+        {
+            CanvasPopup.Instance.OpenLoadingPanel();
+            JSSendDataApp(json);
+        },null, "Update InfoApp", "Cancel", "Do you want update info App?", null, null);
+    }
+    public void GetInfoApp(string json)
+    {
+        AppData appData = JsonUtility.FromJson<AppData>(json);
+        
+        appData.category = Hub_Manager.AppCategory.Games;
+        linkDappInput.text = appData.linkDapp;
+        nftCollections.text = appData.nftCollections[0];
+        DSCVRPortalInput.text = appData.DSCVRPortal;
+        DistriktInput.text = appData.Distrikt;
+        OpenChatInput.text = appData.OpenChat;
+        CatalyzeInput.text = appData.Catalyze;
+        TwitterInput.text = appData.Twitter;
+        AppVersionInput.text = appData.AppVersion;
+        BannerSlot = appData.Banner;
+        LogoSlot= appData.Logo;
+        
+        //LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI
     }
 
-    private void Start()
+    public void SubmitInfoVersions()
     {
-        AppData appData = new AppData();
-        appData.category = Hub_Manager.AppCategory.Games;
-        appData.linkDapp = "linkDappInput.text";
-        appData.nftCollections = new List<string>();
-        appData.nftCollections.Add("Collection1");appData.nftCollections.Add("Collection2");
-        appData.DSCVRPortal = "DSCVRPortalInput.text";
-        appData.Distrikt = "DistriktInput.text";
-        appData.OpenChat = "OpenChatInput.text";
-        appData.Catalyze = "CatalyzeInput.text";
-        appData.Twitter = "TwitterInput.text";
-        appData.AppVersion = "AppVersionInput.text";
-        appData.Banner = "aaaa";
-        appData.Logo = "bbbb";
+        VersionsData versionsData = new VersionsData();
+        versionsData.versionAppDatas = new List<VersionAppPrefab.VersionAppData>();
+
+        foreach (Transform t in contentVersions.transform)
+        {
+            VersionAppPrefab versionAppPrefab = t.gameObject.GetComponent<VersionAppPrefab>();
+            
+            VersionAppPrefab.VersionAppData versionAppData = new VersionAppPrefab.VersionAppData();
+            versionAppData.projectName = versionAppPrefab.projectNameInput.text;
+            versionAppData.currentVersion = versionAppPrefab.currentVersionInput.text;
+            versionAppData.linkDapp = versionAppPrefab.linkDappInput.text;
+            versionAppData.blockChain = versionAppPrefab.blockChainInput.text;
+            versionAppData.versionID = versionAppPrefab.versionID;
+            
+            versionsData.versionAppDatas.Add(versionAppData);
+        }
         
-        string json = JsonUtility.ToJson(appData);
-        JSSendDataApp(json);
+        string json = JsonUtility.ToJson(versionsData);
+        
+        CanvasPopup.Instance.OpenPopup(() =>
+        {
+            CanvasPopup.Instance.OpenLoadingPanel();
+            JSSendDataVersions(json);
+        },null, "Update Info Versions", "Cancel", "Do you want update info versions?", null, null);
+
     }
+    public void GetInfoVersions(string json)
+    {
+        VersionsData versionsData = JsonUtility.FromJson<VersionsData>(json);
+
+        foreach (Transform t in contentVersions.transform) { GameObject.Destroy(t.gameObject); }
+        foreach (VersionAppPrefab.VersionAppData version in versionsData.versionAppDatas)
+        {
+            GameObject newVersion = Instantiate(versionAppPrefab, contentVersions.transform);
+            VersionAppPrefab versionPrefab = newVersion.GetComponent<VersionAppPrefab>();
+            versionPrefab.fillVersionAppData(version);
+        }
+        
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentVersions.GetComponent<RectTransform>());  //Update UI
+    }
+    
+    public void AddSlotVersion()
+    {
+        GameObject newVersion = Instantiate(versionAppPrefab, contentVersions.transform);
+        VersionAppPrefab versionPrefab = newVersion.GetComponent<VersionAppPrefab>();
+        versionPrefab.removeVersionBtn.onClick.AddListener(() => { GameObject.Destroy(newVersion); });
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentVersions.GetComponent<RectTransform>());  //Update UI
+    }
+    
+    
 }
