@@ -36,9 +36,11 @@ public class AppManagementController : MonoBehaviour
     
     [Header("RegistrationPanel: ")] 
     public TMP_InputField nameInput;
-    public TMP_InputField categoryInput;
+    public TMP_Dropdown categoryInput;
     public TMP_InputField linkDappInput;
-    public TMP_InputField nftCollections;
+    public TMP_InputField nftCollection;
+    public TMP_InputField nftCollection2;
+    public TMP_InputField nftCollection3;
     public TMP_InputField DSCVRPortalInput;
     public TMP_InputField DistriktInput;
     public TMP_InputField OpenChatInput;
@@ -57,9 +59,13 @@ public class AppManagementController : MonoBehaviour
     public void SubmitApp()
     {
         AppData appData = new AppData();
-        appData.category = Hub_Manager.AppCategory.Games;
+        appData.name = nameInput.text;
+        appData.category = (Hub_Manager.AppCategory)categoryInput.value;
         appData.linkDapp = linkDappInput.text;
         appData.nftCollections = new List<string>();
+        appData.nftCollections.Add(nftCollection.text);
+        appData.nftCollections.Add(nftCollection2.text);
+        appData.nftCollections.Add(nftCollection3.text);
         appData.DSCVRPortal = DSCVRPortalInput.text;
         appData.Distrikt = DistriktInput.text;
         appData.OpenChat = OpenChatInput.text;
@@ -79,10 +85,13 @@ public class AppManagementController : MonoBehaviour
     public void GetInfoApp(string json)
     {
         AppData appData = JsonUtility.FromJson<AppData>(json);
-        
-        appData.category = Hub_Manager.AppCategory.Games;
+
+        nameInput.text = appData.name;
+        categoryInput.value = (int)appData.category;
         linkDappInput.text = appData.linkDapp;
-        nftCollections.text = appData.nftCollections[0];
+        nftCollection.text = appData.nftCollections[0];
+        nftCollection2.text = appData.nftCollections[1];
+        nftCollection3.text = appData.nftCollections[2];
         DSCVRPortalInput.text = appData.DSCVRPortal;
         DistriktInput.text = appData.Distrikt;
         OpenChatInput.text = appData.OpenChat;
