@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class AppManagementController : MonoBehaviour
     private static extern void JSSendDataVersions(string json);
     [DllImport("__Internal")]
     private static extern void JSSendDataNews(string json);
+    [DllImport("__Internal")]
+    private static extern void JSSetImage(string json);
     public class AppData
     {
         public string name;
@@ -57,13 +60,14 @@ public class AppManagementController : MonoBehaviour
     public TMP_InputField CatalyzeInput;
     public TMP_InputField TwitterInput;
     public TMP_InputField AppVersionInput;
-    public string BannerSlot;
-    public string LogoSlot;
+    public ImageDowloadManager BannerSlot;
+    public ImageDowloadManager LogoSlot;
 
     [Header("VersionPanel: ")] 
     public GameObject contentVersions;
     public GameObject versionAppPrefab;
     [Header("NewsPanel: ")] 
+    public ImageDowloadManager newsImage;
     public TMP_InputField newsTitle;
     public TMP_InputField newsContent;
     public TMP_InputField newsCallToActionText;
@@ -87,8 +91,8 @@ public class AppManagementController : MonoBehaviour
         appData.Catalyze = CatalyzeInput.text;
         appData.Twitter = TwitterInput.text;
         appData.AppVersion = AppVersionInput.text;
-        appData.Banner = BannerSlot;
-        appData.Logo = LogoSlot;
+        appData.Banner = BannerSlot.urlImage;
+        appData.Logo = LogoSlot.urlImage;
         
         string json = JsonUtility.ToJson(appData);
         CanvasPopup.Instance.OpenPopup(() =>
@@ -113,8 +117,8 @@ public class AppManagementController : MonoBehaviour
         CatalyzeInput.text = appData.Catalyze;
         TwitterInput.text = appData.Twitter;
         AppVersionInput.text = appData.AppVersion;
-        BannerSlot = appData.Banner;
-        LogoSlot= appData.Logo;
+        BannerSlot.ChangeUrlImage(appData.Banner); 
+        LogoSlot.ChangeUrlImage(appData.Logo);
         
         //LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI
     }
@@ -174,7 +178,7 @@ public class AppManagementController : MonoBehaviour
     {
         NewsData newsData = new NewsData();
 
-        newsData.imageNews = "";
+        newsData.imageNews = newsImage.urlImage;
         newsData.titleNews = newsTitle.text;
         newsData.contentNews = newsContent.text;
         newsData.textButtonNews = newsCallToActionText.text;
@@ -195,6 +199,18 @@ public class AppManagementController : MonoBehaviour
         newsContentPreview.text = newsContent.text;
         newsCallToActionPreview.text = newsCallToActionText.text;
     }
-    
+
+    public void SetImageAppManagement(int id)
+    {
+        switch (id)
+        {
+            case 0: JSSetImage("logo"); break;
+            case 1: JSSetImage("banner"); break;
+            case 2: JSSetImage("imageNews"); break;
+        }
+    }
+    public void GetImageLogo(string url) { LogoSlot.ChangeUrlImage(url); }
+    public void GetImageBanner(string url) { BannerSlot.ChangeUrlImage(url); }
+    public void GetImageNews(string url) { newsImage.ChangeUrlImage(url); }
     
 }

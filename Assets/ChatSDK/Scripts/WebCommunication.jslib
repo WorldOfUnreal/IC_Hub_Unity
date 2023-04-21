@@ -128,4 +128,8 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.SendDataNews(Pointer_stringify(json));
     },
     
+  JSSetImage: function (text) {
+      ReactUnityWebGL.SetImage(Pointer_stringify(text));
+    },
+    
 });
