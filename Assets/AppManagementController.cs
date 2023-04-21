@@ -13,7 +13,8 @@ public class AppManagementController : MonoBehaviour
     private static extern void JSSendDataApp(string json);
     [DllImport("__Internal")]
     private static extern void JSSendDataVersions(string json);
-    
+    [DllImport("__Internal")]
+    private static extern void JSSendDataNews(string json);
     public class AppData
     {
         public string name;
@@ -32,6 +33,15 @@ public class AppManagementController : MonoBehaviour
     public class VersionsData
     {
         public List<VersionAppPrefab.VersionAppData> versionAppDatas;
+    }
+    
+    public class NewsData
+    {
+        public string imageNews;
+        public string titleNews;
+        public string contentNews;
+        public string textButtonNews;
+        public string linkButtonNews;
     }
     
     [Header("RegistrationPanel: ")] 
@@ -54,8 +64,13 @@ public class AppManagementController : MonoBehaviour
     public GameObject contentVersions;
     public GameObject versionAppPrefab;
     [Header("NewsPanel: ")] 
-    public string LogoSlot3;
-    
+    public TMP_InputField newsTitle;
+    public TMP_InputField newsContent;
+    public TMP_InputField newsCallToActionText;
+    public TMP_InputField newsCallToActionLink;
+    public TMP_Text newsTitlePreview;
+    public TMP_Text newsContentPreview;
+    public TMP_Text newsCallToActionPreview;
     public void SubmitApp()
     {
         AppData appData = new AppData();
@@ -153,6 +168,32 @@ public class AppManagementController : MonoBehaviour
         VersionAppPrefab versionPrefab = newVersion.GetComponent<VersionAppPrefab>();
         versionPrefab.removeVersionBtn.onClick.AddListener(() => { GameObject.Destroy(newVersion); });
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentVersions.GetComponent<RectTransform>());  //Update UI
+    }
+    
+    public void SubmitNews()
+    {
+        NewsData newsData = new NewsData();
+
+        newsData.imageNews = "";
+        newsData.titleNews = newsTitle.text;
+        newsData.contentNews = newsContent.text;
+        newsData.textButtonNews = newsCallToActionText.text;
+        newsData.linkButtonNews = newsCallToActionLink.text;
+        
+        string json = JsonUtility.ToJson(newsData);
+        
+        CanvasPopup.Instance.OpenPopup(() =>
+        {
+            CanvasPopup.Instance.OpenLoadingPanel();
+            JSSendDataNews(json);
+        },null, "Create new News", "Cancel", "Do you want upload this news?", null, null);
+
+    }
+    public void UpdateNewsPreview()
+    {
+        newsTitlePreview.text = newsTitle.text;
+        newsContentPreview.text = newsContent.text;
+        newsCallToActionPreview.text = newsCallToActionText.text;
     }
     
     
