@@ -35,16 +35,9 @@ public class ChatManager : MonoBehaviour
     public GameObject sidePanel;
     public GameObject groupObject;
     
-    [SerializeField] private Button addButton;
+    [SerializeField] 
+    private Button addButton;
     public GameObject popupPanel;
-    [SerializeField] private Button newGroupButton;
-    public TMP_InputField newGroupNameInput;
-    public TMP_InputField newGroupDescriptionInput;
-    public Button buttonSlider;
-    public Animator buttonSliderAnimator;
-    public bool isPrivate = false;
-    [SerializeField] private Button closePopupButton;
-
     public GameObject popupMoreSettings;
     
     private bool openAddPopup = false;
@@ -62,8 +55,6 @@ public class ChatManager : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void JSAddUserToGroup(string json);
     [DllImport("__Internal")]
-    private static extern void JSCreateGroup(string json);
-    [DllImport("__Internal")]
     private static extern void JSSelectChatGroup(int id);
     [DllImport("__Internal")]
     private static extern void JSLeaveGroup(int id);
@@ -71,14 +62,7 @@ public class ChatManager : MonoBehaviour
     void Start()
     {
         username = "";
-        popupPanel.SetActive(false);
-        
         addButton.onClick.AddListener(() => { ToggleAddPopup(); });
-        buttonSlider.onClick.AddListener(() => { TooglePrivate(); });
-        newGroupButton.onClick.AddListener(() => { CreateGroup(); });
-        /// Popup -> Return
-        closePopupButton.onClick.AddListener(() => { ToggleAddPopup(); });
-        
     }
 
     void Update()
@@ -113,7 +97,7 @@ public class ChatManager : MonoBehaviour
                 /// Chat input
                 chatBox.text = pasteTxt;
                 pasteTxt = "";
-            } else {
+            } /*else {
                 if(newGroupNameInput.isFocused == true){
                     /// Create group
                     newGroupNameInput.text = pasteTxt;
@@ -128,10 +112,10 @@ public class ChatManager : MonoBehaviour
                             /// Create user
                             newUserInput.text = pasteTxt;
                             pasteTxt = "";
-                        }*/
+                        }#1#
                     }
                 }
-            }
+            }*/
         }
     }
     
@@ -199,7 +183,6 @@ public class ChatManager : MonoBehaviour
         
         foreach(GroupData g in _groupsList.data){
             AddGroupToList(g.id, g.name, g.avatar);
-            
         }
     }
     
@@ -248,29 +231,7 @@ public class ChatManager : MonoBehaviour
     }
     */
 
-    public void TooglePrivate()
-    {
-        if (isPrivate)
-        {
-            buttonSliderAnimator.Play("ToLeft");
-        }
-        else
-        {
-            buttonSliderAnimator.Play("ToRight");
-        }
-        isPrivate = !isPrivate;
-    }
-
-    public void CreateGroup(){
-        if(newGroupNameInput.text != ""){
-            CanvasPopup.Instance.OpenPopup(() => {
-                CanvasPopup.Instance.OpenLoadingPanel();
-                string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\":\"" 
-                              + newGroupDescriptionInput.text + "\", \"isPrivate\":\""+ isPrivate +"\"}" ;
-                JSCreateGroup(json);
-            }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null);
-        }
-    }
+    
 
     public void getPaste(string s){
         pasteTxt = s;
