@@ -21,7 +21,7 @@ public class AppManagementController : MonoBehaviour
     public class AppData
     {
         public string name;
-        public Hub_Manager.AppCategory category;
+        public AppBrowserController.AppCategory category;
         public string linkDapp;
         public List<string> nftCollections = new List<string>();
         public string DSCVRPortal;
@@ -79,7 +79,7 @@ public class AppManagementController : MonoBehaviour
     {
         AppData appData = new AppData();
         appData.name = nameInput.text;
-        appData.category = (Hub_Manager.AppCategory)categoryInput.value;
+        appData.category = (AppBrowserController.AppCategory)categoryInput.value;
         appData.linkDapp = linkDappInput.text;
         appData.nftCollections = new List<string>();
         appData.nftCollections.Add(nftCollection.text);

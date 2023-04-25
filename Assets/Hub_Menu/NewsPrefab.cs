@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class NewsPrefab : MonoBehaviour
 {
-    public string imageNewsUrl;
-    public Image imageNews;
+    public ImageDowloadManager imageNews;
     public TMP_Text title;
     public TMP_Text content;
     public TMP_Text textButton;
@@ -16,8 +15,6 @@ public class NewsPrefab : MonoBehaviour
     public Button buttonNews;
     
     void Start() {
-       
-        StartCoroutine(GetTexture());
         buttonNews.onClick.AddListener(() => { OpenURL(); });
     }
     
@@ -25,19 +22,6 @@ public class NewsPrefab : MonoBehaviour
     {
         Application.OpenURL(linkButton);
     }
- 
-    IEnumerator GetTexture() {
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageNewsUrl);
-        yield return www.SendWebRequest();
-
-        if (www.result != UnityWebRequest.Result.Success) {
-            Debug.Log(www.error);
-        }
-        else {
-            Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
-            imageNews.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2());
-        }
-    }
-
+    
     
 }

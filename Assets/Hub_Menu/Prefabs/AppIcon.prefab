@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8980938359175719649}
   - component: {fileID: 8980938359175719651}
   - component: {fileID: 8980938359175719648}
+  - component: {fileID: 4264866413282079594}
   m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
@@ -76,6 +77,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4264866413282079594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980938359175719662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28a29b54da2ed643aea1e3e8ed41461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlImage: 
+  listImages:
+  - {fileID: 8980938359175719648}
 --- !u!1 &8980938359325044158
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logoImage: {fileID: 8980938359175719648}
-  urlImage: www.google.com
+  imageDowloadManager: {fileID: 4264866413282079594}
   bgSelected: {fileID: 8980938359325044147}
   barSelected: {fileID: 8980938359785997022}
   buttonApp: {fileID: 8980938359325044144}
