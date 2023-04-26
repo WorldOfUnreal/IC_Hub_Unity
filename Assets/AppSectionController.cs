@@ -20,7 +20,6 @@ public class AppSectionController : MonoBehaviour
     public AppBrowserController.AppInfo selectedAppInfo;
     
     [Header("UI App Content: ")] 
-    public Sprite loadingSprite;
     public ImageDowloadManager bannerApp;
     public TMP_Text blockchainTxt;
     public TMP_Text versionInfoTxt;
