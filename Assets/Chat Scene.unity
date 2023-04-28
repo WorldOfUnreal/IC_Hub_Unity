@@ -1628,7 +1628,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 22043816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1909282610}
+        m_TargetAssemblyTypeName: Hub_Manager, Assembly-CSharp
+        m_MethodName: OpenSection
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &22043816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79475,7 +79487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.78000003, y: 0.21277776}
   m_AnchorMax: {x: 1, y: 0.79017675}
-  m_AnchoredPosition: {x: -32.00025, y: -0.5500126}
+  m_AnchoredPosition: {x: -32.000256, y: -0.5500126}
   m_SizeDelta: {x: -53.190002, y: -1.0999999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388345629
@@ -117595,7 +117607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2128941300
 RectTransform:
   m_ObjectHideFlags: 0
