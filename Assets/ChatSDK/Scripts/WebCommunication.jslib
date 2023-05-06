@@ -132,4 +132,8 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.SetImage(Pointer_stringify(text));
     },
     
+  JSCurrentSection: function (id) {
+      ReactUnityWebGL.CurrentSection(id);
+    },
+    
 });

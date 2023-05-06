@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class Hub_Manager : MonoBehaviour
 {
+    [DllImport("__Internal")] 
+    private static extern void JSCurrentSection(int id);
+        
     public static Hub_Manager Instance { get; private set; }
         
     private void Awake() 
@@ -154,6 +157,7 @@ public class Hub_Manager : MonoBehaviour
     public void OpenSection(int id)
     {
         foreach (GameObject section in sectionsCenter) { section.SetActive(false); }
+        JSCurrentSection(id);
         sectionsCenter[id].SetActive(true);
         
     }
