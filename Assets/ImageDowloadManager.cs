@@ -23,24 +23,10 @@ public class ImageDowloadManager : MonoBehaviour
         if (urlImage != url)
         {
             urlImage = url;
-            StartCoroutine(GetTexture());
+            DownloadTexture.Instance.StartGetTexture(this);
         }
     }
 
-    IEnumerator GetTexture() {
-        foreach (Image image in listImages) { image.sprite = Resources.Load<Sprite>( "Images/Loading" ); }
-        
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture(urlImage);
-        yield return www.SendWebRequest();
-
-        if (www.result != UnityWebRequest.Result.Success) {
-            Debug.Log(www.error);
-            foreach (Image image in listImages) { image.sprite = Resources.Load<Sprite>( "Images/Error" ); }
-        }
-        else {
-            Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
-            foreach (Image image in listImages) { image.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2());}
-        }
-    }
+    
     
 }
