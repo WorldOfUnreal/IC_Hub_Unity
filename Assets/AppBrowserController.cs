@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,8 @@ public class AppBrowserController : MonoBehaviour
     public ListApps listApps = new ListApps();
     
     private bool firstTimeGetAppsInfo = true;
+
+    public TMP_Text[] slotsCategories;
     
     public void ChangeCategory(string category)
     {
@@ -82,7 +85,28 @@ public class AppBrowserController : MonoBehaviour
         categoryActual = category;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());//Update UI
     }
+    public void UpdateCategoryNumbers()
+    {
+        slotsCategories[0].text = "" + listAppIconPrefab.Count;
+        slotsCategories[1].text = "" + SearchQuantityInCategory(AppCategory.Games);
+        slotsCategories[2].text = "" + SearchQuantityInCategory(AppCategory.Markets);
+        slotsCategories[3].text = "" + SearchQuantityInCategory(AppCategory.Defi);
+        slotsCategories[4].text = "" + SearchQuantityInCategory(AppCategory.Social);
+        slotsCategories[5].text = "" + SearchQuantityInCategory(AppCategory.New);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());//Update UI
+    }
 
+    public int SearchQuantityInCategory(AppCategory category)
+    {
+        int counterItemsInCategory = 0;
+        foreach(AppIconPrefab icon in listAppIconPrefab){
+            if ( icon.appCategory == category )
+            {
+                counterItemsInCategory += 1;
+            }
+        }
+        return counterItemsInCategory;
+    }
     
     public void GetAppsInfo(string json){
         foreach (Transform t in contentApps.transform) { GameObject.Destroy(t.gameObject); }
@@ -99,7 +123,8 @@ public class AppBrowserController : MonoBehaviour
             listAppIconPrefab.Add(appIcon);
         }
         ChangeCategory(categoryActual);
-      
+        UpdateCategoryNumbers();
+        
         if (firstTimeGetAppsInfo)
         {
             AppSectionController.Instance.UpdateInfo(listApps.data[0]);
