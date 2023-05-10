@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class AppIconPrefab : MonoBehaviour
 {
+    public int id;
     public Image logoImage;
     public ImageDowloadManager imageDowloadManager;
     public Image bgSelected;

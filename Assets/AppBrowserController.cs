@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,7 +45,7 @@ public class AppBrowserController : MonoBehaviour
         public string textButton;
         public string linkButton;
     }
-    public enum AppCategory { Games, Markets, Defi, Social, New }
+    public enum AppCategory { Games, Markets, Defi, Social, New, Communities}
 
     [Header("UI Categorys: ")] 
     public string categoryActual = "ALL";
@@ -60,6 +61,8 @@ public class AppBrowserController : MonoBehaviour
     private bool firstTimeGetAppsInfo = true;
 
     public TMP_Text[] slotsCategories;
+    int[] idsFeatured = {1, 2, 3, 4, 5};
+    int[] idsHot = {6, 7, 8, 9, 10};
     
     public void ChangeCategory(string category)
     {
@@ -67,6 +70,18 @@ public class AppBrowserController : MonoBehaviour
         {
             foreach(AppIconPrefab icon in listAppIconPrefab){
                 icon.gameObject.SetActive(true);
+            }
+        }
+        if (category == "HOT")
+        {
+            foreach(AppIconPrefab icon in listAppIconPrefab){
+                icon.gameObject.SetActive( idsHot.Contains(icon.id) );
+            }
+        }
+        if (category == "FEATURED")
+        {
+            foreach(AppIconPrefab icon in listAppIconPrefab){
+                icon.gameObject.SetActive( idsFeatured.Contains(icon.id) );
             }
         }
         else
@@ -93,6 +108,11 @@ public class AppBrowserController : MonoBehaviour
         slotsCategories[3].text = "" + SearchQuantityInCategory(AppCategory.Defi);
         slotsCategories[4].text = "" + SearchQuantityInCategory(AppCategory.Social);
         slotsCategories[5].text = "" + SearchQuantityInCategory(AppCategory.New);
+        slotsCategories[6].text = "" + SearchQuantityInCategory(AppCategory.Communities);
+        
+        slotsCategories[7].text = "" + listAppIconPrefab.FindAll( appIconPrefab => idsFeatured.Contains(appIconPrefab.id)).Count;
+        slotsCategories[8].text = "" + listAppIconPrefab.FindAll( appIconPrefab => idsHot.Contains(appIconPrefab.id)).Count;
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentApps.GetComponent<RectTransform>());//Update UI
     }
 
@@ -118,6 +138,7 @@ public class AppBrowserController : MonoBehaviour
             GameObject newAppIcon = Instantiate(prefabAppIcon, contentApps.transform);
             AppIconPrefab appIcon = newAppIcon.GetComponent<AppIconPrefab>();
             appIcon.imageDowloadManager.ChangeUrlImage(appInfo.logo);
+            appIcon.id = appInfo.id;
             appIcon.buttonApp.onClick.AddListener(() => { OnClickAppIcon(appInfo.id); });
             appIcon.appCategory = appInfo.appCategoryIndex;
             listAppIconPrefab.Add(appIcon);
