@@ -66,19 +66,20 @@ public class AppBrowserController : MonoBehaviour
     
     public void ChangeCategory(string category)
     {
+        Debug.Log(category);
         if (category == "ALL")
         {
             foreach(AppIconPrefab icon in listAppIconPrefab){
                 icon.gameObject.SetActive(true);
             }
         }
-        if (category == "HOT")
+        else if (category == "HOT")
         {
             foreach(AppIconPrefab icon in listAppIconPrefab){
                 icon.gameObject.SetActive( idsHot.Contains(icon.id) );
             }
         }
-        if (category == "FEATURED")
+        else if (category == "FEATURED")
         {
             foreach(AppIconPrefab icon in listAppIconPrefab){
                 icon.gameObject.SetActive( idsFeatured.Contains(icon.id) );

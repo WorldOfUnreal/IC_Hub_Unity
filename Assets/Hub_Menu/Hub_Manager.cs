@@ -157,8 +157,8 @@ public class Hub_Manager : MonoBehaviour
     public void OpenSection(int id)
     {
         foreach (GameObject section in sectionsCenter) { section.SetActive(false); }
-        JSCurrentSection(id);
         sectionsCenter[id].SetActive(true);
+        JSCurrentSection(id);
         
     }
 }
