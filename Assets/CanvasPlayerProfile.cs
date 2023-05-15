@@ -52,6 +52,8 @@ public class CanvasPlayerProfile : MonoBehaviour
         private static extern void JSLogoutFromProfile();
         [DllImport("__Internal")]
         private static extern void JSChangeDescriptionUser(string text);
+        [DllImport("__Internal")]
+        public static extern void JSCopyToClipboard(string accountName);
         
        
         public void ClosePopupPlayerProfile()
@@ -185,5 +187,11 @@ public class CanvasPlayerProfile : MonoBehaviour
             public string memberSince;
             public RolePlayerProfile rolePlayerProfile;
         }
+        
+        public void CopyTextToClipBoard(TMP_Text tmpText)
+        {
+            JSCopyToClipboard(tmpText.text);
+        }
+
         
 }
