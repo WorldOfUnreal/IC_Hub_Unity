@@ -18,6 +18,8 @@ public class AppBrowserController : MonoBehaviour
         public string banner;
         [SerializeField]
         public AppCategory appCategoryIndex;
+        public bool isFavorite;
+        public int favAppOrder;
         public string dscvrPortal;
         public string distrikt;
         public string openChat;
@@ -31,7 +33,6 @@ public class AppBrowserController : MonoBehaviour
         public string currentVersion;
         public string launchLink;
         public List<NewsApp> listNews = new List<NewsApp>();
-        
     }
     [Serializable]
     public class ListApps {
@@ -50,10 +51,12 @@ public class AppBrowserController : MonoBehaviour
     [Header("UI Categorys: ")] 
     public string categoryActual = "ALL";
     public List<AppIconPrefab> listAppIconPrefab = new List<AppIconPrefab>();
-    
+    public List<AppIconPrefab> listAppFavIconPrefab = new List<AppIconPrefab>();
+
     [Header("Scroll Content & Prefab: ")] 
     public GameObject prefabAppIcon;
     public GameObject contentApps;
+    public GameObject contentFavApps;
     
     [Header("List Apps: ")] 
     public ListApps listApps = new ListApps();
@@ -130,8 +133,11 @@ public class AppBrowserController : MonoBehaviour
     }
     
     public void GetAppsInfo(string json){
+       
         foreach (Transform t in contentApps.transform) { GameObject.Destroy(t.gameObject); }
         listAppIconPrefab.Clear();
+        foreach (Transform t in contentFavApps.transform) { GameObject.Destroy(t.gameObject); }
+        listAppFavIconPrefab.Clear();
         
         listApps = JsonUtility.FromJson<ListApps>(json);
        
@@ -143,6 +149,22 @@ public class AppBrowserController : MonoBehaviour
             appIcon.buttonApp.onClick.AddListener(() => { OnClickAppIcon(appInfo.id); });
             appIcon.appCategory = appInfo.appCategoryIndex;
             listAppIconPrefab.Add(appIcon);
+
+            //++++++++++++++++++++++++++++++++
+            //Favorite AppList Code Section
+            if (appInfo.isFavorite)
+            {
+                GameObject newAppFavIcon = Instantiate(prefabAppIcon, contentFavApps.transform);
+                AppIconPrefab appFavIcon = newAppFavIcon.GetComponent<AppIconPrefab>();
+                appFavIcon.imageDowloadManager.ChangeUrlImage(appInfo.logo);
+                appFavIcon.id = appInfo.id;
+                appFavIcon.buttonApp.onClick.AddListener(() => { OnClickAppIcon(appInfo.id); });
+                appFavIcon.appCategory = appInfo.appCategoryIndex;
+                appFavIcon.favAppOrder = appInfo.favAppOrder;
+                listAppFavIconPrefab.Add(appFavIcon);
+            }
+            //Favorite AppList Code Section
+            //++++++++++++++++++++++++++++++++
         }
         ChangeCategory(categoryActual);
         UpdateCategoryNumbers();
