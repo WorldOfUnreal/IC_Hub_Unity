@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
@@ -112,7 +114,7 @@ public class Hub_Manager : MonoBehaviour
         foreach (Transform t in contentFriends.transform) { GameObject.Destroy(t.gameObject); }
         
         ListFriends listFriends = JsonUtility.FromJson<ListFriends>(json);
-        
+
         foreach (Friend g in listFriends.data)
         {
             GameObject newFriend = Instantiate(prefabFriend, contentFriends.transform);
@@ -120,11 +122,13 @@ public class Hub_Manager : MonoBehaviour
             friendPrefab.nameFriend.text = g.name;
             friendPrefab.statusTMP.text = g.status;
             friendPrefab.iconFriend.ChangeUrlImage(g.avatar);
-            friendPrefab.button.onClick.AddListener(()=>{ CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(g.principalID, g.name); });
-        }   
+            friendPrefab.button.onClick.AddListener(() => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(g.principalID, g.name); });
+        }
+
         separatorFriendNumber.text = "- " + listFriends.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.GetComponent<RectTransform>());  //Update UI
     }
+    
     public void GetGroupsInfo(string json)
     {
         foreach (Transform t in contentGroups.transform) { GameObject.Destroy(t.gameObject); }
