@@ -16,7 +16,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ClickableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86acb61e0d2b4b36bc20af11093be9a5157e00/6c/c683841f/UnityEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Selectable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/NotificationsManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -114,7 +113,7 @@
       <workItem from="1681761418962" duration="55752000" />
       <workItem from="1683321669543" duration="17273000" />
       <workItem from="1684190925086" duration="3721000" />
-      <workItem from="1684284694286" duration="9102000" />
+      <workItem from="1684284694286" duration="17526000" />
     </task>
     <servers />
   </component>

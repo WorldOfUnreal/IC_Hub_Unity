@@ -14,6 +14,7 @@ public class AppIconPrefab : MonoBehaviour
     public Image bgSelected;
     public GameObject barSelected;
     public Button buttonApp;
+    public ClickableObject clickableObject;
     public AppBrowserController.AppCategory appCategory;
 
     

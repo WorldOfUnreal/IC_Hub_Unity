@@ -16,6 +16,22 @@ public class ContextualMenuManager : MonoBehaviour
     [HideInInspector]
     public GameObject contextualMenuOpened;
 
+    public Search_ContextualMenu search_contextualmenu;
+    public App_ContextualMenu app_contextualmenu;
+
+    
+    public void OpenSearch_ContextualMenu(GameObject pos)
+    {
+        search_contextualmenu.transform.position = pos.transform.position;
+        OpenContextualMenu(search_contextualmenu.gameObject);
+    }
+    public void OpenApp_ContextualMenu(GameObject pos, int idApp)
+    {
+        app_contextualmenu.transform.position = pos.transform.position;
+        app_contextualmenu.idApp = idApp;
+        OpenContextualMenu(app_contextualmenu.gameObject);
+    }
+    
     public void OpenContextualMenu(GameObject go_ContextualMenu)
     {
         if(contextualMenuOpened){ contextualMenuOpened.SetActive(false);}

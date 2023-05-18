@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 8980938359325044144}
   - component: {fileID: 6966389219490751309}
   - component: {fileID: 2912322967671780563}
+  - component: {fileID: 8002756846442734733}
   m_Layer: 5
   m_Name: AppIcon
   m_TagString: Untagged
@@ -229,11 +230,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d232dff365d2c184b9b010f901b743e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  favAppOrder: 0
   logoImage: {fileID: 8980938359175719648}
   imageDowloadManager: {fileID: 4264866413282079594}
   bgSelected: {fileID: 8980938359325044147}
   barSelected: {fileID: 8980938359785997022}
   buttonApp: {fileID: 8980938359325044144}
+  clickableObject: {fileID: 8002756846442734733}
   appCategory: 0
 --- !u!95 &2912322967671780563
 Animator:
@@ -255,6 +259,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8002756846442734733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980938359325044158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46eed1763d3067458588ed742790fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8980938359785997022
 GameObject:
   m_ObjectHideFlags: 0
