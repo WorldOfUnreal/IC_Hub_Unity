@@ -167,10 +167,10 @@ public class ChatManager : MonoBehaviour
         newMessage.contentMessage.color = MessageTypeColor(messageType);
         newMessage.nameUser.text = m.username;
         newMessage.avatarUser.ChangeUrlImage(m.avatarUser);
-        newMessage.button.onClick.AddListener((() =>
-        {
-            CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(m.principalID, m.username);
-        }));
+        newMessage.clickableObject.callLeftClick = () => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(m.principalID, m.username); };
+        newMessage.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenUser_ContextualMenu(newText, m.principalID, m.username); };
+        //newMessage.button.onClick.AddListener((() => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(m.principalID, m.username);}));
+        
         
         messageList.Add(newMessage);
     }

@@ -18,6 +18,7 @@ public class ContextualMenuManager : MonoBehaviour
 
     public Search_ContextualMenu search_contextualmenu;
     public App_ContextualMenu app_contextualmenu;
+    public User_ContextualMenu user_contextualmenu;
 
     
     public void OpenSearch_ContextualMenu(GameObject pos)
@@ -31,7 +32,15 @@ public class ContextualMenuManager : MonoBehaviour
         app_contextualmenu.idApp = idApp;
         OpenContextualMenu(app_contextualmenu.gameObject);
     }
+    public void OpenUser_ContextualMenu(GameObject pos, string principalID, string username)
+    {
+        user_contextualmenu.transform.position = pos.transform.position;
+        user_contextualmenu.principalID = principalID;
+        user_contextualmenu.username = username;
+        OpenContextualMenu(user_contextualmenu.gameObject);
+    }
     
+    //OpenBase
     public void OpenContextualMenu(GameObject go_ContextualMenu)
     {
         if(contextualMenuOpened){ contextualMenuOpened.SetActive(false);}

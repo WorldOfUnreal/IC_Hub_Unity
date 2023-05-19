@@ -730,8 +730,9 @@ GameObject:
   - component: {fileID: 960603855383604592}
   - component: {fileID: 960603855383604597}
   - component: {fileID: 960603855383604594}
-  - component: {fileID: 960603855383604595}
   - component: {fileID: 6415095079118554610}
+  - component: {fileID: 960603855383604595}
+  - component: {fileID: 7441585154834438301}
   m_Layer: 5
   m_Name: FriendPrefab
   m_TagString: Untagged
@@ -802,6 +803,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6415095079118554610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960603855383604593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51e725c7863b4e459f3704c9acf640f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconFriend: {fileID: 1308813155165306644}
+  iconStatus: {fileID: 960603854429638131}
+  nameFriend: {fileID: 960603855291931337}
+  statusTMP: {fileID: 960603854164745244}
+  iconAppInUse: {fileID: 960603853561973767}
+  clickableObject: {fileID: 7441585154834438301}
 --- !u!114 &960603855383604595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,7 +865,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6415095079118554610
+--- !u!114 &7441585154834438301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -855,12 +874,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 960603855383604593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51e725c7863b4e459f3704c9acf640f, type: 3}
+  m_Script: {fileID: 11500000, guid: e46eed1763d3067458588ed742790fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconFriend: {fileID: 1308813155165306644}
-  iconStatus: {fileID: 960603854429638131}
-  nameFriend: {fileID: 960603855291931337}
-  statusTMP: {fileID: 960603854164745244}
-  iconAppInUse: {fileID: 960603853561973767}
-  button: {fileID: 960603855383604595}

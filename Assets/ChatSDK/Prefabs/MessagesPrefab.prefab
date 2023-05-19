@@ -241,9 +241,9 @@ RectTransform:
   m_Father: {fileID: 7547798330545695406}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 314.155, y: -75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 628.31, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7547798329519181386
@@ -833,6 +833,7 @@ GameObject:
   - component: {fileID: 7547798330545695404}
   - component: {fileID: 5789125063216004765}
   - component: {fileID: 7952870699208434262}
+  - component: {fileID: 1523521929153279941}
   m_Layer: 5
   m_Name: MessagesPrefab
   m_TagString: Untagged
@@ -920,7 +921,7 @@ MonoBehaviour:
   timestamp: {fileID: 7547798330397479646}
   contentMessage: {fileID: 7547798329519181389}
   messageType: 0
-  button: {fileID: 7952870699208434262}
+  clickableObject: {fileID: 1523521929153279941}
 --- !u!114 &7952870699208434262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,3 +966,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1523521929153279941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547798330545695393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46eed1763d3067458588ed742790fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

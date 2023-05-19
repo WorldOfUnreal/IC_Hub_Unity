@@ -146,7 +146,9 @@ public class AppBrowserController : MonoBehaviour
             AppIconPrefab appIcon = newAppIcon.GetComponent<AppIconPrefab>();
             appIcon.imageDowloadManager.ChangeUrlImage(appInfo.logo);
             appIcon.id = appInfo.id;
-            appIcon.buttonApp.onClick.AddListener(() => { OnClickAppIcon(appInfo.id); });
+            appIcon.clickableObject.callLeftClick = () => { OnClickAppIcon(appInfo.id); };
+            appIcon.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenApp_ContextualMenu(newAppIcon, appInfo.id); };
+            //appIcon.buttonApp.onClick.AddListener(() => { OnClickAppIcon(appInfo.id); });
             appIcon.appCategory = appInfo.appCategoryIndex;
             listAppIconPrefab.Add(appIcon);
 
