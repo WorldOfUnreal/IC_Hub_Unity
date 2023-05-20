@@ -19,7 +19,8 @@ public class ContextualMenuManager : MonoBehaviour
     public Search_ContextualMenu search_contextualmenu;
     public App_ContextualMenu app_contextualmenu;
     public User_ContextualMenu user_contextualmenu;
-
+    public Group_ContextualMenu group_ContextualMenu;
+    public Token_ContextualMenu token_ContextualMenu;
     
     public void OpenSearch_ContextualMenu(GameObject pos)
     {
@@ -39,6 +40,21 @@ public class ContextualMenuManager : MonoBehaviour
         user_contextualmenu.username = username;
         OpenContextualMenu(user_contextualmenu.gameObject);
     }
+    public void OpenGroup_ContextualMenu(GameObject pos, int groupID, string groupName)
+    {
+        group_ContextualMenu.transform.position = pos.transform.position;
+        group_ContextualMenu.groupID = groupID;
+        group_ContextualMenu.groupName = groupName;
+        OpenContextualMenu(group_ContextualMenu.gameObject);
+    }
+    public void OpenToken_ContextualMenu(GameObject pos, int tokenID, string tokenName)
+    {
+        token_ContextualMenu.transform.position = pos.transform.position;
+        token_ContextualMenu.tokenID = tokenID;
+        token_ContextualMenu.tokenName = tokenName;
+        OpenContextualMenu(group_ContextualMenu.gameObject);
+    }
+    
     
     //OpenBase
     public void OpenContextualMenu(GameObject go_ContextualMenu)

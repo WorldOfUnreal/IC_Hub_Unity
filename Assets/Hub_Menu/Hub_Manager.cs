@@ -105,6 +105,8 @@ public class Hub_Manager : MonoBehaviour
             tokenPrefab.nameToken.text = g.name;
             tokenPrefab.valueToken.text = g.value;
             tokenPrefab.iconToken.ChangeUrlImage(g.avatar);
+            tokenPrefab.clickableObject.callLeftClick= () => { Debug.Log("ClickToken"); };
+            tokenPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenToken_ContextualMenu(newToken, g.id, g.name); };
         }
         separatorTokenNumber.text = "- " + listTokens.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI
@@ -143,6 +145,8 @@ public class Hub_Manager : MonoBehaviour
             Hub_GroupPrefab groupPrefab = newGroup.GetComponent<Hub_GroupPrefab>();
             groupPrefab.nameGroup.text = g.name;
             groupPrefab.iconGroup.ChangeUrlImage(g.avatar);
+            groupPrefab.clickableObject.callLeftClick= () => { ChatManager.Instance.SetGroupSelected(g.id); };
+            groupPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenGroup_ContextualMenu(newGroup, g.id, g.name); };
         }   
         separatorGroupNumber.text = "- " + listGroups.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI

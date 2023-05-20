@@ -8,4 +8,6 @@ public class Hub_GroupPrefab : MonoBehaviour
 {
     public ImageDowloadManager iconGroup;
     public TMP_Text nameGroup;
+    public int idGroup;
+    public ClickableObject clickableObject;
 }

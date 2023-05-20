@@ -14,6 +14,14 @@ using TMPro;
 
 public class ChatManager : MonoBehaviour
 {
+    public static ChatManager Instance { get; private set; }
+    private void Awake() 
+    {
+        if (Instance != null && Instance != this) { Destroy(this); } 
+        else { Instance = this;} 
+    }
+
+    
     public string username;
 
     public int maxMessages = 240;
@@ -205,6 +213,10 @@ public class ChatManager : MonoBehaviour
     public void LeaveGroup(){
         popupMoreSettings.SetActive(false);
         JSLeaveGroup(idGroupSelected);
+    }
+    public void LeaveGroup(int groupID){
+        popupMoreSettings.SetActive(false);
+        JSLeaveGroup(groupID);
     }
 
     public void ToggleAddPopup(){
