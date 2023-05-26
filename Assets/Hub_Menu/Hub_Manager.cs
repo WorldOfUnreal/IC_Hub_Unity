@@ -54,6 +54,24 @@ public class Hub_Manager : MonoBehaviour
     public class ListGroups {
         public List<Group> data;
     }
+    [System.Serializable]
+    public class UserNFTs{
+        public string nftAvatar;
+        public string nftUrl;
+        public string nftID;
+    }
+    [System.Serializable]
+    public class Collection{
+        public string avatar;
+        public string colectionName;
+        public string marketplaceURL;
+        public string canisterID;
+        public List<UserNFTs> userNFTs;
+    }
+    [System.Serializable]
+    public class ListCollections {
+        public List<Collection> data;
+    }
     
     [System.Serializable]
     public class UserProfileInfo {
@@ -84,6 +102,9 @@ public class Hub_Manager : MonoBehaviour
     public GameObject contentGroups;
     public GameObject prefabGroup;
     public TMP_Text separatorGroupNumber;
+    public GameObject contentCollections;
+    public GameObject prefabCollection;
+    public TMP_Text separatorCollectionNumber;
     
     [DllImport("__Internal")]
     private static extern void JSOnHubScene();
@@ -149,6 +170,24 @@ public class Hub_Manager : MonoBehaviour
             groupPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenGroup_ContextualMenu(newGroup, g.id, g.name); };
         }   
         separatorGroupNumber.text = "- " + listGroups.data.Count;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI
+    }
+    public void GetCollectionInfo(string json)
+    {
+        foreach (Transform t in contentCollections.transform) { GameObject.Destroy(t.gameObject); }
+        
+        ListCollections listCollections = JsonUtility.FromJson<ListCollections>(json);
+        
+        foreach (Collection c in listCollections.data)
+        {
+            GameObject newCollection = Instantiate(prefabCollection, contentCollections.transform);
+            Hub_CollectionPrefab collectionPrefab = newCollection.GetComponent<Hub_CollectionPrefab>();
+            collectionPrefab.nameCollection.text = c.colectionName;
+            collectionPrefab.icon.ChangeUrlImage(c.avatar);
+            collectionPrefab.clickableObject.callLeftClick= () => { Instance.OpenSection(4); CollectionSectionController.Instance.UpdateInfo(c); };
+            collectionPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenCollection_ContextualMenu(newCollection, c); };
+        }   
+        separatorCollectionNumber.text = "- " + listCollections.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI
     }
     public void GetUserInfo(string json)

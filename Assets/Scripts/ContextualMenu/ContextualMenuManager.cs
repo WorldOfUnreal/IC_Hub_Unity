@@ -21,6 +21,7 @@ public class ContextualMenuManager : MonoBehaviour
     public User_ContextualMenu user_contextualmenu;
     public Group_ContextualMenu group_ContextualMenu;
     public Token_ContextualMenu token_ContextualMenu;
+    public Collection_ContextualMenu collection_ContextualMenu;
     
     public void OpenSearch_ContextualMenu(GameObject pos)
     {
@@ -52,9 +53,14 @@ public class ContextualMenuManager : MonoBehaviour
         token_ContextualMenu.transform.position = pos.transform.position;
         token_ContextualMenu.tokenID = tokenID;
         token_ContextualMenu.tokenName = tokenName;
-        OpenContextualMenu(group_ContextualMenu.gameObject);
+        OpenContextualMenu(token_ContextualMenu.gameObject);
     }
-    
+    public void OpenCollection_ContextualMenu(GameObject pos, Hub_Manager.Collection collection)
+    {
+        collection_ContextualMenu.transform.position = pos.transform.position;
+        collection_ContextualMenu.collection = collection;
+        OpenContextualMenu(collection_ContextualMenu.gameObject);
+    }
     
     //OpenBase
     public void OpenContextualMenu(GameObject go_ContextualMenu)
