@@ -27,6 +27,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/ToggleGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_InputField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ContextualMenu/NFT_ContextualMenu.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -114,7 +115,8 @@
       <workItem from="1683321669543" duration="17273000" />
       <workItem from="1684190925086" duration="3721000" />
       <workItem from="1684284694286" duration="34263000" />
-      <workItem from="1685053963502" duration="9864000" />
+      <workItem from="1685053963502" duration="14061000" />
+      <workItem from="1685406201466" duration="733000" />
     </task>
     <servers />
   </component>

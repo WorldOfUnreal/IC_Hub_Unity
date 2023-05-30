@@ -32113,6 +32113,8 @@ MonoBehaviour:
   contentCollections: {fileID: 0}
   prefabCollection: {fileID: 0}
   separatorCollectionNumber: {fileID: 0}
+  sendNFTMenu: {fileID: 0}
+  sendTokenMenu: {fileID: 0}
 --- !u!114 &514087403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65923,7 +65925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5082458134366775269, guid: 671684dc6d0e29a41b3cac8f184c9b6b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5082458134366775269, guid: 671684dc6d0e29a41b3cac8f184c9b6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -88086,7 +88088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.721, y: 0.287}
   m_AnchorMax: {x: 1, y: 0.688}
-  m_AnchoredPosition: {x: 1.4700013, y: 0.94998735}
+  m_AnchoredPosition: {x: 1.4700015, y: 0.9499873}
   m_SizeDelta: {x: -2.9500008, y: -2.709999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388345629
@@ -117673,6 +117675,8 @@ MonoBehaviour:
   contentCollections: {fileID: 215375366}
   prefabCollection: {fileID: 2265807985196090578, guid: 8bd77cfa5b67b994db33d2fcd9a5629b, type: 3}
   separatorCollectionNumber: {fileID: 643478956}
+  sendNFTMenu: {fileID: 0}
+  sendTokenMenu: {fileID: 0}
 --- !u!114 &1909282611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128029,7 +128033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 411.6, y: -437.4426}
+  m_AnchoredPosition: {x: -106.62, y: -54.01}
   m_SizeDelta: {x: 213.25, y: 108.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2071527753

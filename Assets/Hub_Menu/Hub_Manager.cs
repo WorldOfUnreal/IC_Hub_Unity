@@ -15,8 +15,7 @@ public class Hub_Manager : MonoBehaviour
     private static extern void JSCurrentSection(int id);
         
     public static Hub_Manager Instance { get; private set; }
-        
-    private void Awake() 
+            private void Awake() 
     {
         if (Instance != null && Instance != this) { Destroy(this); } 
         else { Instance = this;} 
@@ -105,6 +104,10 @@ public class Hub_Manager : MonoBehaviour
     public GameObject contentCollections;
     public GameObject prefabCollection;
     public TMP_Text separatorCollectionNumber;
+    
+    [Header("Send Token && Nfts Panels")] 
+    public GameObject sendNFTMenu;
+    public GameObject sendTokenMenu;
     
     [DllImport("__Internal")]
     private static extern void JSOnHubScene();
