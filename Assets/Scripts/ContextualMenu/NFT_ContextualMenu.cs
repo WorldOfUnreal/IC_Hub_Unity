@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class NFT_ContextualMenu : MonoBehaviour
 {
-    [HideInInspector] public Hub_Manager.Collection collection;
-    [HideInInspector] public string groupName;
+    [HideInInspector] public Hub_Manager.UserNFTs userNFT;
     
-    public void GoToCollection()
+    
+    public void GoToSendNFT()
     {
-        Hub_Manager.Instance.OpenSection(4); 
-        CollectionSectionController.Instance.UpdateInfo(collection);
-        ContextualMenuManager.Instance.CloseContextualMenu();
+        //Hub_Manager.Instance.OpenSection(4; 
+        //OPen Panel Send NFT
     }
     public void OpenUrl()
     {
-        Application.OpenURL(collection.avatar);
+        Application.OpenURL(userNFT.nftUrl);
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
-    
+
 }

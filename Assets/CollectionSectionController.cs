@@ -36,7 +36,8 @@ public class CollectionSectionController : MonoBehaviour
             GameObject newNFT = Instantiate(nftPrefab, contentNFTs.transform);
             NftIconPrefab nftIconPrefab = newNFT.GetComponent<NftIconPrefab>();
             nftIconPrefab.imageDowloadManager.ChangeUrlImage(n.nftAvatar);
-            nftIconPrefab.clickableObject.callLeftClick = () => {Debug.Log("VAR"); };
+            nftIconPrefab.clickableObject.callLeftClick = () => {Application.OpenURL(n.nftUrl);};
+            nftIconPrefab.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenNFT_ContextualMenu(newNFT, n);};
 
         }
         

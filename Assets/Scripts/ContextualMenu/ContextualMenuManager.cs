@@ -22,6 +22,7 @@ public class ContextualMenuManager : MonoBehaviour
     public Group_ContextualMenu group_ContextualMenu;
     public Token_ContextualMenu token_ContextualMenu;
     public Collection_ContextualMenu collection_ContextualMenu;
+    public NFT_ContextualMenu nft_ContextualMenu;
     
     public void OpenSearch_ContextualMenu(GameObject pos)
     {
@@ -61,8 +62,13 @@ public class ContextualMenuManager : MonoBehaviour
         collection_ContextualMenu.collection = collection;
         OpenContextualMenu(collection_ContextualMenu.gameObject);
     }
-    
-    //OpenBase
+    public void OpenNFT_ContextualMenu(GameObject pos, Hub_Manager.UserNFTs userNFT)
+    {
+        nft_ContextualMenu.transform.position = pos.transform.position;
+        nft_ContextualMenu.userNFT = userNFT;
+        OpenContextualMenu(nft_ContextualMenu.gameObject);
+    }
+    //OpenBase Global
     public void OpenContextualMenu(GameObject go_ContextualMenu)
     {
         if(contextualMenuOpened){ contextualMenuOpened.SetActive(false);}
