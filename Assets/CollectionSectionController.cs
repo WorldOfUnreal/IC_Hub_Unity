@@ -17,6 +17,7 @@ public class CollectionSectionController : MonoBehaviour
         else { Instance = this;} 
     }
     
+    
     [Header("UI Collection: ")] 
     public TMP_Text nameCollection;
     public ImageDowloadManager iconCollection;
