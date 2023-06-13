@@ -37,10 +37,9 @@ public class CollectionSectionController : MonoBehaviour
             GameObject newNFT = Instantiate(nftPrefab, contentNFTs.transform);
             NftIconPrefab nftIconPrefab = newNFT.GetComponent<NftIconPrefab>();
             nftIconPrefab.imageDowloadManager.ChangeUrlImage(n.nftAvatar);
-            nftIconPrefab.clickableObject.callLeftClick = () => {Application.OpenURL(n.nftUrl);};
-            nftIconPrefab.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenNFT_ContextualMenu(newNFT, n);};
-
+            nftIconPrefab.clickableObject.callLeftClick = () => { Hub_Manager.Instance.OpenSection(6); 
+                                                                  NftSectionController.Instance.UpdateInfo(n, collection.marketplaceURL); };
+            nftIconPrefab.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenNFT_ContextualMenu(newNFT, n, collection.marketplaceURL);};
         }
-        
     }
 }

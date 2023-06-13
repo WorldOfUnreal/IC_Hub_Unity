@@ -5,8 +5,13 @@ using UnityEngine;
 public class NFT_ContextualMenu : MonoBehaviour
 {
     [HideInInspector] public Hub_Manager.UserNFTs userNFT;
+    [HideInInspector] public string marketplace;
     
-    
+    public void OpenSectionNFT()
+    {
+        Hub_Manager.Instance.OpenSection(6); 
+        NftSectionController.Instance.UpdateInfo(userNFT, marketplace);
+    }
     public void GoToSendNFT()
     {
         //Hub_Manager.Instance.OpenSection(4; 
@@ -17,5 +22,13 @@ public class NFT_ContextualMenu : MonoBehaviour
         Application.OpenURL(userNFT.nftUrl);
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
+    public void OpenMarketPlace()
+    {
+        Application.OpenURL(marketplace);
+        ContextualMenuManager.Instance.CloseContextualMenu();
+    }
+
+   
+
 
 }

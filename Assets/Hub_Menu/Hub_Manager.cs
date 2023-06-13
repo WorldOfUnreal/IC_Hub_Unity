@@ -54,7 +54,10 @@ public class Hub_Manager : MonoBehaviour
         public List<Group> data;
     }
     [System.Serializable]
-    public class UserNFTs{
+    public class UserNFTs
+    {
+        public string nftOwner;
+        public string nftName;
         public string nftAvatar;
         public string nftUrl;
         public string nftID;

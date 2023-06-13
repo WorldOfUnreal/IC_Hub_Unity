@@ -62,10 +62,11 @@ public class ContextualMenuManager : MonoBehaviour
         collection_ContextualMenu.collection = collection;
         OpenContextualMenu(collection_ContextualMenu.gameObject);
     }
-    public void OpenNFT_ContextualMenu(GameObject pos, Hub_Manager.UserNFTs userNFT)
+    public void OpenNFT_ContextualMenu(GameObject pos, Hub_Manager.UserNFTs userNFT, string marketplace)
     {
         nft_ContextualMenu.transform.position = pos.transform.position;
         nft_ContextualMenu.userNFT = userNFT;
+        nft_ContextualMenu.marketplace = marketplace;
         OpenContextualMenu(nft_ContextualMenu.gameObject);
     }
     //OpenBase Global
