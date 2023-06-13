@@ -58,6 +58,8 @@ public class CanvasSendCrypto : MonoBehaviour
             
             buttonSend.onClick.RemoveAllListeners();
             buttonSend.onClick.AddListener(() => SendCrypto(transactionData) );
+            
+            panelParent.SetActive(true);
         }
 
         public void SendCrypto(TransactionData transactionData)
