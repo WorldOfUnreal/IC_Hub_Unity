@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NFT_ContextualMenu : MonoBehaviour
+public class NFT_ContextualMenu : ContextualMenu
 {
     [HideInInspector] public Hub_Manager.UserNFTs userNFT;
     [HideInInspector] public string marketplace;
@@ -11,6 +11,7 @@ public class NFT_ContextualMenu : MonoBehaviour
     {
         Hub_Manager.Instance.OpenSection(6); 
         NftSectionController.Instance.UpdateInfo(userNFT, marketplace);
+        ContextualMenuManager.Instance.CloseContextualMenu();
     }
     public void GoToSendNFT()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Group_ContextualMenu : MonoBehaviour
+public class Group_ContextualMenu : ContextualMenu
 {
     [HideInInspector] public int groupID;
     [HideInInspector] public string groupName;

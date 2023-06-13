@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Token_ContextualMenu : MonoBehaviour
+public class Token_ContextualMenu : ContextualMenu
 {
     [HideInInspector] public int tokenID;
     [HideInInspector] public string tokenName;
