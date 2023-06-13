@@ -136,4 +136,8 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.CurrentSection(id);
     },
     
+  JSSendCrypto: function (json) {
+      ReactUnityWebGL.SendCrypto(Pointer_stringify(json));
+    },
+    
 });

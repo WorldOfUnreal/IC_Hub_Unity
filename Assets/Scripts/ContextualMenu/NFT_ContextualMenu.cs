@@ -14,6 +14,8 @@ public class NFT_ContextualMenu : MonoBehaviour
     }
     public void GoToSendNFT()
     {
+        CanvasSendCrypto.Instance.OpenPopupSendCrypto(userNFT.nftID, false, userNFT.nftAvatar);
+        ContextualMenuManager.Instance.CloseContextualMenu();
         //Hub_Manager.Instance.OpenSection(4; 
         //OPen Panel Send NFT
     }
