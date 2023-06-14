@@ -9716,7 +9716,6 @@ GameObject:
   - component: {fileID: 136896729}
   - component: {fileID: 136896728}
   - component: {fileID: 136896727}
-  - component: {fileID: 136896726}
   m_Layer: 5
   m_Name: CanvasReport
   m_TagString: Untagged
@@ -9724,25 +9723,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &136896726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136896725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 062c70003133a464293dd52b88545c17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelParent: {fileID: 1820329734}
-  iconNft: {fileID: 0}
-  title: {fileID: 1961164190}
-  web3Address: {fileID: 0}
-  quantityField: {fileID: 1064391600}
-  buttonCancel: {fileID: 2000466081}
-  buttonSend: {fileID: 810462557}
 --- !u!114 &136896727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9818,7 +9798,7 @@ RectTransform:
   m_Children:
   - {fileID: 1820329735}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23000,7 +22980,7 @@ RectTransform:
   m_Children:
   - {fileID: 926226891}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -91105,7 +91085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.721, y: 0.287}
   m_AnchorMax: {x: 1, y: 0.688}
-  m_AnchoredPosition: {x: 1.4700012, y: 0.9499874}
+  m_AnchoredPosition: {x: 1.4700015, y: 0.9499873}
   m_SizeDelta: {x: -2.9500008, y: -2.709999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388345629
@@ -107417,7 +107397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1675677658}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 352221071}
+        m_TargetAssemblyTypeName: CanvasSendCrypto, Assembly-CSharp
+        m_MethodName: ClosePopupPlayerProfile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1675677658
 MonoBehaviour:
   m_ObjectHideFlags: 0
