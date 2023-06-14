@@ -26,6 +26,7 @@ public class App_ContextualMenu : ContextualMenu
     public void ReportApp()
     {
         Debug.Log("ReportApp");
+        CanvasReport.Instance.OpenPopupReport(idApp.ToString());
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
 }

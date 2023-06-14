@@ -50,8 +50,6 @@ public class CanvasSendCrypto : MonoBehaviour
             buttonCancel.onClick.RemoveAllListeners();
             buttonCancel.onClick.AddListener(ClosePopupPlayerProfile);
             
-            
-            
             buttonSend.onClick.RemoveAllListeners();
             buttonSend.onClick.AddListener(() => SendCrypto(ID, isToken) );
             

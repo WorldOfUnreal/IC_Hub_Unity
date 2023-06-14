@@ -31,6 +31,7 @@ public class Group_ContextualMenu : ContextualMenu
     public void ReportGroup()
     {
         Debug.Log("ReportGroup");
+        CanvasReport.Instance.OpenPopupReport(groupID.ToString());
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
 }

@@ -140,4 +140,12 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.SendCrypto(Pointer_stringify(json));
     },
     
+  JSSendReport: function (json) {
+      ReactUnityWebGL.SendReport(Pointer_stringify(json));
+    },
+    
+    
+    
+    
+    
 });

@@ -20,7 +20,8 @@ public class User_ContextualMenu : ContextualMenu
     }
     public void ReportUser()
     {
-        Debug.Log("ReportApp");
+        Debug.Log("ReportUser");
+        CanvasReport.Instance.OpenPopupReport(principalID);
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
 }
