@@ -50,20 +50,22 @@ public class CanvasSendCrypto : MonoBehaviour
             buttonCancel.onClick.RemoveAllListeners();
             buttonCancel.onClick.AddListener(ClosePopupPlayerProfile);
             
+            
+            
+            buttonSend.onClick.RemoveAllListeners();
+            buttonSend.onClick.AddListener(() => SendCrypto(ID, isToken) );
+            
+            panelParent.SetActive(true);
+        }
+
+        public void SendCrypto( string ID, bool isToken )
+        {
             TransactionData transactionData = new TransactionData();
             transactionData.idToken = ID;
             transactionData.quantityToken = quantityField.text;
             transactionData.web3Adress = web3Address.text;
             transactionData.isToken = isToken;
             
-            buttonSend.onClick.RemoveAllListeners();
-            buttonSend.onClick.AddListener(() => SendCrypto(transactionData) );
-            
-            panelParent.SetActive(true);
-        }
-
-        public void SendCrypto(TransactionData transactionData)
-        {
             CanvasPopup.Instance.OpenPopup(() => {
                     CanvasPopup.Instance.OpenLoadingPanel();
                     JSSendCrypto( JsonUtility.ToJson(transactionData) );
