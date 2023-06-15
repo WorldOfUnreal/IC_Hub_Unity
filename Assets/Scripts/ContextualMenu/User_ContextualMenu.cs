@@ -21,7 +21,7 @@ public class User_ContextualMenu : ContextualMenu
     public void ReportUser()
     {
         Debug.Log("ReportUser");
-        CanvasReport.Instance.OpenPopupReport(principalID);
+        CanvasReport.Instance.OpenPopupReport(principalID, 0);
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
 }

@@ -133,7 +133,7 @@ public class Hub_Manager : MonoBehaviour
             tokenPrefab.valueToken.text = g.value;
             tokenPrefab.iconToken.ChangeUrlImage(g.avatar);
             tokenPrefab.clickableObject.callLeftClick= () => { Debug.Log("ClickToken"); };
-            tokenPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenToken_ContextualMenu(newToken, g.id, g.name); };
+            tokenPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenToken_ContextualMenu(newToken, g); };
         }
         separatorTokenNumber.text = "- " + listTokens.data.Count;
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI

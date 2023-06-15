@@ -16,9 +16,10 @@ public class CanvasReport : MonoBehaviour
     
     public class ReportData
     {
-        public string idReport;
-        public int dropdown;
-        public string description;
+        public int categoryReport;
+        public string idReported;
+        public string reportType;
+        public string reasonReport;
     }
     [DllImport("__Internal")]
     private static extern void JSSendReport(string json);
@@ -35,23 +36,24 @@ public class CanvasReport : MonoBehaviour
         panelParent.SetActive(false);
     }
 
-    public void OpenPopupReport(string ID)
+    public void OpenPopupReport(string ID, int categoryReport)
     {
         buttonCancel.onClick.RemoveAllListeners();
         buttonCancel.onClick.AddListener(ClosePopupReport);
         
         buttonSend.onClick.RemoveAllListeners();
-        buttonSend.onClick.AddListener(() => SendReport(ID) );
+        buttonSend.onClick.AddListener(() => SendReport(ID, categoryReport) );
         
         panelParent.SetActive(true);
     }
 
-    public void SendReport(string ID)
+    public void SendReport(string ID, int categoryReport)
     {
         ReportData reportData = new ReportData();
-        reportData.idReport = ID;
-        reportData.dropdown = dropdown.value;
-        reportData.description = descriptionReport.text;
+        reportData.categoryReport = categoryReport;
+        reportData.idReported = ID;
+        reportData.reportType = dropdown.options[dropdown.value].text;
+        reportData.reasonReport = descriptionReport.text;
         
         CanvasPopup.Instance.OpenPopupInLoading();
         JSSendReport( JsonUtility.ToJson(reportData) );

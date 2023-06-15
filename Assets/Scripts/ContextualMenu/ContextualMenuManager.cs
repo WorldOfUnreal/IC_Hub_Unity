@@ -49,11 +49,12 @@ public class ContextualMenuManager : MonoBehaviour
         group_ContextualMenu.groupName = groupName;
         OpenContextualMenu(group_ContextualMenu.gameObject);
     }
-    public void OpenToken_ContextualMenu(GameObject pos, int tokenID, string tokenName)
+    public void OpenToken_ContextualMenu(GameObject pos, Hub_Manager.Token token)
     {
         token_ContextualMenu.transform.position = pos.transform.position;
-        token_ContextualMenu.tokenID = tokenID;
-        token_ContextualMenu.tokenName = tokenName;
+        token_ContextualMenu.tokenID = token.id;
+        token_ContextualMenu.tokenName = token.name;
+        token_ContextualMenu.tokenAvatar = token.avatar;
         OpenContextualMenu(token_ContextualMenu.gameObject);
     }
     public void OpenCollection_ContextualMenu(GameObject pos, Hub_Manager.Collection collection)
