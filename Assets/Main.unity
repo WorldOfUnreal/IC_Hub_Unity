@@ -19873,7 +19873,7 @@ MonoBehaviour:
   inputUrlAvatarField: {fileID: 515856143}
   urlSection: {fileID: 907997022}
   textAvatarSection: {fileID: 461910661}
-  textHeaderAvatar: {fileID: 0}
+  textHeaderAvatar: {fileID: 1537833169}
   avatarImage: {fileID: 972555358}
   acceptAvatarButton: {fileID: 156639706}
   userInfo_NameHash: {fileID: 900005552}
