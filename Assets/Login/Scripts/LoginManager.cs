@@ -29,6 +29,7 @@ public class LoginManager : MonoBehaviour
     [SerializeField] TMP_InputField inputUrlAvatarField;
     [SerializeField] GameObject urlSection;
     [SerializeField] GameObject textAvatarSection;
+    [SerializeField] TMP_Text textHeaderAvatar;
     [SerializeField] ImageDowloadManager avatarImage;
     [SerializeField] Button acceptAvatarButton;
     [SerializeField] TMP_Text userInfo_NameHash;
@@ -49,7 +50,6 @@ public class LoginManager : MonoBehaviour
     public static extern void JSCopyToClipboard(string accountName);
     
     
-    
     public void OnReceiveLoginData(string user)//ListenerReact
     {
         if (string.IsNullOrEmpty(user))
@@ -64,6 +64,21 @@ public class LoginManager : MonoBehaviour
             SceneManager.LoadScene(mainScene);
         }
 
+    }
+    public void SetPlayerName()
+    {
+        if (!string.IsNullOrEmpty(inputNameField.text) && !string.IsNullOrEmpty(inputHashField.text))
+        {
+            string playerName = inputNameField.text+"#"+inputHashField.text;
+            PlayerPrefs.SetString("AccountName", playerName);
+            JSSetNameLogin(playerName);
+            registrationPanel.SetActive(false);
+            loadingPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("NameField or HashField are empty");
+        }
     }
     public void OnNamePlayerSet(string json)//ListenerReact
     {
@@ -81,20 +96,23 @@ public class LoginManager : MonoBehaviour
         }
     }
     
-    public void SetPlayerName()
+    
+    public void OnAvatarReady()
     {
-        if (!string.IsNullOrEmpty(inputNameField.text) && !string.IsNullOrEmpty(inputHashField.text))
-        {
-            string playerName = inputNameField.text+"#"+inputHashField.text;
-            PlayerPrefs.SetString("AccountName", playerName);
-            JSSetNameLogin(playerName);
-            registrationPanel.SetActive(false);
-            loadingPanel.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("NameField or HashField are empty");
-        }
+        loadingPanel.SetActive(false);
+        SceneManager.LoadScene(mainScene);
+    }
+    public void OnAvatarUploadReady(string url)
+    {
+        loadingPanel.SetActive(false);
+        avatarPanel.SetActive(true);
+        
+        urlSection.SetActive(false);
+        textAvatarSection.SetActive(true);
+        textHeaderAvatar.text = "This is your avatar";
+        avatarImage.ChangeUrlImage(url);
+        acceptAvatarButton.onClick.RemoveAllListeners();
+        acceptAvatarButton.onClick.AddListener(()=>{SceneManager.LoadScene(mainScene);});
     }
     
     //Calls to React WebGL
@@ -129,32 +147,17 @@ public class LoginManager : MonoBehaviour
         avatarPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
+
     public void SetAvatarImage()
     {
         JSSetAvatarImage();
         avatarPanel.SetActive(false);
         loadingPanel.SetActive(true);
     }
-    public void OnAvatarReady()
-    {
-        loadingPanel.SetActive(false);
-        SceneManager.LoadScene(mainScene);
-    }
-    public void OnAvatarUploadReady(string url)
-    {
-        loadingPanel.SetActive(false);
-        urlSection.SetActive(false);
-        textAvatarSection.SetActive(true);
-        avatarImage.ChangeUrlImage(url);
-        acceptAvatarButton.onClick.RemoveAllListeners();
-        acceptAvatarButton.onClick.AddListener(()=>{SceneManager.LoadScene(mainScene);});
-    }
-    
     public void CopyTextToClipBoard(TMP_Text tmpText)
     {
         JSCopyToClipboard(tmpText.text);
     }
-    
-    
+
 }
 
