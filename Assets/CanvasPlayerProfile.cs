@@ -29,6 +29,7 @@ public class CanvasPlayerProfile : MonoBehaviour
         public Button editConfirmDescriptionUser;
         public Button editCancelDescriptionUser;
         public TMP_Text principalID;
+        public string principalIDComplete;
         public TMP_Text memberSinceTMP;
         [Header("Buttons Panel : ")] 
         public GameObject parentButtons;
@@ -84,6 +85,7 @@ public class CanvasPlayerProfile : MonoBehaviour
             descriptionPopup.text = infoPopupPlayer.description;
             originalDescription = infoPopupPlayer.description;
             principalID.text =  infoPopupPlayer.principalID.Substring(0, 4)+"..."+infoPopupPlayer.principalID.Substring(infoPopupPlayer.principalID.Length - 4);
+            principalIDComplete = infoPopupPlayer.principalID;
             memberSinceTMP.text = infoPopupPlayer.memberSince;
             
             editDescriptionUser.gameObject.SetActive(false);
@@ -190,7 +192,7 @@ public class CanvasPlayerProfile : MonoBehaviour
         
         public void CopyTextToClipBoard(TMP_Text tmpText)
         {
-            JSCopyToClipboard(tmpText.text);
+            JSCopyToClipboard(principalIDComplete);
         }
 
         

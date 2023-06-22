@@ -67,7 +67,7 @@ public class LoginManager : MonoBehaviour
     }
     public void SetPlayerName()
     {
-        if (!string.IsNullOrEmpty(inputNameField.text) && !string.IsNullOrEmpty(inputHashField.text))
+        if (!string.IsNullOrEmpty(inputNameField.text) && !string.IsNullOrEmpty(inputHashField.text) && inputHashField.text.Length > 2)
         {
             string playerName = inputNameField.text+"#"+inputHashField.text;
             PlayerPrefs.SetString("AccountName", playerName);
