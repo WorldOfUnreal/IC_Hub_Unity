@@ -98,23 +98,21 @@ public class Hub_Manager : MonoBehaviour
     public GameObject contentTokens;
     public GameObject prefabToken;
     public TMP_Text separatorTokenNumber;
+    
     public GameObject contentFriends;
     public GameObject prefabFriend;
     public TMP_Text separatorFriendNumber;
+    
     public GameObject contentGroups;
     public GameObject prefabGroup;
     public TMP_Text separatorGroupNumber;
+    
     public GameObject contentCollections;
     public GameObject prefabCollection;
     public TMP_Text separatorCollectionNumber;
-    
-    [Header("Send Token && Nfts Panels")] 
-    public GameObject sendNFTMenu;
-    public GameObject sendTokenMenu;
-    
+
     [DllImport("__Internal")]
     private static extern void JSOnHubScene();
-
     private void Start()
     {
        JSOnHubScene();
