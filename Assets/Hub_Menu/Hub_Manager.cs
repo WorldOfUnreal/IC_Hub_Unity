@@ -93,8 +93,9 @@ public class Hub_Manager : MonoBehaviour
     public Button buttonGoToUser;
     /*public Button buttonGoToUserCornerLeftDown1;
     public Button buttonGoToUserCornerLeftDown2;*/
-    
-    [Header("UI Tokens, Friends, Groups: ")] 
+
+    [Header("UI Tokens, Friends, Groups: ")]
+    public TMP_InputField searchInputField;
     public GameObject contentTokens;
     public GameObject prefabToken;
     public TMP_Text separatorTokenNumber;
@@ -134,6 +135,7 @@ public class Hub_Manager : MonoBehaviour
             tokenPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenToken_ContextualMenu(newToken, g); };
         }
         separatorTokenNumber.text = "- " + listTokens.data.Count;
+       // FilterResults(searchInputField.text);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI
     }
     public void GetFriendsInfo(string json)
@@ -155,6 +157,7 @@ public class Hub_Manager : MonoBehaviour
         }
 
         separatorFriendNumber.text = "- " + listFriends.data.Count;
+        //FilterResults(searchInputField.text);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.GetComponent<RectTransform>());  //Update UI
     }
     
@@ -174,6 +177,7 @@ public class Hub_Manager : MonoBehaviour
             groupPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenGroup_ContextualMenu(newGroup, g.id, g.name); };
         }   
         separatorGroupNumber.text = "- " + listGroups.data.Count;
+        //FilterResults(searchInputField.text);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI
     }
     public void GetCollectionInfo(string json)
@@ -192,6 +196,7 @@ public class Hub_Manager : MonoBehaviour
             collectionPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenCollection_ContextualMenu(newCollection, c); };
         }   
         separatorCollectionNumber.text = "- " + listCollections.data.Count;
+        //FilterResults(searchInputField.text);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI
     }
     public void GetUserInfo(string json)
@@ -214,4 +219,48 @@ public class Hub_Manager : MonoBehaviour
         JSCurrentSection(id);
         
     }
+    
+    public void FilterResults(string searchText)
+    {
+        if(string.IsNullOrEmpty(searchText))
+        {
+            separatorTokenNumber.transform.parent.gameObject.SetActive(true);
+            separatorFriendNumber.transform.parent.gameObject.SetActive(true);
+            separatorGroupNumber.transform.parent.gameObject.SetActive(true);
+            separatorCollectionNumber.transform.parent.gameObject.SetActive(true);
+            foreach (Transform token in contentTokens.transform) { token.gameObject.SetActive(true); } 
+            foreach (Transform friend in contentFriends.transform) { friend.gameObject.SetActive(true); } 
+            foreach (Transform group in contentGroups.transform) { group.gameObject.SetActive(true); } 
+            foreach (Transform collection in contentCollections.transform) { collection.gameObject.SetActive(true); } 
+        }
+        else
+        {
+            separatorTokenNumber.transform.parent.gameObject.SetActive(false);
+            separatorFriendNumber.transform.parent.gameObject.SetActive(false);
+            separatorGroupNumber.transform.parent.gameObject.SetActive(false);
+            separatorCollectionNumber.transform.parent.gameObject.SetActive(false);
+            foreach (Transform token in contentTokens.transform)
+            {
+                if (token.GetComponent<Hub_TokenPrefab>().nameToken.text.ToLower().Contains(searchText.ToLower())) { token.gameObject.SetActive(true); }
+                else { token.gameObject.SetActive(false); }
+            }
+            foreach (Transform friend in contentFriends.transform)
+            {
+                if (friend.GetComponent<Hub_FriendPrefab>().nameFriend.text.ToLower().Contains(searchText.ToLower())) { friend.gameObject.SetActive(true); }
+                else { friend.gameObject.SetActive(false); }
+            }
+            foreach (Transform group in contentGroups.transform)
+            {
+                if (group.GetComponent<Hub_GroupPrefab>().nameGroup.text.ToLower().Contains(searchText.ToLower())) { group.gameObject.SetActive(true); }
+                else { group.gameObject.SetActive(false); }
+            }
+            foreach (Transform collection in contentCollections.transform)
+            {
+                if (collection.GetComponent<Hub_CollectionPrefab>().nameCollection.text.ToLower().Contains(searchText.ToLower())) { collection.gameObject.SetActive(true); }
+                else { collection.gameObject.SetActive(false); }
+            }
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.transform.parent.GetComponent<RectTransform>());
+    }
+    
 }

@@ -23,7 +23,9 @@ public class DownloadTexture : MonoBehaviour
         foreach (Image image in idm.listImages) { image.sprite = Resources.Load<Sprite>( "Images/Loading" ); }
         
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(idm.urlImage);
+        Debug.Log("Antes yield");
         yield return www.SendWebRequest();
+        Debug.Log("despues yield");
 
         if (www.result != UnityWebRequest.Result.Success) {
             Debug.Log(www.error);
