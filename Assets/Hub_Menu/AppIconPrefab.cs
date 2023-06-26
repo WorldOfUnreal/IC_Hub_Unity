@@ -10,7 +10,7 @@ public class AppIconPrefab : MonoBehaviour
     public int id;
     public int favAppOrder;
     public Image logoImage;
-    public ImageDowloadManager imageDowloadManager;
+    public ImageDownloadManager imageDownloadManager;
     public Image bgSelected;
     public GameObject barSelected;
     public Button buttonApp;

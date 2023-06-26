@@ -17,7 +17,7 @@ public class NftSectionController : MonoBehaviour
     }
     
     [Header("UI NFT Content: ")] 
-    public ImageDowloadManager logoNFT;
+    public ImageDownloadManager logoNFT;
     public TMP_Text titleNFT;
     public TMP_Text ownerNFT;
     public TMP_Text linkNFT;

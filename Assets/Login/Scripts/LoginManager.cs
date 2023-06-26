@@ -30,7 +30,7 @@ public class LoginManager : MonoBehaviour
     [SerializeField] GameObject urlSection;
     [SerializeField] GameObject textAvatarSection;
     [SerializeField] TMP_Text textHeaderAvatar;
-    [SerializeField] ImageDowloadManager avatarImage;
+    [SerializeField] ImageDownloadManager avatarImage;
     [SerializeField] Button acceptAvatarButton;
     [SerializeField] TMP_Text userInfo_NameHash;
     [SerializeField] TMP_Text userInfo_Account;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Hub_TokenPrefab : MonoBehaviour
 {
-   public ImageDowloadManager iconToken;
+   public ImageDownloadManager iconToken;
    public TMP_Text nameToken;
    public TMP_Text valueToken;
    public int idToken;

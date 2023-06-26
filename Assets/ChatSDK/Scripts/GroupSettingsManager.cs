@@ -20,7 +20,7 @@ public class GroupSettingsManager : MonoBehaviour
     public GameObject contentMembers_owner;
     public GameObject contentMembers_admin;
     public GameObject contentMembers_user;
-    public ImageDowloadManager iconGroup;
+    public ImageDownloadManager iconGroup;
     public TMP_InputField tittleGroup;
     public Button editTitleGroup;
     public Button editConfirmTitleGroup;
@@ -38,7 +38,7 @@ public class GroupSettingsManager : MonoBehaviour
     [Header("User Panel : ")]
     public GameObject prefabMember_User;
     public GameObject contentMembersPanelUser;
-    public ImageDowloadManager iconGroup_User;
+    public ImageDownloadManager iconGroup_User;
     public TMP_Text tittleGroup_User;
     public TMP_Text descriptionGroup_User;
 

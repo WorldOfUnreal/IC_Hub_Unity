@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RequestFriendPrefab : MonoBehaviour
 {
-    public ImageDowloadManager icon;
+    public ImageDownloadManager icon;
     public TMP_Text userNameText;
     public TMP_Text principalID;
     public Button buttonAccept;

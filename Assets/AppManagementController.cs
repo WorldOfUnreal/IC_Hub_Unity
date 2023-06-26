@@ -60,14 +60,14 @@ public class AppManagementController : MonoBehaviour
     public TMP_InputField CatalyzeInput;
     public TMP_InputField TwitterInput;
     public TMP_InputField AppVersionInput;
-    public ImageDowloadManager BannerSlot;
-    public ImageDowloadManager LogoSlot;
+    public ImageDownloadManager BannerSlot;
+    public ImageDownloadManager LogoSlot;
 
     [Header("VersionPanel: ")] 
     public GameObject contentVersions;
     public GameObject versionAppPrefab;
     [Header("NewsPanel: ")] 
-    public ImageDowloadManager newsImage;
+    public ImageDownloadManager newsImage;
     public TMP_InputField newsTitle;
     public TMP_InputField newsContent;
     public TMP_InputField newsCallToActionText;

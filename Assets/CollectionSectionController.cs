@@ -20,7 +20,7 @@ public class CollectionSectionController : MonoBehaviour
     
     [Header("UI Collection: ")] 
     public TMP_Text nameCollection;
-    public ImageDowloadManager iconCollection;
+    public ImageDownloadManager iconCollection;
 
     [Header("Scroll Content & Prefab: ")] 
     public GameObject nftPrefab;
@@ -36,7 +36,7 @@ public class CollectionSectionController : MonoBehaviour
         foreach(Hub_Manager.UserNFTs n in collection.userNFTs){
             GameObject newNFT = Instantiate(nftPrefab, contentNFTs.transform);
             NftIconPrefab nftIconPrefab = newNFT.GetComponent<NftIconPrefab>();
-            nftIconPrefab.imageDowloadManager.ChangeUrlImage(n.nftAvatar);
+            nftIconPrefab.imageDownloadManager.ChangeUrlImage(n.nftAvatar);
             nftIconPrefab.clickableObject.callLeftClick = () => { Hub_Manager.Instance.OpenSection(6); 
                                                                   NftSectionController.Instance.UpdateInfo(n, collection.marketplaceURL); };
             nftIconPrefab.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenNFT_ContextualMenu(newNFT, n, collection.marketplaceURL);};

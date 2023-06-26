@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MemberPrefabToAdmin : MonoBehaviour
 {
-    public ImageDowloadManager icon;
+    public ImageDownloadManager icon;
     public TMP_Text userNameText;
     public Image userRoleDot;
     public Button button1;

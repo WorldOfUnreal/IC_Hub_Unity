@@ -37,7 +37,7 @@ public class ChatManager : MonoBehaviour
     public Color playerMessage, info;
     public TMP_Text groupName;
     public TMP_Text groupAvatar;
-    public ImageDowloadManager groupAvatarImage;
+    public ImageDownloadManager groupAvatarImage;
     
     [Header("Side Panel : ")]
     public GameObject sidePanel;

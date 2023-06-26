@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class NotificationPrefab : MonoBehaviour
 {
-    public Image iconNotification;
+    public ImageDownloadManager imageDownloadManager;
+    
     public TMP_Text title;
     public TMP_Text description;
     public CanvasGroup canvasGroup;

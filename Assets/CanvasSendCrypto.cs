@@ -27,7 +27,7 @@ public class CanvasSendCrypto : MonoBehaviour
         public GameObject panelParent;
         
         [Header("Info´s Panel : ")] 
-        public ImageDowloadManager iconNft;
+        public ImageDownloadManager iconNft;
         public TMP_Text title;
         public TMP_InputField web3Address;
         public TMP_InputField quantityField;

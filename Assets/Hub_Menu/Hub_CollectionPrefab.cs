@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Hub_CollectionPrefab : MonoBehaviour
 {
-    public ImageDowloadManager icon;
+    public ImageDownloadManager icon;
     public TMP_Text nameCollection;
     public int idNFT;
     public string canisterID;

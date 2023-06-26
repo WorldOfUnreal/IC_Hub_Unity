@@ -144,7 +144,7 @@ public class AppBrowserController : MonoBehaviour
         foreach(AppInfo appInfo in listApps.data){
             GameObject newAppIcon = Instantiate(prefabAppIcon, contentApps.transform);
             AppIconPrefab appIcon = newAppIcon.GetComponent<AppIconPrefab>();
-            appIcon.imageDowloadManager.ChangeUrlImage(appInfo.logo);
+            appIcon.imageDownloadManager.ChangeUrlImage(appInfo.logo);
             appIcon.id = appInfo.id;
             appIcon.clickableObject.callLeftClick = () => { OnClickAppIcon(appInfo.id); };
             appIcon.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenApp_ContextualMenu(newAppIcon, appInfo.id); };
@@ -158,7 +158,7 @@ public class AppBrowserController : MonoBehaviour
             {
                 GameObject newAppFavIcon = Instantiate(prefabAppIcon, contentFavApps.transform);
                 AppIconPrefab appFavIcon = newAppFavIcon.GetComponent<AppIconPrefab>();
-                appFavIcon.imageDowloadManager.ChangeUrlImage(appInfo.logo);
+                appFavIcon.imageDownloadManager.ChangeUrlImage(appInfo.logo);
                 appFavIcon.id = appInfo.id;
                 appFavIcon.clickableObject.callLeftClick = () => { OnClickAppIcon(appInfo.id); };
                 appFavIcon.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenApp_ContextualMenu(newAppFavIcon, appInfo.id); };

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class NewsPrefab : MonoBehaviour
 {
-    public ImageDowloadManager imageNews;
+    public ImageDownloadManager imageNews;
     public TMP_Text title;
     public TMP_Text content;
     public TMP_Text textButton;

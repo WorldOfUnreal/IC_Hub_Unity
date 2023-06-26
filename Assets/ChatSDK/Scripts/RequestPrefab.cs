@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RequestPrefab : MonoBehaviour
 {
-    public ImageDowloadManager icon;
+    public ImageDownloadManager icon;
     public TMP_Text userNameText;
     public TMP_Text timestampText;
     public Button buttonAccept;

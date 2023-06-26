@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Hub_GroupPrefab : MonoBehaviour
 {
-    public ImageDowloadManager iconGroup;
+    public ImageDownloadManager iconGroup;
     public TMP_Text nameGroup;
     public int idGroup;
     public ClickableObject clickableObject;

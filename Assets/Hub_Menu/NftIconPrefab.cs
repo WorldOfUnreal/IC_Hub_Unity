@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class NftIconPrefab : MonoBehaviour
 {
     public int id;
-    public ImageDowloadManager imageDowloadManager;
+    public ImageDownloadManager imageDownloadManager;
     public Image bgSelected;
     public GameObject barSelected;
     public ClickableObject clickableObject;

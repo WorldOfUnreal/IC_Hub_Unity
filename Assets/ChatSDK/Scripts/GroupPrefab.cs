@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GroupPrefab : MonoBehaviour
 {
-    public ImageDowloadManager iconGroup;
+    public ImageDownloadManager iconGroup;
     public TMP_Text groupName;
     public Button buttonGroup;
 }

@@ -25,6 +25,7 @@ public class NotificationsManager : MonoBehaviour
      IEnumerator GetTexture(string json)
      {
          Sprite sprite;
+         Texture2D texture = null;
          Notification notification = JsonUtility.FromJson<Notification>(json);
          UnityWebRequest www = UnityWebRequestTexture.GetTexture(notification.avatar);
          yield return www.SendWebRequest();
@@ -34,7 +35,7 @@ public class NotificationsManager : MonoBehaviour
              Debug.Log("Error... " + notification.avatar);
          }
          else {
-             Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+              texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
              sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2());
          }
          
@@ -42,7 +43,7 @@ public class NotificationsManager : MonoBehaviour
          NotificationPrefab newNotificationPrefab = newNotification.GetComponent<NotificationPrefab>();
          newNotificationPrefab.title.text = notification.title;
          newNotificationPrefab.description.text = notification.description;
-         newNotificationPrefab.iconNotification.sprite = sprite;
+         newNotificationPrefab.imageDownloadManager.ChangeImage(texture); 
      }
      
      /*private void Awake()

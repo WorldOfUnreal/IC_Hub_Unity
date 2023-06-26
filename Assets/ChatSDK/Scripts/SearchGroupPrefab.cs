@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class SearchGroupPrefab : MonoBehaviour
 {
-    public ImageDowloadManager icon;
+    public ImageDownloadManager icon;
     public TMP_Text tittle;
     public Button button;
     public TMP_Text buttonText;

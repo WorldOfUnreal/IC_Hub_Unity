@@ -87,7 +87,7 @@ public class Hub_Manager : MonoBehaviour
     public GameObject[] sectionsCenter;
     
     [Header("UI User Info: ")] 
-    public ImageDowloadManager avatarUser;
+    public ImageDownloadManager avatarUser;
     public TMP_Text userName;
     public TMP_Text userState;
     public Button buttonGoToUser;

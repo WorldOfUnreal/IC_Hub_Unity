@@ -22,7 +22,7 @@ public class CanvasPlayerProfile : MonoBehaviour
         public GameObject panelLoading;
         public GameObject panelMiddle;
         [Header("Info´s Panel : ")] 
-        public ImageDowloadManager userIcon;
+        public ImageDownloadManager userIcon;
         public TMP_Text usernameTMP;
         public TMP_InputField descriptionPopup;
         public Button editDescriptionUser;
@@ -64,7 +64,7 @@ public class CanvasPlayerProfile : MonoBehaviour
         public void OpenPopupPlayerProfile(string principalID, string username)
         {
             usernameTMP.text = username;
-            userIcon.listImages[0].sprite = Resources.Load<Sprite>( "Images/Loading" );
+            userIcon.rawImages[0].texture = Resources.Load<Texture>( "Images/Loading" );
             panelParent.SetActive(true);
             panelLoading.SetActive(true);
             panelMiddle.SetActive(false);
