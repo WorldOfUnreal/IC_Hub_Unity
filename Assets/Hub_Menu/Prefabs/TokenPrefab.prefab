@@ -61,8 +61,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urlImage: 
-  listImages:
-  - {fileID: 0}
   rawImages:
   - {fileID: 3015569483596992530}
 --- !u!114 &3015569483596992530
@@ -105,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 3
-  m_AspectRatio: 1.84
+  m_AspectRatio: 2.16
 --- !u!1 &5082458133782042556
 GameObject:
   m_ObjectHideFlags: 0
