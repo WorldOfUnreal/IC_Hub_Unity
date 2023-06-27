@@ -8,6 +8,13 @@ using UnityEngine.UI;
 
 public class SearchGroupManager : MonoBehaviour
 {
+    public static SearchGroupManager Instance { get; private set; }
+    private void Awake() 
+    {
+        if (Instance != null && Instance != this) { Destroy(this); } 
+        else { Instance = this;} 
+    }
+
     [System.Serializable]
     public class SearchGroupInfo
     {
@@ -30,7 +37,8 @@ public class SearchGroupManager : MonoBehaviour
         public string name;
         public Button groupObject;
     }
-    
+
+    public GameObject panelParent;
     public TMP_InputField searchGroupInput;
    
     public GameObject panelSliderGroup;
@@ -46,6 +54,9 @@ public class SearchGroupManager : MonoBehaviour
     private static extern void JSSearchGroup(string text);
     [DllImport("__Internal")]
     private static extern void JSRequestJoinGroup(int id);
+    
+    public void ClosePopup() { panelParent.SetActive(false); }
+    public void OpenPopup() { panelParent.SetActive(true); }
     
     public void GetGroups(string json){
         

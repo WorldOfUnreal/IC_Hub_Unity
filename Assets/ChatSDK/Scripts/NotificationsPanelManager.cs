@@ -8,19 +8,26 @@ using UnityEngine.UI;
 
 public class NotificationsPanelManager : MonoBehaviour
 {
+    public static NotificationsPanelManager Instance { get; private set; }
+    private void Awake() 
+    {
+        if (Instance != null && Instance != this) { Destroy(this); } 
+        else { Instance = this;} 
+    }
     
+    public GameObject panelParent;
     public TMP_Text allNotificationsNumber;
     public TMP_Text allNotificationsNumberChatClosed;
     
-    [Header("Request Panel : ")]
+    [Header("Request Friends Panel : ")]
     public GameObject prefabFriendRequest;
     public GameObject contentFriendRequests;
     public TMP_Text requestFriendNumber;
 
-    [Header("Notifications Panel : ")]
-    public GameObject prefabNotification;
-    public GameObject contentNotification;
-    public TMP_Text unreadNumber;
+    [Header("Request Groups Panel : ")]
+    public GameObject prefabGroupRequest;
+    public GameObject contentGroupRequests;
+    public TMP_Text requestGroupNumber;
 
     public string stringJson;
     
@@ -46,6 +53,9 @@ public class NotificationsPanelManager : MonoBehaviour
         public List<Notification> notifications;
         public List<RequestsFriend> requests;
     }
+    
+    public void ClosePopup() { panelParent.SetActive(false); }
+    public void OpenPopup() { panelParent.SetActive(true); }
 
     private void Start()
     {

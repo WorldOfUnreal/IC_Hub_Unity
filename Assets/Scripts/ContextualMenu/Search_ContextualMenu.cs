@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class Search_ContextualMenu : ContextualMenu
 {
-    public GameObject searchUserPanel;
-    public GameObject searchGroupPanel;
-    
+   
     public void SearchUsers()
     {
-        searchUserPanel.SetActive(true);
-        searchGroupPanel.SetActive(false);
-        Hub_Manager.Instance.OpenSection(0);
+        SearchUserManager.Instance.OpenPopup();
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
     public void SearchGroups()
     {
-        searchUserPanel.SetActive(false);
-        searchGroupPanel.SetActive(true);
-        Hub_Manager.Instance.OpenSection(0);
+        SearchGroupManager.Instance.OpenPopup();
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
     public void SearchTokens()

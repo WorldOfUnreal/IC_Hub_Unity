@@ -7,6 +7,13 @@ using UnityEngine.UI;
 
 public class SearchUserManager : MonoBehaviour
 {
+    public static SearchUserManager Instance { get; private set; }
+    private void Awake() 
+    {
+        if (Instance != null && Instance != this) { Destroy(this); } 
+        else { Instance = this;} 
+    }
+    
      [System.Serializable]
     public class SearchUserInfo
     {
@@ -22,6 +29,7 @@ public class SearchUserManager : MonoBehaviour
         public string avatarUser;
     }
     
+    public GameObject panelParent;
     public TMP_InputField searchUserInput;
    
     public GameObject panelSliderUser;
@@ -31,6 +39,9 @@ public class SearchUserManager : MonoBehaviour
     
     [DllImport("__Internal")]
     private static extern void JSSearchUser(string text);
+    
+    public void ClosePopup() { panelParent.SetActive(false); }
+    public void OpenPopup() { panelParent.SetActive(true); }
     
     public void GetUser(string json){
         

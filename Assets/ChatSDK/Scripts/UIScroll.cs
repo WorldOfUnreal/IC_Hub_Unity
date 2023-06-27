@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIScroll : MonoBehaviour
 {
-    private float Ref = -411.39f;
+    public float Ref = -411.39f;
     public float timeAnimation = 0.5f;
 
     private int column = 0;

@@ -44,7 +44,7 @@ public class ChatManager : MonoBehaviour
     public GameObject groupObject;
     
     [SerializeField] 
-    private Button addButton;
+    //private Button addButton;
     public GameObject popupPanel;
     public GameObject popupMoreSettings;
     
@@ -70,7 +70,7 @@ public class ChatManager : MonoBehaviour
     void Start()
     {
         username = "";
-        addButton.onClick.AddListener(() => { ToggleAddPopup(); });
+        //addButton.onClick.AddListener(() => { ToggleAddPopup(); });
     }
 
     void Update()
