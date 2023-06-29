@@ -44,8 +44,6 @@ public class ChatManager : MonoBehaviour
     public GameObject groupObject;
     
     [SerializeField] 
-    //private Button addButton;
-    public GameObject popupPanel;
     public GameObject popupMoreSettings;
     
     private bool openAddPopup = false;
@@ -70,7 +68,6 @@ public class ChatManager : MonoBehaviour
     void Start()
     {
         username = "";
-        //addButton.onClick.AddListener(() => { ToggleAddPopup(); });
     }
 
     void Update()
@@ -83,8 +80,6 @@ public class ChatManager : MonoBehaviour
                     JSSendMessage(chatBox.text);
                     //This is going to reset the chatBox to empty
                     chatBox.text = "";
-                    /// Close the New Popup
-                    popupPanel.SetActive(false);
                     openAddPopup = false;
                 }
             } else {
@@ -219,6 +214,7 @@ public class ChatManager : MonoBehaviour
         JSLeaveGroup(groupID);
     }
 
+    /*
     public void ToggleAddPopup(){
         if(openAddPopup == false){
             openAddPopup = true;
@@ -228,9 +224,7 @@ public class ChatManager : MonoBehaviour
             popupPanel.SetActive(false);
         }
     }
-
-    
-
+    */
     /*
     public void AddUserToGroupButton(){
         /// Add new user to currently selected group
@@ -242,19 +236,16 @@ public class ChatManager : MonoBehaviour
         }
     }
     */
-
-    
-
-    public void getPaste(string s){
-        pasteTxt = s;
-    }
-
-    public void UserAdded(bool result){
+    /*public void UserAdded(bool result){
         if(result == true){
             ToggleAddPopup();
         } else {
             ToggleAddPopup();
         }
+    }*/
+    
+    public void getPaste(string s){
+        pasteTxt = s;
     }
 
     Color MessageTypeColor(Message.MessageType messageType)

@@ -35,7 +35,7 @@ public class CanvasSendCrypto : MonoBehaviour
         public Button buttonCancel;
         public Button buttonSend;
     
-        public void ClosePopupPlayerProfile()
+        public void ClosePopupSendCrypto()
         {
             panelParent.SetActive(false);
         }
@@ -48,7 +48,7 @@ public class CanvasSendCrypto : MonoBehaviour
             quantityField.gameObject.SetActive(isToken);
             
             buttonCancel.onClick.RemoveAllListeners();
-            buttonCancel.onClick.AddListener(ClosePopupPlayerProfile);
+            buttonCancel.onClick.AddListener(ClosePopupSendCrypto);
             
             buttonSend.onClick.RemoveAllListeners();
             buttonSend.onClick.AddListener(() => SendCrypto(ID, isToken) );

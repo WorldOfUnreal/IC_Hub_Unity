@@ -31,7 +31,8 @@ public class CanvasPlayerProfile : MonoBehaviour
         public TMP_Text principalID;
         public string principalIDComplete;
         public TMP_Text memberSinceTMP;
-        [Header("Buttons Panel : ")] 
+        [Header("Buttons Panel : ")]
+        public GameObject buttonUploadAvatar;
         public GameObject parentButtons;
         public Button button1;
         public TMP_Text buttonText1;
@@ -51,6 +52,8 @@ public class CanvasPlayerProfile : MonoBehaviour
         private static extern void JSSendMessageToUser(string principalID);
         [DllImport("__Internal")]
         private static extern void JSLogoutFromProfile();
+        [DllImport("__Internal")]
+        private static extern void JSSetAvatarImageFromProfile();
         [DllImport("__Internal")]
         private static extern void JSChangeDescriptionUser(string text);
         [DllImport("__Internal")]
@@ -93,6 +96,7 @@ public class CanvasPlayerProfile : MonoBehaviour
             editCancelDescriptionUser.gameObject.SetActive(false);
             logoutButton.SetActive(false);
             parentButtons.SetActive(true);
+            buttonUploadAvatar.SetActive(false);
             button1.onClick.RemoveAllListeners();
             button1.gameObject.SetActive(true);
             button1.interactable = true;
@@ -103,6 +107,7 @@ public class CanvasPlayerProfile : MonoBehaviour
             {
                 case RolePlayerProfile.Owner:
                     logoutButton.SetActive(true);
+                    buttonUploadAvatar.SetActive(true);
                     parentButtons.SetActive(false);
                     CancelEditDescription();
                     break;
@@ -140,10 +145,16 @@ public class CanvasPlayerProfile : MonoBehaviour
         public void SendMessageToUser(string principalID)
         {
             JSSendMessageToUser(principalID);
+            CanvasPopup.Instance.OpenPopupInLoading();
         }
         public void LogoutFromProfile()
         {
             JSLogoutFromProfile();
+        }
+        public void SetAvatarImageFromProfile()
+        {
+            JSSetAvatarImageFromProfile();
+            CanvasPopup.Instance.OpenPopupInLoading();
         }
         public void EditDescription()
         {

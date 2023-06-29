@@ -28,8 +28,6 @@ public class NotificationsPanelManager : MonoBehaviour
     public GameObject prefabGroupRequest;
     public GameObject contentGroupRequests;
     public TMP_Text requestGroupNumber;
-
-    public string stringJson;
     
     [DllImport("__Internal")]
     private static extern void JSAcceptFriendRequest(string principalID);
