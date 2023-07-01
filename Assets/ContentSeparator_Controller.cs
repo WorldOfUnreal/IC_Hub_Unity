@@ -7,7 +7,7 @@ public class ContentSeparator_Controller : MonoBehaviour
 {
     
     public GameObject arrow;  bool flagToken = false;
-    public float tiempo = 0.5f;
+    public float tiempo = 0.01f;
     public GameObject content;
     public GameObject prefab;
     
