@@ -28,7 +28,6 @@ public class LoginManager : MonoBehaviour
     [SerializeField] GameObject avatarPanel;
     [SerializeField] TMP_InputField inputUrlAvatarField;
     [SerializeField] GameObject urlSection;
-    [SerializeField] GameObject textAvatarSection;
     [SerializeField] TMP_Text textHeaderAvatar;
     [SerializeField] ImageDownloadManager avatarImage;
     [SerializeField] Button acceptAvatarButton;
@@ -108,7 +107,6 @@ public class LoginManager : MonoBehaviour
         avatarPanel.SetActive(true);
         
         urlSection.SetActive(false);
-        textAvatarSection.SetActive(true);
         textHeaderAvatar.text = "This is your avatar";
         avatarImage.ChangeUrlImage(url);
         acceptAvatarButton.onClick.RemoveAllListeners();
