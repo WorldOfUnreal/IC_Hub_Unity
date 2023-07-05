@@ -16,6 +16,7 @@ public class ContextualMenuManager : MonoBehaviour
     [HideInInspector]
     public GameObject contextualMenuOpened;
 
+    public UserStatus_ContextualMenu userStatusContextualMenu;
     public Status_ContextualMenu status_contextualmenu;
     public Search_ContextualMenu search_contextualmenu;
     public SearchInChat_ContextualMenu searchInChat_contextualmenu;
@@ -26,6 +27,11 @@ public class ContextualMenuManager : MonoBehaviour
     public Collection_ContextualMenu collection_ContextualMenu;
     public NFT_ContextualMenu nft_ContextualMenu;
     
+    public void OpenUserStatus_ContextualMenu(GameObject pos)
+    {
+        userStatusContextualMenu.transform.position = pos.transform.position;
+        OpenContextualMenu(userStatusContextualMenu.gameObject);
+    }
     public void OpenStatus_ContextualMenu(GameObject pos)
     {
         status_contextualmenu.transform.position = pos.transform.position;

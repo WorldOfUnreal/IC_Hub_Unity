@@ -210,7 +210,12 @@ public class Hub_Manager : MonoBehaviour
        {
            CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(userProfileInfo.principalID, userProfileInfo.username);
        }));
-      
+
+       ContextualMenuManager.Instance.userStatusContextualMenu.username = userProfileInfo.username;
+       ContextualMenuManager.Instance.userStatusContextualMenu.principalID = userProfileInfo.principalID;
+       ContextualMenuManager.Instance.userStatusContextualMenu.TMP_Username.text = userProfileInfo.username;  
+       ContextualMenuManager.Instance.userStatusContextualMenu.TMP_PrincipalID.text = 
+           userProfileInfo.principalID.Substring(0, 4)+"..."+userProfileInfo.principalID.Substring(userProfileInfo.principalID.Length - 4);
     }
     public void OpenSection(int id)
     {
