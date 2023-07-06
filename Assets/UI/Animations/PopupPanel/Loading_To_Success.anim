@@ -355,7 +355,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300000, guid: 82f43081d99cc9245b75ff79e007870c, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: c815fd5a6148dae4fbd44b24f9f330c0, type: 3}
+      value: {fileID: 21300000, guid: 77a0470a62c8b474fa5de84b3d49c52e, type: 3}
     attribute: m_Sprite
     path: PanelPopup/Top/Icon
     classID: 114
@@ -460,7 +460,7 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: 82f43081d99cc9245b75ff79e007870c, type: 3}
-    - {fileID: 21300000, guid: c815fd5a6148dae4fbd44b24f9f330c0, type: 3}
+    - {fileID: 21300000, guid: 77a0470a62c8b474fa5de84b3d49c52e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
