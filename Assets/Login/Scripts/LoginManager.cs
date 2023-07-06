@@ -54,6 +54,7 @@ public class LoginManager : MonoBehaviour
         if (string.IsNullOrEmpty(user))
         {
             Debug.Log("String with Username is Empty");
+            walletsPanel.SetActive(false);
             loadingPanel.SetActive(false);
             registrationPanel.SetActive(true);
         }
@@ -100,6 +101,11 @@ public class LoginManager : MonoBehaviour
     {
         loadingPanel.SetActive(false);
         SceneManager.LoadScene(mainScene);
+    }
+    public void OnAvatarUploadLoading()
+    {
+        loadingPanel.SetActive(true);
+        avatarPanel.SetActive(false);
     }
     public void OnAvatarUploadReady(string url)
     {
@@ -154,8 +160,8 @@ public class LoginManager : MonoBehaviour
     public void SetAvatarImage()
     {
         JSSetAvatarImage();
-        avatarPanel.SetActive(false);
-        loadingPanel.SetActive(true);
+        /*avatarPanel.SetActive(false);
+        loadingPanel.SetActive(true);*/
     }
     public void CopyTextToClipBoard(TMP_Text tmpText)
     {
