@@ -78,6 +78,7 @@ public class SearchUserManager : MonoBehaviour
         userPrefab.button.onClick.AddListener(() =>
         {
             CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(principalID, userName);
+            ClosePopup();
         });
     }
     public void SearchUsers(){
