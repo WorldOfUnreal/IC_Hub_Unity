@@ -150,7 +150,8 @@ public class Hub_Manager : MonoBehaviour
             GameObject newFriend =  Pool_PrefabsGO.Instance.Get_ObjFromPool(Pool_PrefabsGO.Instance.poolHubFriend);
             Hub_FriendPrefab friendPrefab = newFriend.GetComponent<Hub_FriendPrefab>();
             friendPrefab.nameFriend.text = g.name;
-            friendPrefab.statusTMP.text = g.status;
+            friendPrefab.statusTMP.text =  listUserStates[ Int32.Parse(g.status) ];
+            friendPrefab.iconStatus.sprite = listUserIcon [ Int32.Parse(g.status) ];
             friendPrefab.iconFriend.ChangeUrlImage(g.avatar);
             friendPrefab.clickableObject.callLeftClick = () => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(g.principalID, g.name); };
             friendPrefab.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenUser_ContextualMenu(newFriend, g.principalID, g.name); };
