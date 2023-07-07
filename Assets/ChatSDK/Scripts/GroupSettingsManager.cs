@@ -29,6 +29,7 @@ public class GroupSettingsManager : MonoBehaviour
     public Button editDescriptionGroup;
     public Button editConfirmDescriptionGroup;
     public Button editCancelDescriptionGroup;
+    public TMP_InputField adminInputfield;
     public TMP_Text numberUsers;
     public TMP_Text numberInvites;
     public Animator buttonSliderStates;
@@ -41,7 +42,8 @@ public class GroupSettingsManager : MonoBehaviour
     public ImageDownloadManager iconGroup_User;
     public TMP_Text tittleGroup_User;
     public TMP_Text descriptionGroup_User;
-
+    public TMP_InputField userInputfield;
+    
     private string originalTitle;
     private string originalDescription;
     private InfoPanelSetting infoPanelSetting;
@@ -87,6 +89,7 @@ public class GroupSettingsManager : MonoBehaviour
             {
                 AddMemberToContent_User(g.principalID, g.username, g.avatarUser, g.roleuser);
             }
+            FilterMembersInUserPanel(userInputfield.text);
         }
         else if (infoPanelSetting.roleuser == RoleUser.Admin || infoPanelSetting.roleuser == RoleUser.Owner)
         {
@@ -116,6 +119,7 @@ public class GroupSettingsManager : MonoBehaviour
             {
                 AddMemberToContent_Admin(g.principalID, g.username, g.avatarUser, g.roleuser, infoPanelSetting.idGroup);
             }   
+            FilterMembersInAdminPanel(adminInputfield.text);
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_owner.GetComponent<RectTransform>());
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_admin.GetComponent<RectTransform>());
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_user.GetComponent<RectTransform>());
@@ -337,7 +341,51 @@ public class GroupSettingsManager : MonoBehaviour
     {
         CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(principalID, username);
     }
- 
+    public void FilterMembersInUserPanel(string searchText)
+    {
+        if(string.IsNullOrEmpty(searchText))
+        {
+            foreach (GameObject member in contentMembersPanelUser.transform) { member.SetActive(true); }
+        }
+        else
+        {
+            foreach (GameObject member in contentMembersPanelUser.transform)
+            {
+                if (member.GetComponent<MemberPrefabToUser>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
+                else { member.SetActive(false); }
+            }
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembersPanelUser.transform.parent.GetComponent<RectTransform>());
+    }
+    public void FilterMembersInAdminPanel(string searchText)
+    {
+        if(string.IsNullOrEmpty(searchText))
+        {
+            foreach (GameObject member in contentMembers_user.transform) { member.SetActive(true); }
+            foreach (GameObject member in contentMembers_admin.transform) { member.SetActive(true); }
+            foreach (GameObject member in contentMembers_owner.transform) { member.SetActive(true); }
+        }
+        else
+        {
+            foreach (GameObject member in contentMembers_user.transform)
+            {
+                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
+                else { member.SetActive(false); }
+            }
+            foreach (GameObject member in contentMembers_admin.transform)
+            {
+                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
+                else { member.SetActive(false); }
+            }
+            foreach (GameObject member in contentMembers_owner.transform)
+            {
+                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
+                else { member.SetActive(false); }
+            }
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_user.transform.parent.GetComponent<RectTransform>());
+    }
+    
     [System.Serializable]
     public class MembersGroup {
         public RoleUser roleuser;
