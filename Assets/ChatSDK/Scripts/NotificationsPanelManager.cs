@@ -97,7 +97,7 @@ public class NotificationsPanelManager : MonoBehaviour
             {
                 CanvasPopup.Instance.OpenLoadingPanel();
                 JSAcceptFriendRequest(principalID);
-            }, null, "Accept", "Cancel", "Do you want accept this User?", username, principalID);
+            }, null, "Accept", "Cancel", "Do you want accept this User?", username, principalID, avatarUser);
         });
         requestFriendPrefab.buttonDeny.onClick.AddListener(() =>
         {
@@ -105,7 +105,7 @@ public class NotificationsPanelManager : MonoBehaviour
             {
                 CanvasPopup.Instance.OpenLoadingPanel();
                 JSDenyFriendRequest(principalID);
-            }, null, "Deny", "Cancel", "Do you want deny this User?", username, principalID);
+            }, null, "Deny", "Cancel", "Do you want deny this User?", username, principalID, avatarUser);
         });
     }
 }

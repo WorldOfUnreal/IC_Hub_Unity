@@ -99,7 +99,7 @@ public class AppManagementController : MonoBehaviour
         {
             CanvasPopup.Instance.OpenLoadingPanel();
             JSSendDataApp(json);
-        },null, "Update InfoApp", "Cancel", "Do you want update info App?", null, null);
+        },null, "Update InfoApp", "Cancel", "Do you want update info App?", null, null, appData.Logo);
     }
     public void GetInfoApp(string json)
     {
@@ -148,7 +148,7 @@ public class AppManagementController : MonoBehaviour
         {
             CanvasPopup.Instance.OpenLoadingPanel();
             JSSendDataVersions(json);
-        },null, "Update Info Versions", "Cancel", "Do you want update info versions?", null, null);
+        },null, "Update Info Versions", "Cancel", "Do you want update info versions?", null, null, LogoSlot.urlImage);
 
     }
     public void GetInfoVersions(string json)
@@ -190,7 +190,7 @@ public class AppManagementController : MonoBehaviour
         {
             CanvasPopup.Instance.OpenLoadingPanel();
             JSSendDataNews(json);
-        },null, "Create new News", "Cancel", "Do you want upload this news?", null, null);
+        },null, "Create new News", "Cancel", "Do you want upload this news?", null, null, newsData.imageNews);
 
     }
     public void UpdateNewsPreview()

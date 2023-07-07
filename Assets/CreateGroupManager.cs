@@ -44,7 +44,7 @@ public class CreateGroupManager : MonoBehaviour
                 string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\":\"" 
                               + newGroupDescriptionInput.text + "\", \"isPrivate\":\""+ isPrivate +"\"}" ;
                 JSCreateGroup(json);
-            }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null);
+            }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null, null);
         }
     }
     

@@ -42,7 +42,7 @@ public class VersionAppPrefab : MonoBehaviour
             {
                 CanvasPopup.Instance.OpenLoadingPanel();
                 JSDeleteVersion(versionAppData.versionID);
-            },null, "Delete Version", "Cancel", "Do you want delete this version?", versionAppData.currentVersion, null);
+            },null, "Delete Version", "Cancel", "Do you want delete this version?", versionAppData.currentVersion, null, null);
         });
 
     }

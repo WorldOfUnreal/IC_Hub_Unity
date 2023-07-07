@@ -140,7 +140,7 @@ public class CanvasPlayerProfile : MonoBehaviour
                 CanvasPopup.Instance.OpenLoadingPanel();
                 JSSendFriendRequest(_infoPopupPlayer.principalID);
             }, null, "Send Request", "Cancel", "Do you want add this User?", 
-                _infoPopupPlayer.username, _infoPopupPlayer.principalID);
+                _infoPopupPlayer.username, _infoPopupPlayer.principalID, _infoPopupPlayer.avatar);
         }
         public void SendMessageToUser(string principalID)
         {
@@ -186,7 +186,7 @@ public class CanvasPlayerProfile : MonoBehaviour
             {
                 descriptionPopup.interactable = true;
                 CanvasPopup.Instance.ClosePopupFromConfirm();
-            },"Change Description","Cancel","Do you want change you description?", usernameTMP.text, null);
+            },"Change Description","Cancel","Do you want change you description?", usernameTMP.text, null, userIcon.urlImage);
         }
         public void CancelEditDescription()
         {

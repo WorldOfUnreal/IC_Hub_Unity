@@ -103,7 +103,7 @@ public class SearchGroupManager : MonoBehaviour
                 {
                     CanvasPopup.Instance.OpenLoadingPanel();
                     JoinRequestGroup(id);
-                },null, "Request Join", "Cancel", "Do you want send request to this group?", name, null);
+                },null, "Request Join", "Cancel", "Do you want send request to this group?", name, null, avatar);
             });
         }
         else
@@ -115,7 +115,7 @@ public class SearchGroupManager : MonoBehaviour
                 {
                     CanvasPopup.Instance.OpenLoadingPanel();
                     JoinRequestGroup(id);
-                },null, "Join group", "Cancel", "Do you want to join this group?", name, null);
+                },null, "Join group", "Cancel", "Do you want to join this group?", name, null, avatar);
             });
         }
         

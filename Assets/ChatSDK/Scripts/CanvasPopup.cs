@@ -24,6 +24,7 @@ public class CanvasPopup : MonoBehaviour
     public TMP_Text buttonNoTMP;
     public TMP_Text titlePopup;
     public TMP_Text descriptionPopup;
+    public ImageDownloadManager avatar;
     public TMP_Text middleTMP1;
     public TMP_Text middleTMP2;
 
@@ -35,7 +36,7 @@ public class CanvasPopup : MonoBehaviour
     {
         panelPopupAnimator.Play("Success_To_Closed");
     }
-    public void OpenPopup(UnityAction callYes,UnityAction callNo,string buttonYes_Txt,string buttonNo_Txt,string description,string middleText1,string middleText2)
+    public void OpenPopup(UnityAction callYes,UnityAction callNo,string buttonYes_Txt,string buttonNo_Txt,string description,string middleText1,string middleText2, string avatarURL)
     {
         buttonYes.onClick.RemoveAllListeners();
         buttonYes.onClick.AddListener(callYes);
@@ -49,6 +50,7 @@ public class CanvasPopup : MonoBehaviour
         descriptionPopup.text = description;
         middleTMP1.gameObject.SetActive(middleText1 != null); middleTMP1.text = middleText1;
         middleTMP2.gameObject.SetActive(middleText2 != null); middleTMP2.text = middleText2;
+        avatar.gameObject.SetActive(avatarURL != null); if(avatarURL != null){avatar.ChangeUrlImage(avatarURL);}
         
         panelPopupAnimator.Play("Open_Confirm_Panel");
     }

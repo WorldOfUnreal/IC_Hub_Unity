@@ -102,13 +102,13 @@ public class GroupSettingsManager : MonoBehaviour
             {
                 buttonSliderStates.Play("InRight");
                 buttonSlider.onClick.RemoveAllListeners();
-                buttonSlider.onClick.AddListener(() => { SetGroupPublic(infoPanelSetting.nameGroup, infoPanelSetting.idGroup);});
+                buttonSlider.onClick.AddListener(() => { SetGroupPublic(infoPanelSetting.nameGroup, infoPanelSetting.idGroup, infoPanelSetting.avatarGroup);});
             }
             else
             {
                 buttonSliderStates.Play("InLeft");
                 buttonSlider.onClick.RemoveAllListeners();
-                buttonSlider.onClick.AddListener(() => { SetGroupPrivate(infoPanelSetting.nameGroup, infoPanelSetting.idGroup);});
+                buttonSlider.onClick.AddListener(() => { SetGroupPrivate(infoPanelSetting.nameGroup, infoPanelSetting.idGroup, infoPanelSetting.avatarGroup);});
             }
             transferOwnership_Gameobject.SetActive(infoPanelSetting.roleuser == RoleUser.Owner);
         //Fill members
@@ -176,17 +176,17 @@ public class GroupSettingsManager : MonoBehaviour
             case RoleUser.User:
                 memberPrefab.userRoleDot.color = new Color(1f, 1f, 1f, 1f);
                 memberPrefab.buttonText1.text = "Make Admin";
-                memberPrefab.button1.onClick.AddListener(() => { MakeAdmin(principalID, idGroup, username);} );
+                memberPrefab.button1.onClick.AddListener(() => { MakeAdmin(principalID, idGroup, username, avatarUser);} );
                 memberPrefab.buttonText2.text = "Kick";
-                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup, username);} );
+                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup, username, avatarUser);} );
                 newMember.transform.SetParent(contentMembers_user.transform);
                 break;
             case RoleUser.Admin:
                 memberPrefab.userRoleDot.color = new Color(0f, 0.7607843f, 1f, 1f);
                 memberPrefab.buttonText1.text = "Remove Admin";
-                memberPrefab.button1.onClick.AddListener(() => { RemoveAdmin(principalID, idGroup, username);} );
+                memberPrefab.button1.onClick.AddListener(() => { RemoveAdmin(principalID, idGroup, username, avatarUser);} );
                 memberPrefab.buttonText2.text = "Kick";
-                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup, username);} );
+                memberPrefab.button2.onClick.AddListener(() => { KickUser(principalID, idGroup, username, avatarUser);} );
                 newMember.transform.SetParent(contentMembers_admin.transform);
                 break;
             case RoleUser.Owner:
@@ -213,7 +213,7 @@ public class GroupSettingsManager : MonoBehaviour
                 CanvasPopup.Instance.OpenLoadingPanel();
                 string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}" ;
                 JSAcceptRequest(json);
-            }, null, "Accept", "Cancel", "Do you want accept this User?", username, principalID);
+            }, null, "Accept", "Cancel", "Do you want accept this User?", username, principalID, avatarUser);
         });
         requestPrefab.buttonDeny.onClick.AddListener(() =>
         {
@@ -222,34 +222,34 @@ public class GroupSettingsManager : MonoBehaviour
                 CanvasPopup.Instance.OpenLoadingPanel();
                 string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
                 JSDenyRequest(json);
-            }, null, "Deny", "Cancel", "Do you want deny this User?", username, principalID);
+            }, null, "Deny", "Cancel", "Do you want deny this User?", username, principalID, avatarUser);
         });
     }
-    private void KickUser(string principalID, int idGroup, string username)
+    private void KickUser(string principalID, int idGroup, string username, string avatarUser)
     {
         CanvasPopup.Instance.OpenPopup(() => {
             CanvasPopup.Instance.OpenLoadingPanel();
             string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSKickUser(json);
-        }, null, "Kick", "Cancel", "Do you want kick this User?", username, principalID);
+        }, null, "Kick", "Cancel", "Do you want kick this User?", username, principalID, avatarUser);
     }
-    private void MakeAdmin(string principalID, int idGroup, string username)
+    private void MakeAdmin(string principalID, int idGroup, string username, string avatarUser)
     {
         CanvasPopup.Instance.OpenPopup(() => {
             CanvasPopup.Instance.OpenLoadingPanel();
             string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSMakeAdmin(json);
-        }, null, "Make admin", "Cancel", "Do you want make admin this User?", username, principalID);
+        }, null, "Make admin", "Cancel", "Do you want make admin this User?", username, principalID, avatarUser);
     }
-    private void RemoveAdmin(string principalID, int idGroup, string username)
+    private void RemoveAdmin(string principalID, int idGroup, string username, string avatarUser)
     {
         CanvasPopup.Instance.OpenPopup(() => {
             CanvasPopup.Instance.OpenLoadingPanel();
             string json = "{\"userPrincipalID\":\"" + principalID + "\", \"idGroup\": " + idGroup + "}";
             JSRemoveAdmin(json);
-        },null, "Remove admin", "Cancel", "Do you want remove admin this User?", username, principalID);
+        },null, "Remove admin", "Cancel", "Do you want remove admin this User?", username, principalID,avatarUser);
     }
-    private void SetGroupPrivate(string nameGroup, int idGroup)
+    private void SetGroupPrivate(string nameGroup, int idGroup, string avatarGroup)
     {
         buttonSliderStates.Play("ToRight");
         CanvasPopup.Instance.OpenPopup(() => {
@@ -259,9 +259,9 @@ public class GroupSettingsManager : MonoBehaviour
         {
             buttonSliderStates.Play("ToLeft");
             CanvasPopup.Instance.ClosePopupFromConfirm();
-        }, "Set Private", "Cancel", "Do you want set private this group?", nameGroup, null);
+        }, "Set Private", "Cancel", "Do you want set private this group?", nameGroup, null, avatarGroup);
     }
-    private void SetGroupPublic(string nameGroup, int idGroup)
+    private void SetGroupPublic(string nameGroup, int idGroup, string avatarGroup)
     {
         buttonSliderStates.Play("ToLeft");
         CanvasPopup.Instance.OpenPopup(() => {
@@ -271,7 +271,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             buttonSliderStates.Play("ToRight");
             CanvasPopup.Instance.ClosePopupFromConfirm();
-        }, "Set Public", "Cancel", "Do you want set public this group?", nameGroup, null);
+        }, "Set Public", "Cancel", "Do you want set public this group?", nameGroup, null, avatarGroup);
     }
     public void EditTitle()
     {
@@ -295,7 +295,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             tittleGroup.interactable = true;
             CanvasPopup.Instance.ClosePopupFromConfirm();
-        },"Change Title","Cancel","Do you want change title of this group?", infoPanelSetting.nameGroup, null);
+        },"Change Title","Cancel","Do you want change title of this group?", infoPanelSetting.nameGroup, null, infoPanelSetting.avatarGroup);
     }
     public void CancelEditTitle()
     {
@@ -327,7 +327,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             descriptionGroup.interactable = true;
             CanvasPopup.Instance.ClosePopupFromConfirm();
-        },"Change Description","Cancel","Do you want change description of this group?", infoPanelSetting.nameGroup, null);
+        },"Change Description","Cancel","Do you want change description of this group?", infoPanelSetting.nameGroup, null, infoPanelSetting.avatarGroup);
     }
     public void CancelEditDescription()
     {

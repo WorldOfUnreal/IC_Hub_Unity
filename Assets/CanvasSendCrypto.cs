@@ -51,12 +51,12 @@ public class CanvasSendCrypto : MonoBehaviour
             buttonCancel.onClick.AddListener(ClosePopupSendCrypto);
             
             buttonSend.onClick.RemoveAllListeners();
-            buttonSend.onClick.AddListener(() => SendCrypto(ID, isToken) );
+            buttonSend.onClick.AddListener(() => SendCrypto(ID, isToken, urlImage) );
             
             panelParent.SetActive(true);
         }
 
-        public void SendCrypto( string ID, bool isToken )
+        public void SendCrypto( string ID, bool isToken, string urlImage)
         {
             TransactionData transactionData = new TransactionData();
             transactionData.idToken = ID;
@@ -68,7 +68,7 @@ public class CanvasSendCrypto : MonoBehaviour
                     CanvasPopup.Instance.OpenLoadingPanel();
                     JSSendCrypto( JsonUtility.ToJson(transactionData) );
                 }, null, "Send", "Cancel", "Do you want send to this User?", 
-                transactionData.idToken, web3Address.text);
+                transactionData.idToken, web3Address.text, urlImage);
         }
 
 
