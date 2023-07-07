@@ -90,7 +90,10 @@ public class Hub_Manager : MonoBehaviour
     public ImageDownloadManager avatarUser;
     public TMP_Text userName;
     public TMP_Text userState;
+    public Image userIcon;
+    public List<string> listUserStates = new List<string>{"Available", "Do not disturbe", "Away", "Offline", "Error"};
     public Button buttonGoToUser;
+    public List<Sprite> listUserIcon = new List<Sprite>();
     /*public Button buttonGoToUserCornerLeftDown1;
     public Button buttonGoToUserCornerLeftDown2;*/
 
@@ -198,7 +201,8 @@ public class Hub_Manager : MonoBehaviour
        UserProfileInfo userProfileInfo = JsonUtility.FromJson<UserProfileInfo>(json);
        avatarUser.ChangeUrlImage(userProfileInfo.avatar);
        userName.text = userProfileInfo.username;
-       userState.text = userProfileInfo.userState;
+       userState.text = listUserStates[ Int32.Parse(userProfileInfo.userState) ];
+       userIcon.sprite = listUserIcon [ Int32.Parse(userProfileInfo.userState) ];
        buttonGoToUser.onClick.RemoveAllListeners();
        buttonGoToUser.onClick.AddListener((() =>
        {

@@ -116757,7 +116757,20 @@ MonoBehaviour:
   avatarUser: {fileID: 277872786}
   userName: {fileID: 1659088669}
   userState: {fileID: 273694925}
+  userIcon: {fileID: 228734594}
+  listUserStates:
+  - Available
+  - Do not disturbe
+  - Away
+  - Offline
+  - Error
   buttonGoToUser: {fileID: 2108727419}
+  listUserIcon:
+  - {fileID: 21300000, guid: 289f55353094fad42a683a2753c6950b, type: 3}
+  - {fileID: 21300000, guid: 5161fb23f2ddfb3489da9f37f95870c0, type: 3}
+  - {fileID: 21300000, guid: ba0c3855a043cf7439f86aebfd71315e, type: 3}
+  - {fileID: 21300000, guid: 34c309012b833c244a665db864f0e96e, type: 3}
+  - {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
   searchInputField: {fileID: 1298794660}
   contentTokens: {fileID: 1247736492}
   prefabToken: {fileID: 5082458134366775274, guid: 671684dc6d0e29a41b3cac8f184c9b6b, type: 3}
