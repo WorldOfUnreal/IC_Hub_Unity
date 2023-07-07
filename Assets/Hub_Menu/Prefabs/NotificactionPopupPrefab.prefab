@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b7b28f5ba50f04c89df94ff3cab657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageDownloadManager: {fileID: 0}
+  imageDownloadManager: {fileID: 3278340432660825212}
   title: {fileID: 1045689081354644735}
   description: {fileID: 1045689081118724116}
   canvasGroup: {fileID: 2072972232107774702}
@@ -710,7 +710,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   urlImage: 
   rawImages:
-  - {fileID: 8406309624218714981}
   - {fileID: 8406309624218714981}
 --- !u!114 &8406309624218714981
 MonoBehaviour:
