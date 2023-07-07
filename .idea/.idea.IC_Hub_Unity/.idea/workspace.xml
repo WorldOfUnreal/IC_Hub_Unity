@@ -49,6 +49,7 @@
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunAnythingCache">
@@ -124,7 +125,7 @@
       <workItem from="1686609872910" duration="24064000" />
       <workItem from="1687296060232" duration="4015000" />
       <workItem from="1687400348034" duration="8947000" />
-      <workItem from="1688422549659" duration="14972000" />
+      <workItem from="1688422549659" duration="27686000" />
     </task>
     <servers />
   </component>

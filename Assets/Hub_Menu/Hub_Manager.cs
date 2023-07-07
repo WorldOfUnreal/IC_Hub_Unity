@@ -120,13 +120,12 @@ public class Hub_Manager : MonoBehaviour
     }
     public void GetTokensInfo(string json)
     {
-        foreach (Transform t in contentTokens.transform) { GameObject.Destroy(t.gameObject); }
-        
+        Pool_PrefabsGO.Instance.Release_AllObjsInPool(Pool_PrefabsGO.Instance.poolHubToken);
+       
         ListTokens listTokens = JsonUtility.FromJson<ListTokens>(json);
-
         foreach (Token g in listTokens.data)
         {
-            GameObject newToken = Instantiate(prefabToken, contentTokens.transform);
+            GameObject newToken = Pool_PrefabsGO.Instance.Get_ObjFromPool(Pool_PrefabsGO.Instance.poolHubToken);
             Hub_TokenPrefab tokenPrefab = newToken.GetComponent<Hub_TokenPrefab>();
             tokenPrefab.nameToken.text = g.name;
             tokenPrefab.valueToken.text = g.value;
@@ -135,27 +134,24 @@ public class Hub_Manager : MonoBehaviour
             tokenPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenToken_ContextualMenu(newToken, g); };
         }
         separatorTokenNumber.text = "- " + listTokens.data.Count;
-       // FilterResults(searchInputField.text);
+        //FilterResults(searchInputField.text);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentTokens.GetComponent<RectTransform>());  //Update UI
     }
     public void GetFriendsInfo(string json)
     {
-        foreach (Transform t in contentFriends.transform) { GameObject.Destroy(t.gameObject); }
+        Pool_PrefabsGO.Instance.Release_AllObjsInPool(Pool_PrefabsGO.Instance.poolHubFriend);
         
         ListFriends listFriends = JsonUtility.FromJson<ListFriends>(json);
-
         foreach (Friend g in listFriends.data)
         {
-            GameObject newFriend = Instantiate(prefabFriend, contentFriends.transform);
+            GameObject newFriend =  Pool_PrefabsGO.Instance.Get_ObjFromPool(Pool_PrefabsGO.Instance.poolHubFriend);
             Hub_FriendPrefab friendPrefab = newFriend.GetComponent<Hub_FriendPrefab>();
             friendPrefab.nameFriend.text = g.name;
             friendPrefab.statusTMP.text = g.status;
             friendPrefab.iconFriend.ChangeUrlImage(g.avatar);
             friendPrefab.clickableObject.callLeftClick = () => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(g.principalID, g.name); };
             friendPrefab.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenUser_ContextualMenu(newFriend, g.principalID, g.name); };
-            //friendPrefab.button.onClick.AddListener(() => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(g.principalID, g.name); });
         }
-
         separatorFriendNumber.text = "- " + listFriends.data.Count;
         //FilterResults(searchInputField.text);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.GetComponent<RectTransform>());  //Update UI
@@ -163,13 +159,12 @@ public class Hub_Manager : MonoBehaviour
     
     public void GetGroupsInfo(string json)
     {
-        foreach (Transform t in contentGroups.transform) { GameObject.Destroy(t.gameObject); }
+        Pool_PrefabsGO.Instance.Release_AllObjsInPool(Pool_PrefabsGO.Instance.poolHubGroup);
         
         ListGroups listGroups = JsonUtility.FromJson<ListGroups>(json);
-        
         foreach (Group g in listGroups.data)
         {
-            GameObject newGroup = Instantiate(prefabGroup, contentGroups.transform);
+            GameObject newGroup = Pool_PrefabsGO.Instance.Get_ObjFromPool(Pool_PrefabsGO.Instance.poolHubGroup);
             Hub_GroupPrefab groupPrefab = newGroup.GetComponent<Hub_GroupPrefab>();
             groupPrefab.nameGroup.text = g.name;
             groupPrefab.iconGroup.ChangeUrlImage(g.avatar);
@@ -182,13 +177,12 @@ public class Hub_Manager : MonoBehaviour
     }
     public void GetCollectionInfo(string json)
     {
-        foreach (Transform t in contentCollections.transform) { GameObject.Destroy(t.gameObject); }
+        Pool_PrefabsGO.Instance.Release_AllObjsInPool(Pool_PrefabsGO.Instance.poolHubCollection);
         
         ListCollections listCollections = JsonUtility.FromJson<ListCollections>(json);
-        
         foreach (Collection c in listCollections.data)
         {
-            GameObject newCollection = Instantiate(prefabCollection, contentCollections.transform);
+            GameObject newCollection = Pool_PrefabsGO.Instance.Get_ObjFromPool(Pool_PrefabsGO.Instance.poolHubCollection);
             Hub_CollectionPrefab collectionPrefab = newCollection.GetComponent<Hub_CollectionPrefab>();
             collectionPrefab.nameCollection.text = c.colectionName;
             collectionPrefab.icon.ChangeUrlImage(c.avatar);
@@ -233,10 +227,10 @@ public class Hub_Manager : MonoBehaviour
             separatorFriendNumber.transform.parent.gameObject.SetActive(true);
             separatorGroupNumber.transform.parent.gameObject.SetActive(true);
             separatorCollectionNumber.transform.parent.gameObject.SetActive(true);
-            foreach (Transform token in contentTokens.transform) { token.gameObject.SetActive(true); } 
-            foreach (Transform friend in contentFriends.transform) { friend.gameObject.SetActive(true); } 
-            foreach (Transform group in contentGroups.transform) { group.gameObject.SetActive(true); } 
-            foreach (Transform collection in contentCollections.transform) { collection.gameObject.SetActive(true); } 
+            foreach (GameObject token in Pool_PrefabsGO.Instance.poolHubToken.inUseObjects) { token.SetActive(true); } 
+            foreach (GameObject friend in Pool_PrefabsGO.Instance.poolHubFriend.inUseObjects) { friend.SetActive(true); } 
+            foreach (GameObject group in Pool_PrefabsGO.Instance.poolHubGroup.inUseObjects) { group.SetActive(true); } 
+            foreach (GameObject collection in Pool_PrefabsGO.Instance.poolHubCollection.inUseObjects) { collection.SetActive(true); } 
         }
         else
         {
@@ -244,25 +238,25 @@ public class Hub_Manager : MonoBehaviour
             separatorFriendNumber.transform.parent.gameObject.SetActive(false);
             separatorGroupNumber.transform.parent.gameObject.SetActive(false);
             separatorCollectionNumber.transform.parent.gameObject.SetActive(false);
-            foreach (Transform token in contentTokens.transform)
+            foreach (GameObject token in Pool_PrefabsGO.Instance.poolHubToken.inUseObjects)
             {
-                if (token.GetComponent<Hub_TokenPrefab>().nameToken.text.ToLower().Contains(searchText.ToLower())) { token.gameObject.SetActive(true); }
-                else { token.gameObject.SetActive(false); }
+                if (token.GetComponent<Hub_TokenPrefab>().nameToken.text.ToLower().Contains(searchText.ToLower())) { token.SetActive(true); }
+                else { token.SetActive(false); }
             }
-            foreach (Transform friend in contentFriends.transform)
+            foreach (GameObject friend in Pool_PrefabsGO.Instance.poolHubFriend.inUseObjects)
             {
-                if (friend.GetComponent<Hub_FriendPrefab>().nameFriend.text.ToLower().Contains(searchText.ToLower())) { friend.gameObject.SetActive(true); }
-                else { friend.gameObject.SetActive(false); }
+                if (friend.GetComponent<Hub_FriendPrefab>().nameFriend.text.ToLower().Contains(searchText.ToLower())) { friend.SetActive(true); }
+                else { friend.SetActive(false); }
             }
-            foreach (Transform group in contentGroups.transform)
+            foreach (GameObject group in Pool_PrefabsGO.Instance.poolHubGroup.inUseObjects)
             {
-                if (group.GetComponent<Hub_GroupPrefab>().nameGroup.text.ToLower().Contains(searchText.ToLower())) { group.gameObject.SetActive(true); }
-                else { group.gameObject.SetActive(false); }
+                if (group.GetComponent<Hub_GroupPrefab>().nameGroup.text.ToLower().Contains(searchText.ToLower())) { group.SetActive(true); }
+                else { group.SetActive(false); }
             }
-            foreach (Transform collection in contentCollections.transform)
+            foreach (GameObject collection in Pool_PrefabsGO.Instance.poolHubCollection.inUseObjects)
             {
-                if (collection.GetComponent<Hub_CollectionPrefab>().nameCollection.text.ToLower().Contains(searchText.ToLower())) { collection.gameObject.SetActive(true); }
-                else { collection.gameObject.SetActive(false); }
+                if (collection.GetComponent<Hub_CollectionPrefab>().nameCollection.text.ToLower().Contains(searchText.ToLower())) { collection.SetActive(true); }
+                else { collection.SetActive(false); }
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.transform.parent.GetComponent<RectTransform>());

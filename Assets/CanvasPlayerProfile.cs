@@ -154,8 +154,17 @@ public class CanvasPlayerProfile : MonoBehaviour
         public void SetAvatarImageFromProfile()
         {
             JSSetAvatarImageFromProfile();
+        }
+        public void OnAvatarUploadLoading()
+        {
             CanvasPopup.Instance.OpenPopupInLoading();
         }
+        public void OnAvatarUploadReady()
+        {
+            CanvasPopup.Instance.OpenSuccessPanel();
+            OpenPopupPlayerProfile(this.principalIDComplete,this.usernameTMP.text );
+        }
+        
         public void EditDescription()
         {
             editDescriptionUser.gameObject.SetActive(false);

@@ -118,12 +118,6 @@ public class LoginManager : MonoBehaviour
         acceptAvatarButton.onClick.RemoveAllListeners();
         acceptAvatarButton.onClick.AddListener(()=>{SceneManager.LoadScene(mainScene);});
     }
-    public void OnAvatarUploadCancel()
-    {
-        loadingPanel.SetActive(false);
-        avatarPanel.SetActive(true);
-    }
-    
     //Calls to React WebGL
     public void StoicLogin()
     {
