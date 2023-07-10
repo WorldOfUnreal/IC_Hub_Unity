@@ -345,14 +345,14 @@ public class GroupSettingsManager : MonoBehaviour
     {
         if(string.IsNullOrEmpty(searchText))
         {
-            foreach (GameObject member in contentMembersPanelUser.transform) { member.SetActive(true); }
+            foreach (Transform member in contentMembersPanelUser.transform) { member.gameObject.SetActive(true); }
         }
         else
         {
-            foreach (GameObject member in contentMembersPanelUser.transform)
+            foreach (Transform member in contentMembersPanelUser.transform)
             {
-                if (member.GetComponent<MemberPrefabToUser>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
-                else { member.SetActive(false); }
+                if (member.GetComponent<MemberPrefabToUser>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.gameObject.SetActive(true); }
+                else { member.gameObject.SetActive(false); }
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembersPanelUser.transform.parent.GetComponent<RectTransform>());
@@ -361,26 +361,26 @@ public class GroupSettingsManager : MonoBehaviour
     {
         if(string.IsNullOrEmpty(searchText))
         {
-            foreach (GameObject member in contentMembers_user.transform) { member.SetActive(true); }
-            foreach (GameObject member in contentMembers_admin.transform) { member.SetActive(true); }
-            foreach (GameObject member in contentMembers_owner.transform) { member.SetActive(true); }
+            foreach (Transform member in contentMembers_user.transform) { member.gameObject.SetActive(true); }
+            foreach (Transform member in contentMembers_admin.transform) { member.gameObject.SetActive(true); }
+            foreach (Transform member in contentMembers_owner.transform) { member.gameObject.SetActive(true); }
         }
         else
         {
-            foreach (GameObject member in contentMembers_user.transform)
+            foreach (Transform member in contentMembers_user.transform)
             {
-                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
-                else { member.SetActive(false); }
+                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.gameObject.SetActive(true); }
+                else { member.gameObject.SetActive(false); }
             }
-            foreach (GameObject member in contentMembers_admin.transform)
+            foreach (Transform member in contentMembers_admin.transform)
             {
-                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
-                else { member.SetActive(false); }
+                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.gameObject.SetActive(true); }
+                else { member.gameObject.SetActive(false); }
             }
-            foreach (GameObject member in contentMembers_owner.transform)
+            foreach (Transform member in contentMembers_owner.transform)
             {
-                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.SetActive(true); }
-                else { member.SetActive(false); }
+                if (member.GetComponent<MemberPrefabToAdmin>().userNameText.text.ToLower().Contains(searchText.ToLower())) { member.gameObject.SetActive(true); }
+                else { member.gameObject.SetActive(false); }
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_user.transform.parent.GetComponent<RectTransform>());
