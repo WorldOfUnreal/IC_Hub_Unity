@@ -14,7 +14,6 @@ public class Token_ContextualMenu : ContextualMenu
         //Open panel sendToken
         CanvasSendCrypto.Instance.OpenPopupSendCrypto(tokenID.ToString(), true, tokenAvatar);
         ContextualMenuManager.Instance.CloseContextualMenu();
-        ContextualMenuManager.Instance.CloseContextualMenu();
     }
     public void ViewToken()
     {

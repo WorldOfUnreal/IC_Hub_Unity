@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class App_ContextualMenu : ContextualMenu
@@ -7,6 +8,9 @@ public class App_ContextualMenu : ContextualMenu
 
     public int idApp = 0;
     public AppBrowserController appBrowserController;
+    
+    [DllImport("__Internal")]
+    private static extern void JSAddAppToFavorite(int id);
 
     public void GoToApp()
     {
@@ -15,7 +19,8 @@ public class App_ContextualMenu : ContextualMenu
     }
     public void AddAppToFavorites()
     {
-        Debug.Log("AddAppToFavorites");
+        JSAddAppToFavorite(idApp);
+        CanvasPopup.Instance.OpenPopupInLoading();
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
     public void LaunchApp()

@@ -144,6 +144,9 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.SendReport(Pointer_stringify(json));
     },
     
+  JSAddAppToFavorite: function (id) {
+      ReactUnityWebGL.AddAppToFavorite(id);
+    },
     
     
     
