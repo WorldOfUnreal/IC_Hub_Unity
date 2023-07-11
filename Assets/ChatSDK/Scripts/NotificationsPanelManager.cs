@@ -71,7 +71,8 @@ public class NotificationsPanelManager : MonoBehaviour
            
         }*/
     //Fill request
-        foreach (Transform t in contentFriendRequests.transform) { GameObject.Destroy(t.gameObject); }
+    Pool_PrefabsGO.Instance.Release_AllObjsInPool(Pool_PrefabsGO.Instance.poolNotificationRequests);
+        
         foreach (RequestsFriend g in infoNotificationPanel.requests)
         {
             AddRequestToList(g.principalID, g.username, g.avatarUser);
@@ -84,12 +85,13 @@ public class NotificationsPanelManager : MonoBehaviour
     }
     
     public void AddRequestToList(string principalID, string username, string avatarUser){
-        GameObject newRequest = Instantiate(prefabFriendRequest, contentFriendRequests.transform);
+        GameObject newRequest = Pool_PrefabsGO.Instance.Get_ObjFromPool(Pool_PrefabsGO.Instance.poolNotificationRequests);
         RequestFriendPrefab requestFriendPrefab = newRequest.GetComponent<RequestFriendPrefab>();
 
         requestFriendPrefab.userNameText.text = username;
         requestFriendPrefab.principalID.text = principalID.Substring(0, 4)+"..."+principalID.Substring(principalID.Length - 4);
         requestFriendPrefab.icon.ChangeUrlImage(avatarUser);
+        requestFriendPrefab.buttonAccept.onClick.RemoveAllListeners(); requestFriendPrefab.buttonDeny.onClick.RemoveAllListeners();
         
         requestFriendPrefab.buttonAccept.onClick.AddListener(() =>
         {

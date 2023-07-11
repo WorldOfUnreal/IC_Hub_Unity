@@ -12538,7 +12538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   username: BiZKiT
-  maxMessages: 48
   idGroupSelected: 0
   itemSpacing: 0.5
   chatPanel: {fileID: 525237140}
@@ -35961,7 +35960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 549340979700528612, guid: ed1373839149bbe44b06f0adb28c4677, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed1373839149bbe44b06f0adb28c4677, type: 3}
@@ -65765,6 +65764,18 @@ MonoBehaviour:
     prefab: {fileID: 2265807985196090578, guid: 8bd77cfa5b67b994db33d2fcd9a5629b, type: 3}
     content: {fileID: 215375367}
     initialPoolSize: 10
+    availableObjects: []
+    inUseObjects: []
+  poolNotificationRequests:
+    prefab: {fileID: 549340979700528612, guid: ed1373839149bbe44b06f0adb28c4677, type: 3}
+    content: {fileID: 552234134}
+    initialPoolSize: 10
+    availableObjects: []
+    inUseObjects: []
+  poolMessagesChat:
+    prefab: {fileID: 7547798330545695393, guid: 2025565822ae5ce49b249966f51385bc, type: 3}
+    content: {fileID: 525237141}
+    initialPoolSize: 35
     availableObjects: []
     inUseObjects: []
 --- !u!4 &1014274825
@@ -123670,7 +123681,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '{"requests":[{"avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png","username":"bizkit","principalID":"s3wbq-45lc4-eeker-hvzo7-q36oh-zo66m-2pfj2-e6h7j-ofcls-sumn7-2qe"},{"avatarUser":"","username":"BitfinityCh","principalID":"jrglw-dy4es-jkhw4-sgmey-44cw7-5pwla-tzvqs-ytnya-hxqwl-u2g7x-kae"}],"notifications":[]}'
+          m_StringArgument: '{"requests":[{"avatarUser":"","username":"BitfinityCh","principalID":"jrglw-dy4es-jkhw4-sgmey-44cw7-5pwla-tzvqs-ytnya-hxqwl-u2g7x-kae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=1837045879","username":"Thu06","principalID":"jlcgd-pc4z6-qsozk-3f52t-ksiyp-iim2c-ztq42-gohae-ipqas-u6xeu-tae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=3402461599","username":"FedoraPlug","principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae"},{"avatarUser":"","username":"Pluug2","principalID":"qhk7g-sdfw6-56kmn-zqc62-rfzri-7p3yr-olv6m-jfksq-rumqe-zgaov-7qe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=3402461599","username":"FedoraPlug","principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=545577910","username":"NewAccount","principalID":"fqxlk-45chh-ydsix-vtefr-ptm2s-34dna-tnvf7-2jve7-7nno7-citmq-bqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=545577910","username":"NewAccount","principalID":"fqxlk-45chh-ydsix-vtefr-ptm2s-34dna-tnvf7-2jve7-7nno7-citmq-bqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=3167649241","username":"Bravo","principalID":"nbaus-bnd57-4o7f5-an4i3-q7oih-7bn6f-ux2sr-sp7c6-rjyio-4iqzu-bqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=584713303","username":"N24","principalID":"myuw7-aemk5-hpj4w-5pfdr-fl7qz-n22ow-gdg3m-jyjig-f7two-j3w6g-4ae"},{"avatarUser":"","username":"VoxUp","principalID":"migd4-rynje-go7sq-j2q24-24g3s-nim7o-jm73x-bqaaj-zldnc-r2m5p-oae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=3245920027","username":"New","principalID":"bvfxu-4dpei-pidvq-ddi7t-5vukt-co7xt-4isz4-kk2wq-sqr6c-rxn2o-3qe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=3285055420","username":"New","principalID":"c4ypy-s2sog-7yo3x-jgnh4-3r32n-5s6pz-hhso5-twbtm-gcfqp-klrz2-nae"},{"avatarUser":"","username":"New","principalID":"ypr2p-pf5ce-7o224-anccl-6jfrb-vhzx4-w3l4z-7omyy-svqkj-4hvts-jqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=506442517","username":"Fedoro","principalID":"i5ihy-2qyx3-6ug6s-dkfrl-wi7ad-dkksd-ze4to-rw7tv-p4yva-2ivka-sae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=3324190813","username":"new","principalID":"or6cg-cbsi5-grkky-whnj7-2q5eu-idpn4-26rmh-g26u6-wc3ec-kbazy-bqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=3402461599","username":"FedoraPlug","principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=85879128","username":"alien","principalID":"h2r6r-l2754-y3ker-d2wcf-qh7ey-3dw5i-erieo-v4xuo-hcv6g-becne-fqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=164149914","username":"Neo","principalID":"4rnvf-bdjah-3v4el-nkdzy-4qex4-gktqg-ltk5o-bsg2e-bxpbk-ruoew-lqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=203285307","username":"Xob","principalID":"t7z4d-h2m2e-rjpo4-bx47k-yoorf-csvzc-es3px-jvzho-zsnoy-6wkyh-nae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=203285307","username":"Xob","principalID":"t7z4d-h2m2e-rjpo4-bx47k-yoorf-csvzc-es3px-jvzho-zsnoy-6wkyh-nae"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=320691486","username":"Monday","principalID":"mszlf-avw3e-ydvcx-z5cck-s2zm7-yhxi5-3lkua-driks-iqmcz-gtzlu-sqe"},{"avatarUser":"https://avnm2-3aaaa-aaaaj-qacba-cai.raw.ic0.app/img=320691486","username":"Monday","principalID":"mszlf-avw3e-ydvcx-z5cck-s2zm7-yhxi5-3lkua-driks-iqmcz-gtzlu-sqe"}],"notifications":[]} '
           m_BoolArgument: 0
         m_CallState: 0
       - m_Target: {fileID: 1390320538}
@@ -123708,21 +123719,82 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "{     \"data\": [         {             \"id\": 1,            
-            \"text\": \"\xA1Hola! \xBFC\xF3mo est\xE1s?\",             \"username\":
-            \"Usuario1\",             \"timeStamp\": \"2023-07-11 10:30:00\",            
-            \"avatarUser\": \"avatar1.png\",             \"principalID\": \"123456789\"        
-            },         {             \"id\": 2,             \"text\": \"\xA1Hola
-            Usuario1! Estoy bien, \xBFy t\xFA?\",             \"username\": \"Usuario2\",            
-            \"timeStamp\": \"2023-07-11 10:31:00\",             \"avatarUser\": \"avatar2.png\",            
-            \"principalID\": \"987654321\"         },         {             \"id\":
-            3,             \"text\": \"\xA1Eso es genial!\",             \"username\":
-            \"Usuario1\",             \"timeStamp\": \"2023-07-11 10:32:00\",            
-            \"avatarUser\": \"avatar1.png\",             \"principalID\": \"123456789\"        
-            }     ],     \"idGroup\": 1,     \"nameGroup\": \"Grupo de Chat\",    
-            \"avatarGroup\": \"group_avatar.png\" } "
+          m_StringArgument: '{"data":[{"id":0,"principalID":"mt6gj-bcbse-vx2ei-67ujd-hcvow-hthet-q3p2b-v3uba-a7kki-cyvid-zae","text":"hi","username":"Bitfinity","timeStamp":"3/3/2023
+            15:44","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":1,"principalID":"24brs-3kr62-c4smi-ptm26-ysspf-zbgrx-lfuux-4sb2b-23wfo-ojhey-rae","text":"Hello!","username":"pk","timeStamp":"3/3/2023
+            15:45","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":2,"principalID":"ms5ck-vdu4n-npyaq-csitj-ruhnl-zxha5-2ha2u-bl2jo-k4qcr-bidwq-rae","text":"yu","username":"Cosmicrafts","timeStamp":"3/3/2023
+            15:52","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":3,"principalID":"rpfud-cs453-dnfsr-rr5r5-5yhf5-4opy5-v6z4q-r3zvd-nhbg2-c5ksx-hae","text":"How''s
+            it going","username":"ICHub","timeStamp":"3/3/2023 17:3","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":4,"principalID":"g6lyi-l4shd-nja63-moziu-wow2f-k5mna-3jner-yvzx6-dzamr-2flaj-yqe","text":"GM!!","username":"Edge","timeStamp":"3/3/2023
+            17:3","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":5,"principalID":"u3zy7-nuscw-jpse2-zofbg-qxaay-4tyc3-6irx6-f2rg6-buodl-hfbxb-gqe","text":"hi
+            Team","username":"Web3naut","timeStamp":"3/3/2023 17:3","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":6,"principalID":"rpfud-cs453-dnfsr-rr5r5-5yhf5-4opy5-v6z4q-r3zvd-nhbg2-c5ksx-hae","text":"hi","username":"ICHub","timeStamp":"3/3/2023
+            21:32","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":7,"principalID":"vo3y3-gtazm-qx57z-pgjdz-ypcta-ivl6z-dj2jd-z6r6l-vyaza-4erwc-mae","text":"gm","username":"OperaDelEstoico","timeStamp":"3/4/2023
+            1:1","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":8,"principalID":"u3zy7-nuscw-jpse2-zofbg-qxaay-4tyc3-6irx6-f2rg6-buodl-hfbxb-gqe","text":"hi","username":"Web3naut","timeStamp":"3/6/2023
+            20:20","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":9,"principalID":"s3wbq-45lc4-eeker-hvzo7-q36oh-zo66m-2pfj2-e6h7j-ofcls-sumn7-2qe","text":"hi","username":"bizkit","timeStamp":"3/21/2023
+            17:33","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":10,"principalID":"aca47-jlvn2-rjczs-tigrb-e3ec5-mly6v-balql-nwill-vyyk6-5kuvn-fae","text":"Hola","username":"Pk","timeStamp":"4/24/2023
+            17:7","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":11,"principalID":"aca47-jlvn2-rjczs-tigrb-e3ec5-mly6v-balql-nwill-vyyk6-5kuvn-fae","text":"Hiii","username":"Pk","timeStamp":"4/24/2023
+            17:13","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":12,"principalID":"ezhna-af2i5-zrt6s-vpwkn-zfev5-qkask-ne4ru-fwhfu-bbhkv-jezra-bqe","text":"holaaa","username":"Perpiolo","timeStamp":"4/27/2023
+            22:11","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":13,"principalID":"s3wbq-45lc4-eeker-hvzo7-q36oh-zo66m-2pfj2-e6h7j-ofcls-sumn7-2qe","text":"hola
+            hola","username":"bizkit","timeStamp":"5/15/2023 15:59","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":14,"principalID":"s3wbq-45lc4-eeker-hvzo7-q36oh-zo66m-2pfj2-e6h7j-ofcls-sumn7-2qe","text":"hi","username":"bizkit","timeStamp":"5/15/2023
+            16:0","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":15,"principalID":"jrglw-dy4es-jkhw4-sgmey-44cw7-5pwla-tzvqs-ytnya-hxqwl-u2g7x-kae","text":"jklklj","username":"BitfinityCh","timeStamp":"5/15/2023
+            16:16","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":16,"principalID":"s3wbq-45lc4-eeker-hvzo7-q36oh-zo66m-2pfj2-e6h7j-ofcls-sumn7-2qe","text":"1","username":"bizkit","timeStamp":"5/15/2023
+            16:26","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":17,"principalID":"jrglw-dy4es-jkhw4-sgmey-44cw7-5pwla-tzvqs-ytnya-hxqwl-u2g7x-kae","text":"Web3","username":"BitfinityCh","timeStamp":"5/16/2023
+            15:43","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":18,"principalID":"md6op-ou2kv-y2y2l-mqpe7-63vqs-b3fef-nbmem-z455q-dfjxr-aisnr-vae","text":"hi!","username":"Ubuntu23.04-VBox","timeStamp":"5/23/2023
+            16:40","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":19,"principalID":"md6op-ou2kv-y2y2l-mqpe7-63vqs-b3fef-nbmem-z455q-dfjxr-aisnr-vae","text":"testing
+            1 ... 2 ... 3","username":"Ubuntu23.04-VBox","timeStamp":"5/23/2023 18:11","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":20,"principalID":"h2r6r-l2754-y3ker-d2wcf-qh7ey-3dw5i-erieo-v4xuo-hcv6g-becne-fqe","text":"hello","username":"alien","timeStamp":"6/19/2023
+            17:13","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":21,"principalID":"cqhln-2ep57-vyvl5-qpvs2-q6yvr-syrzi-vktii-zvjkf-fjvur-svuok-yae","text":"GM","username":"HyperX","timeStamp":"6/19/2023
+            17:52","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":22,"principalID":"vk24d-kgxlr-gv4xw-p76gg-pmh7o-glrdy-uppm4-xalcr-nimni-btitp-kae","text":"hola
+            holahola holahola hola","username":"enhance","timeStamp":"6/19/2023 18:3","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":23,"principalID":"kllhx-i6gmj-y5zci-j4lvf-hx3yj-ex2e5-thuhw-fwkoj-mw4nd-kajfd-gqe","text":"gm
+            team","username":"NeverUseSafari","timeStamp":"6/19/2023 18:9","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":24,"principalID":"kllhx-i6gmj-y5zci-j4lvf-hx3yj-ex2e5-thuhw-fwkoj-mw4nd-kajfd-gqe","text":"gm
+            gm gmgm gm gm","username":"NeverUseSafari","timeStamp":"6/19/2023 18:13","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":25,"principalID":"h2r6r-l2754-y3ker-d2wcf-qh7ey-3dw5i-erieo-v4xuo-hcv6g-becne-fqe","text":"hi","username":"alien","timeStamp":"6/20/2023
+            15:29","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":26,"principalID":"h2r6r-l2754-y3ker-d2wcf-qh7ey-3dw5i-erieo-v4xuo-hcv6g-becne-fqe","text":"hi","username":"alien","timeStamp":"6/20/2023
+            15:29","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":27,"principalID":"h2r6r-l2754-y3ker-d2wcf-qh7ey-3dw5i-erieo-v4xuo-hcv6g-becne-fqe","text":"gm","username":"alien","timeStamp":"6/20/2023
+            15:33","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":28,"principalID":"cqhln-2ep57-vyvl5-qpvs2-q6yvr-syrzi-vktii-zvjkf-fjvur-svuok-yae","text":"hi","username":"HyperX","timeStamp":"6/20/2023
+            15:40","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":29,"principalID":"2jvgh-asyip-5qo7h-4vkei-lbl5y-wkohv-n4kph-2u545-lxdku-2isdb-6qe","text":"gm","username":"Bitfinity","timeStamp":"6/20/2023
+            15:40","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":30,"principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae","text":"gm","username":"FedoraPlug","timeStamp":"6/21/2023
+            15:44","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":31,"principalID":"e45lp-thy6p-rkuxs-seqvi-bv6et-2kpo5-2pe3q-q5myh-lybuh-p7jkp-eqe","text":"hi","username":"FedoraBitfinity","timeStamp":"6/21/2023
+            15:44","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":32,"principalID":"ji7rd-cbe2o-wtpj7-mlybq-2z256-7q7k7-4umxj-urrhh-t3qv3-sz7mx-eae","text":"hihihi","username":"FedoraStoic","timeStamp":"6/21/2023
+            15:44","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":33,"principalID":"pcw5m-73mkx-vlhin-h5x5e-ska4k-llsro-mkzjb-2za7n-dmt43-tqdbu-lae","text":"hello","username":"pk","timeStamp":"6/21/2023
+            17:29","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":34,"principalID":"ttbu5-anz43-hnzjb-3ydrg-oxnk6-djxhr-zncs4-xktjp-bpo23-fbmqu-qqe","text":"hola!","username":"Markus","timeStamp":"6/21/2023
+            18:43","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":35,"principalID":"cqqnw-673j6-icr5a-qsgvb-yuitd-34gbl-ivsyc-fecaz-k4ame-pj2os-dqe","text":"dasd
+            asd","username":"dasdasd","timeStamp":"6/22/2023 7:27","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":36,"principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae","text":"ss","username":"FedoraPlug","timeStamp":"6/28/2023
+            13:51","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":37,"principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae","text":"hello
+            ","username":"FedoraPlug","timeStamp":"6/28/2023 13:51","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":38,"principalID":"ss7ur-h5e3b-7nbzh-vlijh-xfykm-xq2uj-wn5tw-nmkqr-doi5i-v6w5j-mae","text":"123123","username":"Hub3","timeStamp":"6/28/2023
+            15:33","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":39,"principalID":"ss7ur-h5e3b-7nbzh-vlijh-xfykm-xq2uj-wn5tw-nmkqr-doi5i-v6w5j-mae","text":"34234234","username":"Hub3","timeStamp":"6/28/2023
+            15:33","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":40,"principalID":"ss7ur-h5e3b-7nbzh-vlijh-xfykm-xq2uj-wn5tw-nmkqr-doi5i-v6w5j-mae","text":"asdasdsadflsdaf","username":"Hub3","timeStamp":"6/28/2023
+            16:15","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":41,"principalID":"ss7ur-h5e3b-7nbzh-vlijh-xfykm-xq2uj-wn5tw-nmkqr-doi5i-v6w5j-mae","text":"sjdasdjkasdkasd","username":"Hub3","timeStamp":"6/28/2023
+            16:16","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":42,"principalID":"ttbu5-anz43-hnzjb-3ydrg-oxnk6-djxhr-zncs4-xktjp-bpo23-fbmqu-qqe","text":"hi","username":"Markus","timeStamp":"6/28/2023
+            16:37","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":43,"principalID":"i5ihy-2qyx3-6ug6s-dkfrl-wi7ad-dkksd-ze4to-rw7tv-p4yva-2ivka-sae","text":"esting","username":"Fedoro","timeStamp":"6/29/2023
+            5:39","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":44,"principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae","text":"hi","username":"FedoraPlug","timeStamp":"6/29/2023
+            5:46","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":45,"principalID":"fqxlk-45chh-ydsix-vtefr-ptm2s-34dna-tnvf7-2jve7-7nno7-citmq-bqe","text":"hi!","username":"NewAccount","timeStamp":"6/30/2023
+            18:9","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":46,"principalID":"fqxlk-45chh-ydsix-vtefr-ptm2s-34dna-tnvf7-2jve7-7nno7-citmq-bqe","text":"GM!!","username":"NewAccount","timeStamp":"6/30/2023
+            18:9","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":47,"principalID":"myuw7-aemk5-hpj4w-5pfdr-fl7qz-n22ow-gdg3m-jyjig-f7two-j3w6g-4ae","text":"gm","username":"N24","timeStamp":"6/30/2023
+            18:33","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":48,"principalID":"migd4-rynje-go7sq-j2q24-24g3s-nim7o-jm73x-bqaaj-zldnc-r2m5p-oae","text":"hi","username":"VoxUp","timeStamp":"7/1/2023
+            11:25","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":49,"principalID":"n75rw-4t4py-hauei-shcoh-pp3us-bcsoj-p5zxj-lwg2i-3nzqq-q7hm6-hqe","text":"gm
+            gm","username":"n75rw-4t4py-hauei-shcoh-pp3us-bcsoj-p5zxj-lwg2i-3nzqq-q7hm6-hqe","timeStamp":"7/1/2023
+            15:23","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":50,"principalID":"n75rw-4t4py-hauei-shcoh-pp3us-bcsoj-p5zxj-lwg2i-3nzqq-q7hm6-hqe","text":"hi","username":"Hd","timeStamp":"7/1/2023
+            15:44","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":51,"principalID":"olc72-gamfj-bmlnz-657vf-ixsgx-xcj4i-7zfd4-zjw4i-4xmkv-vxxot-jae","text":"GM","username":"Canvas3","timeStamp":"7/2/2023
+            14:8","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":52,"principalID":"ixkot-necl7-berh5-xxpdo-cwmgs-vmqs3-acosn-o6mkb-krikr-opljn-oae","text":"hi","username":"InternetIden","timeStamp":"7/2/2023
+            14:11","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":53,"principalID":"6ftqw-dd3eq-4fvcv-odoi2-lfs3k-b5f2b-i4ztm-pcbkn-a2ejz-hz2fv-nqe","text":"GM
+            all","username":"July","timeStamp":"7/5/2023 16:43","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":54,"principalID":"fogt3-76zp4-eb4b5-lrqo2-5u4xo-uvn5a-4op5d-su46g-ea7fx-szvi3-kae","text":"hi","username":"X06","timeStamp":"7/5/2023
+            16:47","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":55,"principalID":"oudik-jhy35-nxn5g-p23sj-eg4e5-uljhk-a4fzj-rl5ck-tqeab-h67hh-pae","text":"hi
+            gm","username":"FedoraPlug","timeStamp":"7/5/2023 18:13","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":56,"principalID":"v6tqb-pppmq-ogot5-dqkmv-uextc-qzyla-agly6-j5vkk-f4msl-pvt3k-2ae","text":"GM!","username":"2DFX2","timeStamp":"7/7/2023
+            10:24","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":57,"principalID":"nbaus-bnd57-4o7f5-an4i3-q7oih-7bn6f-ux2sr-sp7c6-rjyio-4iqzu-bqe","text":"WOW","username":"Bravo","timeStamp":"7/7/2023
+            14:35","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":58,"principalID":"joihv-eolpp-o6764-3myte-xy6ul-hxpkr-2abi3-rzd6w-dcuhr-4kdxq-oae","text":"Testing","username":"PlugOpera","timeStamp":"7/7/2023
+            14:46","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":59,"principalID":"or6cg-cbsi5-grkky-whnj7-2q5eu-idpn4-26rmh-g26u6-wc3ec-kbazy-bqe","text":"@PlugOpera
+            hi","username":"new","timeStamp":"7/7/2023 15:1","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":60,"principalID":"aca47-jlvn2-rjczs-tigrb-e3ec5-mly6v-balql-nwill-vyyk6-5kuvn-fae","text":"Hello!","username":"Pk","timeStamp":"7/7/2023
+            16:4","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":61,"principalID":"myuw7-aemk5-hpj4w-5pfdr-fl7qz-n22ow-gdg3m-jyjig-f7two-j3w6g-4ae","text":"Hi","username":"N24","timeStamp":"7/7/2023
+            16:40","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":62,"principalID":"h2r6r-l2754-y3ker-d2wcf-qh7ey-3dw5i-erieo-v4xuo-hcv6g-becne-fqe","text":"GM
+            Team","username":"alien","timeStamp":"7/8/2023 4:59","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":63,"principalID":"mqnav-6x3pk-byoal-7jo6p-zm62o-6euyw-pa3db-hismi-reqoh-a7tlj-eae","text":"hi","username":"Dipsy","timeStamp":"7/9/2023
+            23:5","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":64,"principalID":"h2r6r-l2754-y3ker-d2wcf-qh7ey-3dw5i-erieo-v4xuo-hcv6g-becne-fqe","text":"fdgdsgdfg
+            fgfgfgfkjd isdkjr kjdkjskjdkskd kjsdkfjskjdf dkjdfjkd fkjdfkjdkjfjk dkjfkjdfksjdj
+            skjdkjfjkdskjf skdjkdkjf dkj fksjkjdfsjkdfkjsdjkfskdj fskjdfkjskjdfkjsdkfj
+            sdfkjsdkjfksjdfkjsdkfj skjdfkjsd fkjsdfkj sdkfjskjdfkjsdkjfsdkjf sjkdfkjsdjfksdfjksdfkjsdkjf
+            sdkjfskjdfkjsdkjfskjdf skdjf skjdf jksdf","username":"alien","timeStamp":"7/10/2023
+            17:4","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"},{"id":65,"principalID":"vk24d-kgxlr-gv4xw-p76gg-pmh7o-glrdy-uppm4-xalcr-nimni-btitp-kae","text":"hi","username":"enhance","timeStamp":"7/11/2023
+            13:11","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"}],
+            "nameGroup":"Public", "avatarGroup":"https://cdn-icons-png.flaticon.com/512/4677/4677376.png",
+            "idGroup":1, "role":2} '
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &1973501781
 MonoBehaviour:
   m_ObjectHideFlags: 0

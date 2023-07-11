@@ -18,12 +18,15 @@ public class Pool_PrefabsGO : MonoBehaviour
     [SerializeField] public PoolInfo poolHubFriend;
     [SerializeField] public PoolInfo poolHubGroup;
     [SerializeField] public PoolInfo poolHubCollection;
+    [SerializeField] public PoolInfo poolNotificationRequests;
+    [SerializeField] public PoolInfo poolMessagesChat;
     public static Pool_PrefabsGO Instance { get; private set; }
     private void Awake() { if (Instance != null && Instance != this) { Destroy(this); } else { Instance = this;} }
     private void Start()
     {
         InitializePool(poolHubToken); InitializePool(poolHubFriend);
         InitializePool(poolHubGroup); InitializePool(poolHubCollection);
+        InitializePool(poolNotificationRequests); InitializePool(poolMessagesChat); 
     }
     private void InitializePool(PoolInfo poolInfo)
     {

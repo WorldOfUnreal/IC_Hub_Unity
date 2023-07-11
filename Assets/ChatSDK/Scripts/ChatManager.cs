@@ -24,7 +24,7 @@ public class ChatManager : MonoBehaviour
     
     public string username;
 
-    public int maxMessages = 240;
+    //public int maxMessages = 240;
     private int lastMessage = -1;
     public int idGroupSelected = 0;
     [SerializeField] float itemSpacing = .5f;
@@ -131,9 +131,7 @@ public class ChatManager : MonoBehaviour
     }
 
     public void ClearMessages(){
-        for(int i = 0; i < messageList.Count; i++) {
-            Destroy(messageList[i].gameObject);
-        }
+        Pool_PrefabsGO.Instance.Release_AllObjsInPool(Pool_PrefabsGO.Instance.poolMessagesChat);
         messageList.Clear();
         lastMessage = -1;
     }
@@ -163,14 +161,14 @@ public class ChatManager : MonoBehaviour
 
     public void SendMessageToChat(MessageText m, Message.MessageType messageType) {
         //This will clear the last Message after the maximum allowed
-        if(messageList.Count >= maxMessages) {
+        /*if(messageList.Count >= maxMessages) {
             //This is to destroy only the text, but not the Object
             Destroy(messageList[0].gameObject);
             messageList.Remove(messageList[0]);
-        }
+        }*/
         
         //Create a new game object to instantiate the text Prefab for new Messages
-        GameObject newText = Instantiate(textObject, chatPanel.transform);
+        GameObject newText = Pool_PrefabsGO.Instance.Get_ObjFromPool(Pool_PrefabsGO.Instance.poolMessagesChat);
         Message newMessage = newText.GetComponent<Message>();
         newMessage.text = m.text;
         newMessage.contentMessage.text = newMessage.text;
@@ -180,7 +178,6 @@ public class ChatManager : MonoBehaviour
         newMessage.clickableObject.callLeftClick = () => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(m.principalID, m.username); };
         newMessage.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenUser_ContextualMenu(newText, m.principalID, m.username); };
         //newMessage.button.onClick.AddListener((() => { CanvasPlayerProfile.Instance.OpenPopupPlayerProfile(m.principalID, m.username);}));
-        
         
         messageList.Add(newMessage);
     }
