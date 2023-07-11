@@ -38,7 +38,9 @@ public class ChatManager : MonoBehaviour
     public TMP_Text groupName;
     public TMP_Text groupAvatar;
     public ImageDownloadManager groupAvatarImage;
-    
+    public GameObject loadingChat;
+    public GameObject scrollViewChat;
+
     [Header("Side Panel : ")]
     public GameObject sidePanel;
     public GameObject groupObject;
@@ -138,20 +140,25 @@ public class ChatManager : MonoBehaviour
 
     public void GetChatMessages(string json)
     {
-        ClearMessages();
-        
         MessagesTexts messagesTexts = JsonUtility.FromJson<MessagesTexts>(json);
-        groupName.text = messagesTexts.nameGroup;
-        groupAvatar.text = messagesTexts.nameGroup.Substring(0,2);
-        groupAvatarImage.ChangeUrlImage(messagesTexts.avatarGroup);
-        foreach(MessageText m in messagesTexts.data){
-            if(lastMessage < m.id){
-                SendMessageToChat(m,  Message.MessageType.playerMessage);
-                lastMessage = m.id;
+        
+        if (messagesTexts.idGroup == idGroupSelected || idGroupSelected == 0)
+        {
+            ClearMessages();
+            groupName.text = messagesTexts.nameGroup;
+            groupAvatar.text = messagesTexts.nameGroup.Substring(0,2);
+            groupAvatarImage.ChangeUrlImage(messagesTexts.avatarGroup);
+            foreach(MessageText m in messagesTexts.data){
+                if(lastMessage < m.id){
+                    SendMessageToChat(m,  Message.MessageType.playerMessage);
+                    lastMessage = m.id;
+                }
             }
+            loadingChat.SetActive(false);
+            scrollViewChat.SetActive(true);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(chatPanel.GetComponent<RectTransform>());
         }
-        //Update UI
-        LayoutRebuilder.ForceRebuildLayoutImmediate(chatPanel.GetComponent<RectTransform>());
+        
     }
 
     public void SendMessageToChat(MessageText m, Message.MessageType messageType) {
@@ -203,6 +210,8 @@ public class ChatManager : MonoBehaviour
 
     public void SetGroupSelected(int id){
         idGroupSelected = id;
+        loadingChat.SetActive(true);
+        scrollViewChat.SetActive(false);
         JSSelectChatGroup(id);
     }
     public void LeaveGroup(){

@@ -28,6 +28,9 @@ public class CanvasPopup : MonoBehaviour
     public TMP_Text middleTMP1;
     public TMP_Text middleTMP2;
 
+    [Header("timeToClosePanelInSuccess : ")]
+    public float timeToClosePanelInSuccess = 2f;
+    
     public void ClosePopupFromConfirm()
     {
         panelPopupAnimator.Play("Confirm_To_Closed");
@@ -35,6 +38,14 @@ public class CanvasPopup : MonoBehaviour
     public void ClosePopupFromSuccess()
     {
         panelPopupAnimator.Play("Success_To_Closed");
+        StopAllCoroutines();
+    }
+
+    public IEnumerator ClosePopupFromSuccessDelay()
+    {
+        yield return new WaitForSeconds(timeToClosePanelInSuccess);
+        ClosePopupFromSuccess();
+
     }
     public void OpenPopup(UnityAction callYes,UnityAction callNo,string buttonYes_Txt,string buttonNo_Txt,string description,string middleText1,string middleText2, string avatarURL)
     {
@@ -61,6 +72,7 @@ public class CanvasPopup : MonoBehaviour
     public void OpenSuccessPanel()
     {
         panelPopupAnimator.Play("Loading_To_Success");
+        StartCoroutine(ClosePopupFromSuccessDelay());
     }
     public void OpenPopupInLoading()
     {
