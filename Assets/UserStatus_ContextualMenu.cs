@@ -22,7 +22,7 @@ public class UserStatus_ContextualMenu : ContextualMenu
     public void SetState(int state)
     {
         CanvasPopup.Instance.OpenPopupInLoading();
-        JSChangeStatus(state);
+//        JSChangeStatus(state);
         ContextualMenuManager.Instance.CloseContextualMenu();
     }
     public void GoToProfile()

@@ -22,7 +22,6 @@ public class CanvasPopup : MonoBehaviour
     public TMP_Text buttonYesTMP;
     public Button buttonNo;
     public TMP_Text buttonNoTMP;
-    public TMP_Text titlePopup;
     public TMP_Text descriptionPopup;
     public ImageDownloadManager avatar;
     public TMP_Text middleTMP1;
@@ -84,12 +83,11 @@ public class CanvasPopup : MonoBehaviour
         middleTMP1.gameObject.SetActive(middleText1 != null); middleTMP1.text = middleText1;
         middleTMP2.gameObject.SetActive(middleText2 != null); middleTMP2.text = middleText2;
     }
-    
 
-    public void ChangeTitleNameToConfirm() { titlePopup.text = "CONFIRM"; }
-    public void ChangeTitleNameToProcessing() { titlePopup.text = "PROCESSING"; }
-    public void ChangeTitleNameToSuccess() { titlePopup.text = "SUCCESS"; }
-    public void ChangeTitleNameToFailed() { titlePopup.text = "FAILED"; }
+
+    public void ChangeDescriptionToProcessing() { descriptionPopup.text = "Processing request"; }
+    public void ChangeDescriptionToSuccesfull() { descriptionPopup.text = "Transaction Successfull"; }
+    
 
     public void StopSearchIconAnim() { iconSearchAnimator.Play("Searching_Stop"); }
     public void StartSearchIconAnim() { iconSearchAnimator.Play("Searching");}
