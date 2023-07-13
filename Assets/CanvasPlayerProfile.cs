@@ -145,7 +145,9 @@ public class CanvasPlayerProfile : MonoBehaviour
         public void SendMessageToUser(string principalID)
         {
             JSSendMessageToUser(principalID);
-            CanvasPopup.Instance.OpenPopupInLoading();
+            Hub_Manager.Instance.OpenSection(0);
+            ChatManager.Instance.WaitFromGroupCreated();
+            ClosePopupPlayerProfile();
         }
         public void LogoutFromProfile()
         {

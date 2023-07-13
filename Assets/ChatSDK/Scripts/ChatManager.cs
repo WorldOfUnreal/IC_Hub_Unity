@@ -211,6 +211,11 @@ public class ChatManager : MonoBehaviour
         scrollViewChat.SetActive(false);
         JSSelectChatGroup(id);
     }
+    public void WaitFromGroupCreated(){
+        loadingChat.SetActive(true);
+        scrollViewChat.SetActive(false);
+    }
+  
     public void LeaveGroup(){
         popupMoreSettings.SetActive(false);
         JSLeaveGroup(idGroupSelected);
