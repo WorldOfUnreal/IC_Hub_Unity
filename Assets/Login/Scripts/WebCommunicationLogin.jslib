@@ -23,6 +23,10 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.SetAvatarImageFromProfile();
   },
   
+  JSSetAvatarToGroup: function () {
+    ReactUnityWebGL.SetAvatarToGroup();
+  },
+    
   JSCopyToClipboard: function (textToCopy) {
     ReactUnityWebGL.CopyToClipboard(Pointer_stringify(textToCopy));
   },

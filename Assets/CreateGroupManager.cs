@@ -8,15 +8,26 @@ using UnityEngine.UI;
 public class CreateGroupManager : MonoBehaviour
 {
     
+    public class GroupData
+    {
+        public string namegroup;
+        public string description;
+        public string isPrivate;
+        public string avatarURL;
+    }
+    
     [SerializeField] private Button newGroupButton;
     public TMP_InputField newGroupNameInput;
     public TMP_InputField newGroupDescriptionInput;
     public Button buttonSlider;
+    public ImageDownloadManager groupAvatar;
     public Animator buttonSliderAnimator;
     public bool isPrivate = false;
     
     [DllImport("__Internal")]
     private static extern void JSCreateGroup(string json);
+    [DllImport("__Internal")]
+    private static extern void JSSetAvatarToGroup();
     
     void Start()
     {
@@ -36,15 +47,29 @@ public class CreateGroupManager : MonoBehaviour
         }
         isPrivate = !isPrivate;
     }
+    public void SetAvatarImageFromGroup() { JSSetAvatarToGroup(); }
+    public void OnAvatarUploadLoading()
+    {
+        CanvasPopup.Instance.OpenPopupInLoading();
+    }
+    public void OnAvatarUploadReady(string avatarURL)
+    {
+        CanvasPopup.Instance.OpenSuccessPanel();
+        groupAvatar.ChangeUrlImage(avatarURL);
+    }
 
     public void CreateGroup(){
         if(newGroupNameInput.text != ""){
             CanvasPopup.Instance.OpenPopup(() => {
                 CanvasPopup.Instance.OpenLoadingPanel();
-                string json = "{\"namegroup\":\"" + newGroupNameInput.text + "\", \"description\":\"" 
-                              + newGroupDescriptionInput.text + "\", \"isPrivate\":\""+ isPrivate +"\"}" ;
-                JSCreateGroup(json);
-            }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null, null);
+                
+                GroupData groupData = new GroupData();
+                groupData.namegroup = newGroupNameInput.text;
+                groupData.description = newGroupDescriptionInput.text;
+                groupData.isPrivate = isPrivate.ToString();
+                groupData.avatarURL = groupAvatar.urlImage;
+                JSCreateGroup(JsonUtility.ToJson(groupData));
+            }, null, "Create", "Cancel", "Do you want create this Group?", newGroupNameInput.text, null, groupAvatar.urlImage);
         }
     }
     
