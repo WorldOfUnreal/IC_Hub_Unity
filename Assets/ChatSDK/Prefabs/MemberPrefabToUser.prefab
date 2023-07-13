@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 54.642, y: 10.185}
+  m_AnchoredPosition: {x: 54.9, y: 30.657}
   m_SizeDelta: {x: 20.9561, y: 20.3705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1945299918576911221
@@ -607,8 +607,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166.14, y: -25.758}
-  m_SizeDelta: {x: 185.09, y: 45.67}
+  m_AnchoredPosition: {x: 176.35, y: -20.17}
+  m_SizeDelta: {x: 205.52, y: 34.495}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1628340794697713101
 CanvasRenderer:
@@ -640,8 +640,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BiZKiT#ICP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 284e867d3fc39d748a01b8a0dac16b9e, type: 2}
-  m_sharedMaterial: {fileID: -6589852127569215025, guid: 284e867d3fc39d748a01b8a0dac16b9e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 06c31b9d882094146be48346edd1874b, type: 2}
+  m_sharedMaterial: {fileID: 3064681044960261354, guid: 06c31b9d882094146be48346edd1874b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -665,10 +665,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 23.9
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 16
   m_fontSizeMax: 24
   m_fontStyle: 0
@@ -879,8 +879,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 301.7, y: -25.918}
-  m_SizeDelta: {x: 66.01001, y: 30}
+  m_AnchoredPosition: {x: 232.78, y: -51.5}
+  m_SizeDelta: {x: 92.66, y: 19.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1628340795256049013
 CanvasRenderer:
@@ -912,7 +912,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 1851b1edfe496544a8d668e35ec597ba, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
