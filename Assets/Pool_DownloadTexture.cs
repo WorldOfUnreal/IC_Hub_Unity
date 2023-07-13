@@ -9,6 +9,9 @@ public class Pool_DownloadTexture : MonoBehaviour
     private List<DownloadTexture> availableObjects = new List<DownloadTexture>();
     private List<DownloadTexture> inUseObjects = new List<DownloadTexture>();
 
+    public Dictionary<string, Texture2D> inventoryTextures = new Dictionary<string, Texture2D> ();
+
+    
     public static Pool_DownloadTexture Instance { get; private set; }
     private void Awake() 
     {
@@ -51,6 +54,8 @@ public class Pool_DownloadTexture : MonoBehaviour
     }
     public void ReleaseObject(DownloadTexture obj)
     {
+        Debug.Log("Textures in Dictionary: " + inventoryTextures.Count);
+        
         obj.gameObject.SetActive(false);
         inUseObjects.Remove(obj);
         availableObjects.Add(obj);

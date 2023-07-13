@@ -39,8 +39,9 @@ public class DownloadTexture : MonoBehaviour
         else {
             Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
             idm.ChangeImage(texture);
+            if (!Pool_DownloadTexture.Instance.inventoryTextures.ContainsKey(idm.urlImage))
+                { Pool_DownloadTexture.Instance.inventoryTextures.Add(idm.urlImage, texture); }
         }
-        
         Pool_DownloadTexture.Instance.ReleaseObject(this);
     }
     

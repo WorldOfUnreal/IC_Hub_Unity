@@ -21,8 +21,14 @@ public class ImageDownloadManager : MonoBehaviour
         if (urlImage != url)
         {
             urlImage = url;
-            Pool_DownloadTexture.Instance.DownloadTextureFromIDM(this);
-            
+            if (Pool_DownloadTexture.Instance.inventoryTextures.ContainsKey(url))
+            {
+                ChangeImage(Pool_DownloadTexture.Instance.inventoryTextures[url]);
+            }
+            else
+            {
+                Pool_DownloadTexture.Instance.DownloadTextureFromIDM(this);
+            }
         }
     }
 
