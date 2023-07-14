@@ -57,7 +57,9 @@ namespace DanielLochner.Assets.SimpleScrollSnap
         private float releaseSpeed;
         private bool isDragging, isPressing, isSelected = true;
         #endregion
-
+        int lastScreenWidth = 0;
+        int lastScreenHeight = 0;
+        
         #region Properties
         public MovementType MovementType
         {
@@ -286,6 +288,7 @@ namespace DanielLochner.Assets.SimpleScrollSnap
                 throw new Exception("Invalid configuration.");
             }
         }
+        
         private void Update()
         {
             if (NumberOfPanels == 0) return;
@@ -297,6 +300,16 @@ namespace DanielLochner.Assets.SimpleScrollSnap
             HandleSwipeGestures();
 
             GetVelocity();
+            
+            if (lastScreenWidth != Screen.width || lastScreenHeight != Screen.height)
+            {
+                lastScreenWidth = Screen.width;
+                lastScreenHeight = Screen.height;
+                startingPanel = CenteredPanel;
+                Setup(); //<--- create this function
+            }
+            
+            
         }
         
         public void OnPointerDown(PointerEventData eventData)
