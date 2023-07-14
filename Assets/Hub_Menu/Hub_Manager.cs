@@ -81,6 +81,7 @@ public class Hub_Manager : MonoBehaviour
         public string userState;
         public string principalID;
         public string avatar;
+        public int hasApp;
     }
 
     [Header("GameObjects Section Center: ")]
@@ -195,7 +196,7 @@ public class Hub_Manager : MonoBehaviour
         }   
         separatorCollectionNumber.text = "- " + listCollections.data.Count;
         //FilterResults(searchInputField.text);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(contentGroups.GetComponent<RectTransform>());  //Update UI
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentCollections.GetComponent<RectTransform>());  //Update UI
     }
     public void GetUserInfo(string json)
     {
@@ -215,6 +216,11 @@ public class Hub_Manager : MonoBehaviour
        ContextualMenuManager.Instance.userStatusContextualMenu.TMP_Username.text = userProfileInfo.username;  
        ContextualMenuManager.Instance.userStatusContextualMenu.TMP_PrincipalID.text = 
            userProfileInfo.principalID.Substring(0, 4)+"..."+userProfileInfo.principalID.Substring(userProfileInfo.principalID.Length - 4);
+       ContextualMenuManager.Instance.userStatusContextualMenu.hasApp = userProfileInfo.hasApp;
+       if (userProfileInfo.hasApp !=0) { ContextualMenuManager.Instance.userStatusContextualMenu.TMP_OpenAppManagement.text = "App Management"; }
+                                else { ContextualMenuManager.Instance.userStatusContextualMenu.TMP_OpenAppManagement.text = "App Registration"; }
+
+
     }
     public void OpenSection(int id)
     {
