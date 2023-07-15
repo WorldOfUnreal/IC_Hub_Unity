@@ -128,8 +128,8 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.DeleteVersion(versionID);
     },
     
-  JSDeleteCollection: function (versionID) {
-      ReactUnityWebGL.DeleteCollection(versionID);
+  JSDeleteCollection: function (collectionID) {
+      ReactUnityWebGL.DeleteCollection(collectionID);
     },
     
   JSSendDataNews: function (json) {
