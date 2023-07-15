@@ -127,7 +127,7 @@ public class AppManagementController : MonoBehaviour
         {
             CanvasPopup.Instance.OpenLoadingPanel();
             JSSendDataApp(json);
-        },null, "Update InfoApp", "Cancel", "Do you want update info App?", null, null, appData.Logo);
+        },null, "Submit", "Cancel", "Do you want update info App?", null, null, appData.Logo);
     }
     public void GetInfoApp(string json)
     {
@@ -273,6 +273,11 @@ public class AppManagementController : MonoBehaviour
         newsContentPreview.text = newsContent.text;
         newsCallToActionPreview.text = newsCallToActionText.text;
     }
+    public void OnSubmitProcessSuccess()
+    {
+        CanvasPopup.Instance.OpenSuccessPanel();
+        ContextualMenuManager.Instance.userStatusContextualMenu.GoToAppManagement();
+    }
 
     public void SetImageAppManagement(int id)
     {
@@ -286,5 +291,7 @@ public class AppManagementController : MonoBehaviour
     public void GetImageLogo(string url) { LogoSlot.ChangeUrlImage(url); }
     public void GetImageBanner(string url) { BannerSlot.ChangeUrlImage(url); }
     public void GetImageNews(string url) { newsImage.ChangeUrlImage(url); }
+
     
+
 }
