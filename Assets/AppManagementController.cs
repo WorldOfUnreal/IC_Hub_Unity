@@ -15,6 +15,8 @@ public class AppManagementController : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void JSSendDataVersions(string json);
     [DllImport("__Internal")]
+    private static extern void JSSendDataCollections(string json);
+    [DllImport("__Internal")]
     private static extern void JSSendDataNews(string json);
     [DllImport("__Internal")]
     private static extern void JSSetImage(string json);
@@ -47,7 +49,6 @@ public class AppManagementController : MonoBehaviour
         public string currentVersion;
         public string blockChain;
     }
-    
     public class NewsData
     {
         public string imageNews;
@@ -55,6 +56,21 @@ public class AppManagementController : MonoBehaviour
         public string contentNews;
         public string textButtonNews;
         public string linkButtonNews;
+    }
+    [System.Serializable]
+    public class CollectionsData
+    {
+        public List<CollectionAppData> collectionAppDatas;
+    }
+    [System.Serializable]
+    public class CollectionAppData
+    {
+        public int collectionID;
+        public string collectionName;
+        public string canisterID;
+        public string nftStandard;
+        public string linkToMarketplace;
+        public string avatarUrl;
     }
     
     [Header("RegistrationPanel: ")] 
@@ -76,6 +92,9 @@ public class AppManagementController : MonoBehaviour
     [Header("VersionPanel: ")] 
     public GameObject contentVersions;
     public GameObject versionAppPrefab;
+    [Header("CollectionPanel: ")] 
+    public GameObject contentCollections;
+    public GameObject collectionAppPrefab;
     [Header("NewsPanel: ")] 
     public ImageDownloadManager newsImage;
     public TMP_InputField newsTitle;
@@ -175,7 +194,6 @@ public class AppManagementController : MonoBehaviour
         
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentVersions.GetComponent<RectTransform>());  //Update UI
     }
-    
     public void AddSlotVersion()
     {
         GameObject newVersion = Instantiate(versionAppPrefab, contentVersions.transform);
@@ -183,7 +201,55 @@ public class AppManagementController : MonoBehaviour
         versionPrefab.removeVersionBtn.onClick.AddListener(() => { GameObject.Destroy(newVersion); });
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentVersions.GetComponent<RectTransform>());  //Update UI
     }
-    
+    public void SubmitInfoCollections()
+    {
+        CollectionsData collectionsData = new CollectionsData();
+        collectionsData.collectionAppDatas = new List<CollectionAppData>();
+        
+        foreach (Transform t in contentVersions.transform)
+        {
+            CollectionAppPrefab collectionAppPrefab = t.gameObject.GetComponent<CollectionAppPrefab>();
+            
+            CollectionAppData collectionAppData = new CollectionAppData();
+            collectionAppData.collectionID = collectionAppPrefab.collectionID;
+            collectionAppData.collectionName = collectionAppPrefab.collectionNameInput.text;
+            collectionAppData.canisterID = collectionAppPrefab.canisterIDInput.text;
+            collectionAppData.nftStandard = collectionAppPrefab.nftStandardInput.text;
+            collectionAppData.linkToMarketplace = collectionAppPrefab.linkToMarketplaceInput.text;
+            collectionAppData.avatarUrl = collectionAppPrefab.avatarCollection.urlImage;
+            
+            collectionsData.collectionAppDatas.Add(collectionAppData);
+        }
+        
+        string json = JsonUtility.ToJson(collectionsData);
+        
+        CanvasPopup.Instance.OpenPopup(() =>
+        {
+            CanvasPopup.Instance.OpenLoadingPanel();
+            JSSendDataCollections(json);
+        },null, "Update Info Collections", "Cancel", "Do you want update info collections?", null, null, null);
+    }
+    public void GetInfoCollections(string json)
+    {
+        CollectionsData collectionsData = JsonUtility.FromJson<CollectionsData>(json);
+
+        foreach (Transform t in contentCollections.transform) { GameObject.Destroy(t.gameObject); }
+        foreach (CollectionAppData collection in collectionsData.collectionAppDatas)
+        {
+            GameObject newCollection = Instantiate(collectionAppPrefab, contentCollections.transform);
+            CollectionAppPrefab collectionPrefab = newCollection.GetComponent<CollectionAppPrefab>();
+            collectionPrefab.FillCollectionAppData(collection);
+        }
+        
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentCollections.GetComponent<RectTransform>());  //Update UI
+    }
+    public void AddSlotCollection()
+    {
+        GameObject newCollection = Instantiate(collectionAppPrefab, contentCollections.transform);
+        CollectionAppPrefab collectionPrefab = newCollection.GetComponent<CollectionAppPrefab>();
+        collectionPrefab.removeCollectionBtn.onClick.AddListener(() => { GameObject.Destroy(newCollection); });
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contentVersions.GetComponent<RectTransform>());  //Update UI
+    }
     public void SubmitNews()
     {
         NewsData newsData = new NewsData();

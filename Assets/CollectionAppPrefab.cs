@@ -10,16 +10,6 @@ public class CollectionAppPrefab : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void JSDeleteCollection(int id);
     
-    public class CollectionAppData
-    {
-        public int collectionID;
-        public string collectionName;
-        public string canisterID;
-        public string nftStandard;
-        public string linkToMarketplace;
-        public string avatarUrl;
-    }
-    
     public TMP_InputField collectionNameInput;
     public TMP_InputField canisterIDInput;
     public TMP_InputField nftStandardInput;
@@ -29,7 +19,7 @@ public class CollectionAppPrefab : MonoBehaviour
 
     public Button removeCollectionBtn;
 
-    public void FillCollectionAppData(CollectionAppData collectionAppData)
+    public void FillCollectionAppData(AppManagementController.CollectionAppData collectionAppData)
     {
         collectionNameInput.text = collectionAppData.collectionName;
         canisterIDInput.text = collectionAppData.canisterID;
