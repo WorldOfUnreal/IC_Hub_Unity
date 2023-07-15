@@ -18230,8 +18230,9 @@ GameObject:
   - component: {fileID: 269352490}
   - component: {fileID: 269352492}
   - component: {fileID: 269352491}
+  - component: {fileID: 269352493}
   m_Layer: 5
-  m_Name: Collection
+  m_Name: CollectionAppPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18305,6 +18306,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269352489}
   m_CullTransparentMesh: 1
+--- !u!114 &269352493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269352489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1e38838778ee74cb9d8e2aa4f5c61b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectionNameInput: {fileID: 0}
+  canisterIDInput: {fileID: 0}
+  nftStandardInput: {fileID: 0}
+  linkToMarketplaceInput: {fileID: 0}
+  avatarCollection: {fileID: 0}
+  collectionID: 0
+  removeCollectionBtn: {fileID: 0}
 --- !u!1 &273694923
 GameObject:
   m_ObjectHideFlags: 0
@@ -117257,7 +117277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0000038147, y: 4.740967}
+  m_AnchoredPosition: {x: 0.0000038147, y: 4.7409663}
   m_SizeDelta: {x: 14.5, y: 9.482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1884816672
@@ -124064,6 +124084,19 @@ MonoBehaviour:
             13:11","avatarUser":"https://cdn3.iconfinder.com/data/icons/delivery-and-logistics/24/logistics-25-512.png"}],
             "nameGroup":"Public", "avatarGroup":"https://cdn-icons-png.flaticon.com/512/4677/4677376.png",
             "idGroup":1, "role":2} '
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 1203790330}
+        m_TargetAssemblyTypeName: AppManagementController, Assembly-CSharp
+        m_MethodName: GetInfoVersions
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: '{"versionAppDatas":[{"versionID":2,"projectName":"Tokens
+            ICHUB","linkDapp":"ichub.online","currentVersion":"0.0.9","blockChain":"ICP"}]}'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1973501781
@@ -134819,9 +134852,9 @@ RectTransform:
   m_Father: {fileID: 1518587162}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 77.71997, y: -3.999982}
   m_SizeDelta: {x: 75.13, y: 75}
   m_Pivot: {x: 0.9999997, y: 1.0000002}
 --- !u!114 &1319474854992140881

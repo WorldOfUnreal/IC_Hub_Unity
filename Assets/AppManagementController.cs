@@ -33,9 +33,19 @@ public class AppManagementController : MonoBehaviour
         public string Banner;
         public string Logo;
     }
+    [System.Serializable]
     public class VersionsData
     {
-        public List<VersionAppPrefab.VersionAppData> versionAppDatas;
+        public List<VersionAppData> versionAppDatas;
+    }
+    [System.Serializable]
+    public class VersionAppData
+    {
+        public int versionID;
+        public string projectName;
+        public string linkDapp;
+        public string currentVersion;
+        public string blockChain;
     }
     
     public class NewsData
@@ -126,13 +136,13 @@ public class AppManagementController : MonoBehaviour
     public void SubmitInfoVersions()
     {
         VersionsData versionsData = new VersionsData();
-        versionsData.versionAppDatas = new List<VersionAppPrefab.VersionAppData>();
-
+        versionsData.versionAppDatas = new List<VersionAppData>();
+        
         foreach (Transform t in contentVersions.transform)
         {
             VersionAppPrefab versionAppPrefab = t.gameObject.GetComponent<VersionAppPrefab>();
             
-            VersionAppPrefab.VersionAppData versionAppData = new VersionAppPrefab.VersionAppData();
+            VersionAppData versionAppData = new VersionAppData();
             versionAppData.projectName = versionAppPrefab.projectNameInput.text;
             versionAppData.currentVersion = versionAppPrefab.currentVersionInput.text;
             versionAppData.linkDapp = versionAppPrefab.linkDappInput.text;
@@ -156,11 +166,11 @@ public class AppManagementController : MonoBehaviour
         VersionsData versionsData = JsonUtility.FromJson<VersionsData>(json);
 
         foreach (Transform t in contentVersions.transform) { GameObject.Destroy(t.gameObject); }
-        foreach (VersionAppPrefab.VersionAppData version in versionsData.versionAppDatas)
+        foreach (VersionAppData version in versionsData.versionAppDatas)
         {
             GameObject newVersion = Instantiate(versionAppPrefab, contentVersions.transform);
             VersionAppPrefab versionPrefab = newVersion.GetComponent<VersionAppPrefab>();
-            versionPrefab.fillVersionAppData(version);
+            versionPrefab.FillVersionAppData(version);
         }
         
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentVersions.GetComponent<RectTransform>());  //Update UI

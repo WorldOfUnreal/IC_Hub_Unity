@@ -10,15 +10,6 @@ public class VersionAppPrefab : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void JSDeleteVersion(int id);
     
-    public class VersionAppData
-    {
-        public int versionID;
-        public string projectName;
-        public string linkDapp;
-        public string currentVersion;
-        public string blockChain;
-    }
-    
     public TMP_InputField projectNameInput;
     public TMP_InputField linkDappInput;
     public TMP_InputField currentVersionInput;
@@ -26,8 +17,8 @@ public class VersionAppPrefab : MonoBehaviour
     public int versionID;
 
     public Button removeVersionBtn;
-
-    public void fillVersionAppData(VersionAppData versionAppData)
+    
+    public void FillVersionAppData(AppManagementController.VersionAppData versionAppData)
     {
         projectNameInput.text = versionAppData.projectName;
         linkDappInput.text = versionAppData.linkDapp;
