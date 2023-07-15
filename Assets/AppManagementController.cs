@@ -65,7 +65,6 @@ public class AppManagementController : MonoBehaviour
     [System.Serializable]
     public class CollectionAppData
     {
-        public int collectionID;
         public string collectionName;
         public string canisterID;
         public string nftStandard;
@@ -211,7 +210,6 @@ public class AppManagementController : MonoBehaviour
             CollectionAppPrefab collectionAppPrefab = t.gameObject.GetComponent<CollectionAppPrefab>();
             
             CollectionAppData collectionAppData = new CollectionAppData();
-            collectionAppData.collectionID = collectionAppPrefab.collectionID;
             collectionAppData.collectionName = collectionAppPrefab.collectionNameInput.text;
             collectionAppData.canisterID = collectionAppPrefab.canisterIDInput.text;
             collectionAppData.nftStandard = collectionAppPrefab.nftStandardInput.text;

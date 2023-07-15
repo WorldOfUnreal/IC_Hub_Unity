@@ -124,8 +124,8 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.SendDataCollections(Pointer_stringify(json));
     },
         
-  JSDeleteVersion: function (versionID) {
-      ReactUnityWebGL.DeleteVersion(versionID);
+  JSDeleteVersion: function (canisterID) {
+      ReactUnityWebGL.DeleteVersion(Pointer_stringify(canisterID));
     },
     
   JSDeleteCollection: function (collectionID) {
@@ -154,6 +154,10 @@ mergeInto(LibraryManager.library, {
     
   JSAddAppToFavorite: function (id) {
       ReactUnityWebGL.AddAppToFavorite(id);
+    },
+    
+  JSSetAvatarImageToCollection: function (text) {
+      ReactUnityWebGL.SetAvatarImageToCollection(Pointer_stringify(text));
     },
     
     
