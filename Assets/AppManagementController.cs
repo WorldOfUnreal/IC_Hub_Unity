@@ -205,7 +205,7 @@ public class AppManagementController : MonoBehaviour
         CollectionsData collectionsData = new CollectionsData();
         collectionsData.collectionAppDatas = new List<CollectionAppData>();
         
-        foreach (Transform t in contentVersions.transform)
+        foreach (Transform t in contentCollections.transform)
         {
             CollectionAppPrefab collectionAppPrefab = t.gameObject.GetComponent<CollectionAppPrefab>();
             
