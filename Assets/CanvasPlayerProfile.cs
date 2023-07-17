@@ -188,7 +188,7 @@ public class CanvasPlayerProfile : MonoBehaviour
             {
                 descriptionPopup.interactable = true;
                 CanvasPopup.Instance.ClosePopupFromConfirm();
-            },"Change Description","Cancel","Do you want change you description?", usernameTMP.text, null, userIcon.urlImage);
+            },"Save","Cancel","Do you want to save changes?", usernameTMP.text, null, userIcon.urlImage);
         }
         public void CancelEditDescription()
         {

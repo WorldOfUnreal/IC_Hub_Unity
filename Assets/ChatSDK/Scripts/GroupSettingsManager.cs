@@ -259,7 +259,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             buttonSliderStates.Play("ToLeft");
             CanvasPopup.Instance.ClosePopupFromConfirm();
-        }, "Set Private", "Cancel", "Do you want set private this group?", nameGroup, null, avatarGroup);
+        }, "Change", "Cancel", "Do you want to set this group to private?", nameGroup, null, avatarGroup);
     }
     private void SetGroupPublic(string nameGroup, int idGroup, string avatarGroup)
     {
@@ -271,7 +271,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             buttonSliderStates.Play("ToRight");
             CanvasPopup.Instance.ClosePopupFromConfirm();
-        }, "Set Public", "Cancel", "Do you want set public this group?", nameGroup, null, avatarGroup);
+        }, "Change", "Cancel", "Do you want to set this group to public?", nameGroup, null, avatarGroup);
     }
     public void EditTitle()
     {
@@ -327,7 +327,7 @@ public class GroupSettingsManager : MonoBehaviour
         {
             descriptionGroup.interactable = true;
             CanvasPopup.Instance.ClosePopupFromConfirm();
-        },"Change Description","Cancel","Do you want change description of this group?", infoPanelSetting.nameGroup, null, infoPanelSetting.avatarGroup);
+        },"Change","Cancel","Do you want change the description of this group?", infoPanelSetting.nameGroup, null, infoPanelSetting.avatarGroup);
     }
     public void CancelEditDescription()
     {

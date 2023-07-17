@@ -127,7 +127,7 @@ public class AppManagementController : MonoBehaviour
         {
             CanvasPopup.Instance.OpenLoadingPanel();
             JSSendDataApp(json);
-        },null, "Submit", "Cancel", "Do you want update info App?", null, null, appData.Logo);
+        },null, "Submit", "Cancel", "Do you want to submit this info?", null, null, appData.Logo);
     }
     public void GetInfoApp(string json)
     {
@@ -225,7 +225,7 @@ public class AppManagementController : MonoBehaviour
         {
             CanvasPopup.Instance.OpenLoadingPanel();
             JSSendDataCollections(json);
-        },null, "Update Info Collections", "Cancel", "Do you want update info collections?", null, null, null);
+        },null, "Submit", "Cancel", "Do you want to submit this info?", null, null, null);
     }
     public void GetInfoCollections(string json)
     {
