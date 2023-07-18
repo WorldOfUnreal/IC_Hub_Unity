@@ -130,7 +130,7 @@ public class AppBrowserController : MonoBehaviour
             foreach (Transform app in contentApps.transform)
             {
                 if (app.GetComponent<AppIconPrefab>().nameApp.ToLower().Contains(searchText.ToLower())) { }
-                else { contentApps.gameObject.SetActive(false); }
+                else { app.gameObject.SetActive(false); }
             }
         }
     }
