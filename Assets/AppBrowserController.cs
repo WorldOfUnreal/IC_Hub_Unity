@@ -176,6 +176,7 @@ public class AppBrowserController : MonoBehaviour
             appIcon.imageDownloadManager.ChangeUrlImage(appInfo.logo);
             appIcon.id = appInfo.id;
             appIcon.nameApp = appInfo.name;
+            appIcon.nameTMP.text = appInfo.name;
             appIcon.clickableObject.callLeftClick = () => { OnClickAppIcon(appInfo.id); };
             appIcon.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenApp_ContextualMenu(newAppIcon, appInfo.id, false); };
             //appIcon.buttonApp.onClick.AddListener(() => { OnClickAppIcon(appInfo.id); });
@@ -209,6 +210,8 @@ public class AppBrowserController : MonoBehaviour
         AppIconPrefab appFavIcon = newAppFavIcon.GetComponent<AppIconPrefab>();
         appFavIcon.imageDownloadManager.ChangeUrlImage(appInfo.logo);
         appFavIcon.id = appInfo.id;
+        appFavIcon.nameApp = appInfo.name;
+        appFavIcon.nameTMP.gameObject.SetActive(false);
         appFavIcon.clickableObject.callLeftClick = () => { OnClickAppIcon(appInfo.id); };
         appFavIcon.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenApp_ContextualMenu(newAppFavIcon, appInfo.id, true); };
         appFavIcon.appCategory = appInfo.appCategoryIndex;
