@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class AppIconPrefab : MonoBehaviour
 {
     public int id;
+    public string nameApp;
     public int favAppOrder;
     public Image logoImage;
     public ImageDownloadManager imageDownloadManager;

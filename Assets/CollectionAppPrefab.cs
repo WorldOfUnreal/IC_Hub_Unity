@@ -16,7 +16,7 @@ public class CollectionAppPrefab : MonoBehaviour
     
     public TMP_InputField collectionNameInput;
     public TMP_InputField canisterIDInput;
-    public TMP_InputField nftStandardInput;
+    public TMP_Dropdown nftStandardDropdown;
     public TMP_InputField linkToMarketplaceInput;
     public ImageDownloadManager avatarCollection;
 
@@ -26,7 +26,7 @@ public class CollectionAppPrefab : MonoBehaviour
     {
         collectionNameInput.text = collectionAppData.collectionName;
         canisterIDInput.text = collectionAppData.canisterID;
-        nftStandardInput.text = collectionAppData.nftStandard;
+        nftStandardDropdown.value = collectionAppData.nftStandard;
         linkToMarketplaceInput.text = collectionAppData.linkToMarketplace;
         avatarCollection.ChangeUrlImage(collectionAppData.avatarUrl);
 

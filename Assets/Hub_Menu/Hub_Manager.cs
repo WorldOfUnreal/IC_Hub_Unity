@@ -15,7 +15,7 @@ public class Hub_Manager : MonoBehaviour
     private static extern void JSCurrentSection(int id);
         
     public static Hub_Manager Instance { get; private set; }
-            private void Awake() 
+    private void Awake() 
     {
         if (Instance != null && Instance != this) { Destroy(this); } 
         else { Instance = this;} 
@@ -115,6 +115,7 @@ public class Hub_Manager : MonoBehaviour
     public GameObject contentCollections;
     public GameObject prefabCollection;
     public TMP_Text separatorCollectionNumber;
+    
 
     [DllImport("__Internal")]
     private static extern void JSOnHubScene();
@@ -161,7 +162,6 @@ public class Hub_Manager : MonoBehaviour
         //FilterResults(searchInputField.text);
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.GetComponent<RectTransform>());  //Update UI
     }
-    
     public void GetGroupsInfo(string json)
     {
         Pool_PrefabsGO.Instance.Release_AllObjsInPool(Pool_PrefabsGO.Instance.poolHubGroup);
@@ -229,7 +229,6 @@ public class Hub_Manager : MonoBehaviour
         JSCurrentSection(id);
         
     }
-    
     public void FilterResults(string searchText)
     {
         if(string.IsNullOrEmpty(searchText))
@@ -272,5 +271,8 @@ public class Hub_Manager : MonoBehaviour
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentFriends.transform.parent.GetComponent<RectTransform>());
     }
+
+    
+        
     
 }

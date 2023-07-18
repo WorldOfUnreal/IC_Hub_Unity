@@ -67,7 +67,7 @@ public class AppManagementController : MonoBehaviour
     {
         public string collectionName;
         public string canisterID;
-        public string nftStandard;
+        public int nftStandard;
         public string linkToMarketplace;
         public string avatarUrl;
     }
@@ -212,7 +212,7 @@ public class AppManagementController : MonoBehaviour
             CollectionAppData collectionAppData = new CollectionAppData();
             collectionAppData.collectionName = collectionAppPrefab.collectionNameInput.text;
             collectionAppData.canisterID = collectionAppPrefab.canisterIDInput.text;
-            collectionAppData.nftStandard = collectionAppPrefab.nftStandardInput.text;
+            collectionAppData.nftStandard = collectionAppPrefab.nftStandardDropdown.value;
             collectionAppData.linkToMarketplace = collectionAppPrefab.linkToMarketplaceInput.text;
             collectionAppData.avatarUrl = collectionAppPrefab.avatarCollection.urlImage;
             

@@ -61,7 +61,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urlImage: 
-  listImages: []
   rawImages:
   - {fileID: 4475807613985805348}
 --- !u!114 &4475807613985805348

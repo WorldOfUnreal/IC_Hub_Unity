@@ -23,6 +23,7 @@ public class CreateGroupManager : MonoBehaviour
     public ImageDownloadManager groupAvatar;
     public Animator buttonSliderAnimator;
     public bool isPrivate = false;
+    public GameObject contentCG;
     
     [DllImport("__Internal")]
     private static extern void JSCreateGroup(string json);
@@ -63,6 +64,7 @@ public class CreateGroupManager : MonoBehaviour
             CanvasPopup.Instance.OpenPopup(() => {
                 CanvasPopup.Instance.OpenLoadingPanel();
                 
+                contentCG.SetActive(false);
                 GroupData groupData = new GroupData();
                 groupData.namegroup = newGroupNameInput.text;
                 groupData.description = newGroupDescriptionInput.text;

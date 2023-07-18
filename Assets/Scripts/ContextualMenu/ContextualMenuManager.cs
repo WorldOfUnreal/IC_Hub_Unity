@@ -47,10 +47,13 @@ public class ContextualMenuManager : MonoBehaviour
         searchInChat_contextualmenu.transform.position = pos.transform.position;
         OpenContextualMenu(searchInChat_contextualmenu.gameObject);
     }
-    public void OpenApp_ContextualMenu(GameObject pos, int idApp)
+    public void OpenApp_ContextualMenu(GameObject pos, int idApp, bool isFavoriteIcon)
     {
         app_contextualmenu.transform.position = pos.transform.position;
         app_contextualmenu.idApp = idApp;
+        app_contextualmenu.isFavoriteIcon = isFavoriteIcon;
+        if (!isFavoriteIcon) { app_contextualmenu.AddRemoveFavoriteTmp.text = "Add to Favorites";
+        } else { app_contextualmenu.AddRemoveFavoriteTmp.text = "Remove from Favorites"; }
         OpenContextualMenu(app_contextualmenu.gameObject);
     }
     public void OpenUser_ContextualMenu(GameObject pos, string principalID, string username)
