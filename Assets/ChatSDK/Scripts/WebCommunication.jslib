@@ -124,12 +124,12 @@ mergeInto(LibraryManager.library, {
       ReactUnityWebGL.SendDataCollections(Pointer_stringify(json));
     },
         
-  JSDeleteVersion: function (canisterID) {
-      ReactUnityWebGL.DeleteVersion(Pointer_stringify(canisterID));
+  JSDeleteVersion: function (versionID) {
+      ReactUnityWebGL.DeleteVersion(Pointer_stringify(versionID));
     },
     
-  JSDeleteCollection: function (collectionID) {
-      ReactUnityWebGL.DeleteCollection(collectionID);
+  JSDeleteCollection: function (canisterID) {
+      ReactUnityWebGL.DeleteCollection(Pointer_stringify(canisterID));
     },
     
   JSSendDataNews: function (json) {
