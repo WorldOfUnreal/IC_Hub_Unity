@@ -32,6 +32,7 @@ public class GroupSettingsManager : MonoBehaviour
     public TMP_InputField adminInputfield;
     public TMP_Text numberUsers;
     public TMP_Text numberInvites;
+    public TMP_Text numberInvitesButton;
     public Animator buttonSliderStates;
     public Button buttonSlider;
     public GameObject transferOwnership_Gameobject;
@@ -133,6 +134,7 @@ public class GroupSettingsManager : MonoBehaviour
         }
         numberUsers.text = infoPanelSetting.members.Count.ToString();
         numberInvites.text = infoPanelSetting.requests.Count.ToString();
+        numberInvitesButton.text = infoPanelSetting.requests.Count.ToString();
         
         LayoutRebuilder.ForceRebuildLayoutImmediate(panelAdmin.GetComponent<RectTransform>()); //Update UI
         LayoutRebuilder.ForceRebuildLayoutImmediate(panelUser.GetComponent<RectTransform>());
