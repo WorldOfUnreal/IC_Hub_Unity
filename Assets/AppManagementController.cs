@@ -23,6 +23,7 @@ public class AppManagementController : MonoBehaviour
     public class AppData
     {
         public string name;
+        public string description;
         public AppBrowserController.AppCategory category;
         public string linkDapp;
         public List<string> nftCollections = new List<string>();
@@ -74,6 +75,7 @@ public class AppManagementController : MonoBehaviour
     
     [Header("RegistrationPanel: ")] 
     public TMP_InputField nameInput;
+    public TMP_InputField descriptionInput;
     public TMP_Dropdown categoryInput;
     public TMP_InputField linkDappInput;
     public TMP_InputField nftCollection;
@@ -107,6 +109,7 @@ public class AppManagementController : MonoBehaviour
     {
         AppData appData = new AppData();
         appData.name = nameInput.text;
+        appData.description = descriptionInput.text;
         appData.category = (AppBrowserController.AppCategory)categoryInput.value;
         appData.linkDapp = linkDappInput.text;
         appData.nftCollections = new List<string>();
@@ -134,6 +137,7 @@ public class AppManagementController : MonoBehaviour
         AppData appData = JsonUtility.FromJson<AppData>(json);
 
         nameInput.text = appData.name;
+        descriptionInput.text = appData.description;
         categoryInput.value = (int)appData.category;
         linkDappInput.text = appData.linkDapp;
         nftCollection.text = appData.nftCollections[0];
