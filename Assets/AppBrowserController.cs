@@ -20,6 +20,7 @@ public class AppBrowserController : MonoBehaviour
     {
         public int id;
         public string name;
+        public string description;
         public string logo;
         public string banner;
         [SerializeField]
@@ -175,6 +176,7 @@ public class AppBrowserController : MonoBehaviour
             AppIconPrefab appIcon = newAppIcon.GetComponent<AppIconPrefab>();
             appIcon.imageDownloadManager.ChangeUrlImage(appInfo.logo);
             appIcon.id = appInfo.id;
+            appIcon.description = appInfo.description;
             appIcon.nameApp = appInfo.name;
             appIcon.nameTMP.text = appInfo.name;
             appIcon.clickableObject.callLeftClick = () => { OnClickAppIcon(appInfo.id); };

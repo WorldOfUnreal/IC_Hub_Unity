@@ -11,6 +11,7 @@ public class AppIconPrefab : MonoBehaviour
 {
     public int id;
     public string nameApp;
+    public string description;
     public int favAppOrder;
     public TMP_Text nameTMP;
     public ImageDownloadManager imageDownloadManager;

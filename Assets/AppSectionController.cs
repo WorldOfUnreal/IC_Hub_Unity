@@ -21,6 +21,7 @@ public class AppSectionController : MonoBehaviour
     
     [Header("UI App Content: ")] 
     public ImageDownloadManager logoApp;
+    public TMP_Text description;
     public ImageDownloadManager bannerApp;
     public TMP_Text blockchainTxt;
     public TMP_Text versionInfoTxt;
@@ -44,7 +45,8 @@ public class AppSectionController : MonoBehaviour
     public void UpdateInfo(AppBrowserController.AppInfo appInfo)
     {
         selectedAppInfo = appInfo;
-        
+
+        description.text = selectedAppInfo.description;
         logoApp.ChangeUrlImage(selectedAppInfo.logo);
         bannerApp.ChangeUrlImage(selectedAppInfo.banner);
         dscvrPortalButton.UrlChange(selectedAppInfo.dscvrPortal);
