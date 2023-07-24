@@ -54,7 +54,7 @@ public class Pool_DownloadTexture : MonoBehaviour
     }
     public void ReleaseObject(DownloadTexture obj)
     {
-        Debug.Log("Textures in Dictionary: " + inventoryTextures.Count);
+        //Debug.Log("Textures in Dictionary: " + inventoryTextures.Count);
         
         obj.gameObject.SetActive(false);
         inUseObjects.Remove(obj);

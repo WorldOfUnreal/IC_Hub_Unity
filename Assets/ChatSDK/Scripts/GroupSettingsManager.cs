@@ -111,7 +111,7 @@ public class GroupSettingsManager : MonoBehaviour
                 buttonSlider.onClick.RemoveAllListeners();
                 buttonSlider.onClick.AddListener(() => { SetGroupPrivate(infoPanelSetting.nameGroup, infoPanelSetting.idGroup, infoPanelSetting.avatarGroup);});
             }
-            transferOwnership_Gameobject.SetActive(infoPanelSetting.roleuser == RoleUser.Owner);
+            //transferOwnership_Gameobject.SetActive(infoPanelSetting.roleuser == RoleUser.Owner);
         //Fill members
             foreach (Transform t in contentMembers_owner.transform) { GameObject.Destroy(t.gameObject); }
             foreach (Transform t in contentMembers_admin.transform) { GameObject.Destroy(t.gameObject); }
