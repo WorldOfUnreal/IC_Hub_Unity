@@ -23,6 +23,10 @@ mergeInto(LibraryManager.library, {
     ReactUnityWebGL.SetAvatarImageFromProfile();
   },
   
+  JSSetAvatarImageFromGroupSettings: function (idGroup) {
+    ReactUnityWebGL.SetAvatarImageFromGroupSettings(idGroup);
+  },
+    
   JSSetAvatarToGroup: function () {
     ReactUnityWebGL.SetAvatarToGroup();
   },

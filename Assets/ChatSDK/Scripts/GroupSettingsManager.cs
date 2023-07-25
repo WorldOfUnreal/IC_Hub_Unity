@@ -68,6 +68,8 @@ public class GroupSettingsManager : MonoBehaviour
     private static extern void JSChangeTitle(string json);
     [DllImport("__Internal")]
     private static extern void JSChangeDescription(string json);
+    [DllImport("__Internal")]
+    private static extern void JSSetAvatarImageFromGroupSettings(int groupID);
     
     public void GetInfoPanelSettings(string json)
     {
@@ -387,6 +389,20 @@ public class GroupSettingsManager : MonoBehaviour
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(contentMembers_user.transform.parent.GetComponent<RectTransform>());
     }
+    
+    public void SetAvatarImageFromGroupSettings()
+    {
+        JSSetAvatarImageFromGroupSettings(infoPanelSetting.idGroup);
+    }
+    public void OnAvatarUploadLoading()
+    {
+        CanvasPopup.Instance.OpenPopupInLoading();
+    }
+    public void OnAvatarUploadReady()
+    {
+        CanvasPopup.Instance.OpenSuccessPanel();
+    }
+    
     
     [System.Serializable]
     public class MembersGroup {
