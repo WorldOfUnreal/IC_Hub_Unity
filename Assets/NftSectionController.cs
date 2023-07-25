@@ -22,6 +22,7 @@ public class NftSectionController : MonoBehaviour
     public TMP_Text ownerNFT;
     public TMP_Text linkNFT;
     public TMP_Text marketplaceNFT;
+    public Button nftSend;
     
     [Header("UI App Buttons: ")] 
     public GoToURLButton linkNFTButton;
@@ -29,6 +30,8 @@ public class NftSectionController : MonoBehaviour
     
     public void UpdateInfo(Hub_Manager.UserNFTs userNfTs, string marketPlace)
     {
+        nftSend.onClick.RemoveAllListeners();
+        nftSend.onClick.AddListener(() => CanvasSendCrypto.Instance.OpenPopupSendCrypto(userNfTs.nftID, false, userNfTs.nftAvatar) );
         logoNFT.ChangeUrlImage(userNfTs.nftAvatar);
         titleNFT.text = userNfTs.nftName;
         ownerNFT.text = userNfTs.nftOwner;

@@ -191,7 +191,7 @@ public class Hub_Manager : MonoBehaviour
             Hub_CollectionPrefab collectionPrefab = newCollection.GetComponent<Hub_CollectionPrefab>();
             collectionPrefab.nameCollection.text = c.colectionName;
             collectionPrefab.icon.ChangeUrlImage(c.avatar);
-            collectionPrefab.clickableObject.callLeftClick= () => { Instance.OpenSection(4); CollectionSectionController.Instance.UpdateInfo(c); };
+            collectionPrefab.clickableObject.callLeftClick= () => { CollectionSectionController.Instance.UpdateInfo(c); Instance.OpenSection(4);  };
             collectionPrefab.clickableObject.callRightClick= () => { ContextualMenuManager.Instance.OpenCollection_ContextualMenu(newCollection, c); };
         }   
         separatorCollectionNumber.text = "- " + listCollections.data.Count;

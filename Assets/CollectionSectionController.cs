@@ -34,11 +34,12 @@ public class CollectionSectionController : MonoBehaviour
         foreach (Transform t in contentNFTs.transform) { GameObject.Destroy(t.gameObject); }
         
         foreach(Hub_Manager.UserNFTs n in collection.userNFTs){
+            Debug.Log("Entre");
             GameObject newNFT = Instantiate(nftPrefab, contentNFTs.transform);
             NftIconPrefab nftIconPrefab = newNFT.GetComponent<NftIconPrefab>();
             nftIconPrefab.imageDownloadManager.ChangeUrlImage(n.nftAvatar);
-            nftIconPrefab.clickableObject.callLeftClick = () => { Hub_Manager.Instance.OpenSection(6); 
-                                                                  NftSectionController.Instance.UpdateInfo(n, collection.marketplaceURL); };
+            nftIconPrefab.clickableObject.callLeftClick = () => { NftSectionController.Instance.UpdateInfo(n, collection.marketplaceURL);
+                                                                  Hub_Manager.Instance.OpenSection(6);  };
             nftIconPrefab.clickableObject.callRightClick = () => { ContextualMenuManager.Instance.OpenNFT_ContextualMenu(newNFT, n, collection.marketplaceURL);};
         }
     }
