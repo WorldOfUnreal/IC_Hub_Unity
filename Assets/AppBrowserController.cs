@@ -53,7 +53,7 @@ public class AppBrowserController : MonoBehaviour
         public string textButton;
         public string linkButton;
     }
-    public enum AppCategory { Games, Markets, Defi, Social, New, Communities}
+    public enum AppCategory { Games, Markets, Defi, Social, NFT, DAO }
 
     [Header("UI Categorys: ")] 
     public TMP_InputField searchInputField;
