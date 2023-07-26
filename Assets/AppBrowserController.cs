@@ -53,7 +53,7 @@ public class AppBrowserController : MonoBehaviour
         public string textButton;
         public string linkButton;
     }
-    public enum AppCategory { Games, Markets, Defi, Social, New, Communities}
+    public enum AppCategory { Games, Markets, Defi, Social, NFT, DAO}
 
     [Header("UI Categorys: ")] 
     public TMP_InputField searchInputField;
@@ -142,8 +142,8 @@ public class AppBrowserController : MonoBehaviour
         slotsCategories[2].text = "" + SearchQuantityInCategory(AppCategory.Markets);
         slotsCategories[3].text = "" + SearchQuantityInCategory(AppCategory.Defi);
         slotsCategories[4].text = "" + SearchQuantityInCategory(AppCategory.Social);
-        slotsCategories[5].text = "" + SearchQuantityInCategory(AppCategory.New);
-        slotsCategories[6].text = "" + SearchQuantityInCategory(AppCategory.Communities);
+        slotsCategories[5].text = "" + SearchQuantityInCategory(AppCategory.NFT);
+        slotsCategories[6].text = "" + SearchQuantityInCategory(AppCategory.DAO);
         
         slotsCategories[7].text = "" + listAppIconPrefab.FindAll( appIconPrefab => idsFeatured.Contains(appIconPrefab.id)).Count;
         slotsCategories[8].text = "" + listAppIconPrefab.FindAll( appIconPrefab => idsHot.Contains(appIconPrefab.id)).Count;

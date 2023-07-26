@@ -2439,7 +2439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.338}
   m_AnchorMin: {x: 0.19028127, y: 0.39523947}
   m_AnchorMax: {x: 1, y: 0.6553449}
-  m_AnchoredPosition: {x: 134.50076, y: -10.625801}
+  m_AnchoredPosition: {x: 134.50078, y: -10.625801}
   m_SizeDelta: {x: -489.52002, y: 14.209999}
   m_Pivot: {x: 0.50000006, y: 0.50000006}
 --- !u!114 &49972511
@@ -56399,9 +56399,9 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Defi
       m_Image: {fileID: 0}
-    - m_Text: Social
+    - m_Text: NFT
       m_Image: {fileID: 0}
-    - m_Text: New
+    - m_Text: DAO
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -90978,7 +90978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7455466}
   m_AnchorMax: {x: 0.5, y: 0.7994535}
-  m_AnchoredPosition: {x: 9.110049, y: 0.5}
+  m_AnchoredPosition: {x: 9.11005, y: 0.5}
   m_SizeDelta: {x: -35, y: -0.17999268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501943803
